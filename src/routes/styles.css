@@ -48,10 +48,69 @@ body {
   --mdc-layout-grid-column-width-phone: 72px;
 }
 
+:root {
+  --top-abb-bar-height: 64px;
+}
+
+.mdc-top-app-bar__row {
+  height: var(--top-abb-bar-height);
+}
+
+main.main-content {
+  height: calc(100vh - var(--top-abb-bar-height)) !important;
+}
+
 .mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
   color: var(--mdc-theme-primary);
 }
 
 .login .mdc-text-field {
   margin-top: 16px;
+}
+
+.mdc-drawer .mdc-deprecated-list-item--activated, .mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
+  color: var(--mdc-theme-primary);
+}
+
+a, button, input, textarea {
+  outline: none;
+  border: 0;
+  font-family: 'Plus Jakarta Sans';
+  text-decoration: none;
+}
+
+p a, li a, section a {
+  color: var(--mdc-theme-primary);
+  text-decoration: none;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+p a:hover, li a:hover, section a:hover {
+  opacity: 0.75;
+}
+
+h1, h2, h3, p, ul {
+  opacity: 1;
+  transform: translate(0);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+h1, h2, h3 {
+  margin-block: 1em 0.5em;
+}
+
+h1 {
+  color: var(--mdc-theme-on-surface);
+  font-size: 48px;
+}
+
+h2 {
+  color: var(--mdc-theme-on-surface);
+  font-size: 32px;
+}
+
+h3 {
+  color: var(--mdc-theme-on-surface);
+  font-size: 24px;
 }
