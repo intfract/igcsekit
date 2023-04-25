@@ -5,9 +5,6 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "npm run smui-theme-light && npm run smui-theme-dark",
-		"smui-theme-light": "smui-theme compile build/smui.css -i src/theme",
-		"smui-theme-dark": "smui-theme compile build/smui-dark.css -i src/theme/dark",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
