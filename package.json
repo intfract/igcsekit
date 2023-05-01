@@ -30,6 +30,7 @@
 		"@smui/dialog": "^7.0.0-beta.3",
 		"@smui/drawer": "^7.0.0-beta.3",
 		"@smui/icon-button": "^7.0.0-beta.3",
+		"@smui/linear-progress": "^7.0.0-beta.4",
 		"@smui/list": "^7.0.0-beta.3",
 		"@smui/menu": "^7.0.0-beta.3",
 		"@smui/radio": "^7.0.0-beta.3",

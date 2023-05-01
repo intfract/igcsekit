@@ -1,8 +1,9 @@
 <script lang="ts">
 	import './styles.css'
 	import { onMount } from 'svelte'
-	import { page } from '$app/stores'
+	import { page, navigating } from '$app/stores'
 
+	import LinearProgress from '@smui/linear-progress'
 	import TopAppBar from '@smui/top-app-bar'
 	import { Row, Section, Title } from '@smui/top-app-bar'
 	import IconButton from '@smui/icon-button'
@@ -27,6 +28,7 @@
 		url: string,
 	}
 
+	let closed = false
 	$: isGuest = true
 	let menu: Menu
 	let open: boolean = false
@@ -39,6 +41,7 @@
 	$: modifiedUsername = username.trim().toLowerCase().replace(/[!@#$%^&*()\[\]{}=,. ]/g, '')
 
 	onMount(async () => {
+		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
 	})
 
@@ -48,15 +51,24 @@
 			label: 'Home',
 			url: '/',
 		},
-		(isGuest? {
-			icon: 'emoji_objects',
-			label: 'Open IGCSE',
-			url: 'https://igcse.cyclic.app',
-		} : {
-			icon: 'dashboard',
-			label: 'Dashboard',
-			url: '/dashboard',
-		}),
+		...(isGuest? [
+			{
+				icon: 'emoji_objects',
+				label: 'Open IGCSE',
+				url: 'https://igcse.cyclic.app',
+			},
+		] : [
+			{
+				icon: 'dashboard',
+				label: 'Dashboard',
+				url: '/dashboard',
+			},
+			{
+				icon: 'bolt',
+				label: 'Flashcards',
+				url: '/flashcards',
+			},
+		]),
 	]
 
 	function toggleDialog() {
