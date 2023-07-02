@@ -2,6 +2,9 @@
 	import './styles.css'
 	import { onMount } from 'svelte'
 	import { page, navigating } from '$app/stores'
+	import { fly, fade, blur } from 'svelte/transition'
+
+	export let data
 
 	import LinearProgress from '@smui/linear-progress'
 	import TopAppBar from '@smui/top-app-bar'
@@ -29,10 +32,10 @@
 	}
 
 	let closed = false
-	$: isGuest = true
+	$: isGuest = false
 	let menu: Menu
 	let open: boolean = false
-	$: active = $page.url.pathname
+	$: active = data.url
 	let dialogOpen: boolean = false
 	let username: string = ''
 	$: isInvalidUsername = username.length < 2 || username.match(/[!@#$%^&*()\[\]{}=,.]/g) ? true : false // no special characters in username
@@ -144,9 +147,11 @@
 		</Drawer>
 		<Scrim fixed={false}/>
 		<AppContent class="app-content">
-			<main class="main-content">
-				<slot/>
-			</main>
+			{#key data.url}
+				<main class="main-content" in:fly={{ x: -200, duration: 1000, delay: 1000 }} out:fly={{ x: 200, duration: 1000 }}>
+					<slot/>
+				</main>
+			{/key}
 		</AppContent>
 	</div>
 	<Dialog
