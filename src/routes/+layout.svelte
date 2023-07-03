@@ -3,7 +3,7 @@
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { browser } from '$app/environment'
 	import { fly, fade, blur } from 'svelte/transition'
-	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
+	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 
 	export let data
 
@@ -49,8 +49,39 @@
 	$: modifiedUsername = username.trim().toLowerCase().replace(/[!@#$%^&*()\[\]{}=,. ]/g, '')
 
 	onMount(async () => {
+		const { auth } = await import('../firebase')
+		async function submit() {
+			if (!isInvalidUsername && !isInvalidEmail && !isInvalidPassword) {
+				console.log(modifiedUsername)
+				console.log(password)
+				if (browser) {
+					try {
+						let user = await createUserWithEmailAndPassword(auth, email, password)
+						console.log(user)
+					} catch (e) {
+						console.log(e)
+					}
+				}
+			} else {
+				console.log('INVALID CREDENTIALS!')
+			}
+		}
+		onAuthStateChanged(
+			auth,
+			user => {
+				if (user) {
+					updateProfile(user, {
+						displayName: modifiedUsername
+					})
+				}
+			},
+			error => {
+				console.log(error)
+			}
+		)
 		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
+		document.querySelector('#submit')?.addEventListener('click', submit)
 	})
 
 	$: drawerItems = [
@@ -85,24 +116,6 @@
 
 	function toggleDrawer() {
 		open = !open
-	}
-
-	async function submit() {
-		if (!isInvalidUsername && !isInvalidEmail && !isInvalidPassword) {
-			console.log(modifiedUsername)
-			console.log(password)
-			if (browser) {
-				const { auth } = await import('../firebase')
-				try {
-					let user = await createUserWithEmailAndPassword(auth, email, password)
-					console.log(user)
-				} catch (e) {
-					console.log(e)
-				}
-			}
-		} else {
-			console.log('INVALID CREDENTIALS!')
-		}
 	}
 </script>
 
@@ -194,7 +207,7 @@
 			<Button
 				defaultAction
 				use={[InitialFocus]}
-				on:click={submit}
+				id="submit"
 			>
 				<Label>Submit</Label>
 			</Button>
