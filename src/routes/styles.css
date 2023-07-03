@@ -10,7 +10,7 @@ body {
 /* Theme colors. */
 :root {
   --mdc-theme-primary: #2c6fef;
-  --mdc-theme-secondary: #676778;
+  --mdc-theme-secondary: var(--mdc-theme-primary);
   --mdc-theme-background: #fff;
   --mdc-theme-surface: #fff;
   --mdc-theme-error: #b71c1c;
@@ -71,6 +71,16 @@ main.main-content {
 
 .mdc-drawer .mdc-deprecated-list-item--activated, .mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
   color: var(--mdc-theme-primary);
+}
+
+.middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.middle .label {
+  margin-left: 4px;
 }
 
 a, button, input, textarea {

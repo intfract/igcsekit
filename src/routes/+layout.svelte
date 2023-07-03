@@ -25,6 +25,7 @@
 	import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
 	import Textfield from '@smui/textfield'
 	import HelperText from '@smui/textfield/helper-text'
+	import Checkbox from '@smui/checkbox'
 
 	type DrawerItem = {
 		icon: string,
@@ -32,21 +33,23 @@
 		url: string,
 	}
 
+	const badRegex = /[^A-Za-z0-9_]/g
 	const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 	let closed = false
+	let hasAccount = false
 	$: isGuest = true
 	let menu: Menu
 	let open: boolean = false
 	$: active = data.url
 	let dialogOpen: boolean = false
 	let username: string = ''
-	$: isInvalidUsername = username.length < 2 || username.match(/[!@#$%^&*()\[\]{}=,.]/g) ? true : false // no special characters in username
+	$: isInvalidUsername = username.length < 2 || username.match(badRegex) ? true : false // no special characters in username
 	let email: string = ''
 	$: isInvalidEmail = email.match(emailRegex) ? false : true // reverse the match
 	let password: string = ''
 	$: isInvalidPassword = password.length < 8
-	$: modifiedUsername = username.trim().toLowerCase().replace(/[!@#$%^&*()\[\]{}=,. ]/g, '')
+	$: modifiedUsername = username.trim().toLowerCase().replace(badRegex, '')
 
 	onMount(async () => {
 		const { auth } = await import('../firebase')
@@ -56,7 +59,7 @@
 				console.log(password)
 				if (browser) {
 					try {
-						let user = await createUserWithEmailAndPassword(auth, email, password)
+						let user = hasAccount ? await signInWithEmailAndPassword(auth, email, password) : await createUserWithEmailAndPassword(auth, email, password)
 						console.log(user)
 					} catch (e) {
 						console.log(e)
@@ -70,9 +73,11 @@
 			auth,
 			user => {
 				if (user) {
-					updateProfile(user, {
-						displayName: modifiedUsername
-					})
+					if (!hasAccount) {
+						updateProfile(user, {
+							displayName: modifiedUsername
+						})
+					}
 				}
 			},
 			error => {
@@ -135,7 +140,7 @@
 							<List>
 								{#if isGuest}
 									<Item on:click={toggleDialog}>
-										<Text>Login</Text>
+										<Text>Account</Text>
 									</Item>
 									{:else}
 									<Item on:click={() => (false)}>
@@ -187,17 +192,23 @@
 	>
 		<DialogTitle id="default-focus-title">Authorise Account</DialogTitle>
 		<DialogContent id="default-focus-content">
-			Please connect your account to get the full experience!
+			{hasAccount ? 'Welcome back!' : 'Please create an account to save your progress!'}
 			<div class="login">
-				<Textfield invalid={isInvalidUsername} bind:value={username} label="Username" variant="outlined" id="username">
-					<HelperText slot="helper">{isInvalidUsername ? '2 letters no special characters!' : `You will be: ${modifiedUsername}`}</HelperText>
-				</Textfield>
+				{#if !hasAccount}
+					<Textfield invalid={isInvalidUsername} bind:value={username} label="Username" variant="outlined" id="username">
+						<HelperText slot="helper">{isInvalidUsername ? '2 letters, no special characters!' : `You will be: ${modifiedUsername}`}</HelperText>
+					</Textfield>
+				{/if}
 				<Textfield invalid={isInvalidEmail} bind:value={email} label="Email" variant="outlined" id="email">
 					<HelperText slot="helper">{isInvalidEmail ? 'Must be a valid email!' : `Good email!`}</HelperText>
 				</Textfield>
 				<Textfield invalid={isInvalidPassword} bind:value={password} label="Password" variant="outlined" id="password">
 					<HelperText slot="helper">{isInvalidPassword ? '8 letters!' : `Your password is: ${password.match(/[!@#$%^&*()\[\]{}0-9]/g) ? 'STRONG' : 'WEAK'}`}</HelperText>
 				</Textfield>
+			</div>
+			<div class="middle">
+				<Checkbox bind:checked={hasAccount}/>
+				<span class="label">I already have an account.</span>
 			</div>
 		</DialogContent>
 		<Actions>

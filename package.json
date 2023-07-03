@@ -11,18 +11,6 @@
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.5.0",
-		"@types/cookie": "^0.5.1",
-		"smui-theme": "^7.0.0-beta.3",
-		"svelte": "^3.54.0",
-		"svelte-check": "^3.0.1",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.2.0"
-	},
-	"type": "module",
-	"dependencies": {
 		"@smui/button": "^7.0.0-beta.3",
 		"@smui/card": "^7.0.0-beta.3",
 		"@smui/checkbox": "^7.0.0-beta.3",
@@ -35,8 +23,21 @@
 		"@smui/menu": "^7.0.0-beta.3",
 		"@smui/radio": "^7.0.0-beta.3",
 		"@smui/select": "^7.0.0-beta.3",
+		"@smui/switch": "^7.0.0-beta.14",
 		"@smui/textfield": "^7.0.0-beta.3",
 		"@smui/top-app-bar": "^7.0.0-beta.3",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.5.0",
+		"@types/cookie": "^0.5.1",
+		"smui-theme": "^7.0.0-beta.3",
+		"svelte": "^3.54.0",
+		"svelte-check": "^3.0.1",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.2.0"
+	},
+	"type": "module",
+	"dependencies": {
 		"firebase": "^9.23.0",
 		"svelte-material-ui": "^7.0.0-beta.3"
 	}
