@@ -22,6 +22,7 @@
   } from '@smui/drawer'
 	import Button, { Label } from '@smui/button'
 	import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
+	import Snackbar, { Actions as SnackbarActions, Label as SnackbarLabel } from '@smui/snackbar'
 	import Textfield from '@smui/textfield'
 	import HelperText from '@smui/textfield/helper-text'
 	import Checkbox from '@smui/checkbox'
@@ -49,11 +50,18 @@
 	let password: string = ''
 	$: isInvalidPassword = password.length < 8
 	$: modifiedUsername = username.trim().toLowerCase().replace(badRegex, '')
+	let snackbar: Snackbar
+	$: snackbarText = ''
+	$: displayName = ''
 
 	onMount(async () => {
 		const { auth } = await import('../firebase')
 		async function submit() {
-			if (isInvalidEmail || isInvalidPassword) return
+			if (isInvalidEmail || isInvalidPassword) {
+				snackbarText = 'Please check your email and password.'
+				snackbar.open()
+				return
+			}
 			let user: UserCredential
 			try {
 				if (hasAccount) {
@@ -65,6 +73,9 @@
 				console.log(user)
 			} catch (e) {
 				console.log(e)
+				snackbarText = 'There was an error with your request.'
+				snackbar.open()
+				return
 			}
 		}
 		onAuthStateChanged(
@@ -76,6 +87,10 @@
 							displayName: modifiedUsername
 						})
 					}
+					isGuest = false
+					displayName = user.displayName || ''
+					snackbarText = `You are now logged in as ${user.email}.`
+					snackbar.open()
 				}
 			},
 			error => {
@@ -123,6 +138,12 @@
 </script>
 
 <div class="app">
+	<Snackbar bind:this={snackbar}>
+		<SnackbarLabel>{snackbarText}</SnackbarLabel>
+		<SnackbarActions>
+			<IconButton class="material-symbols-rounded" title="dismiss">close</IconButton>
+		</SnackbarActions>
+	</Snackbar>
 	<div class="top-app-bar-container flexor">
 		<TopAppBar variant="static">
 			<Row>
