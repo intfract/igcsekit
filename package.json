@@ -37,6 +37,7 @@
 		"@smui/select": "^7.0.0-beta.3",
 		"@smui/textfield": "^7.0.0-beta.3",
 		"@smui/top-app-bar": "^7.0.0-beta.3",
+		"firebase": "^9.23.0",
 		"svelte-material-ui": "^7.0.0-beta.3"
 	}
 }

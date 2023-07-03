@@ -1,8 +1,9 @@
 <script lang="ts">
 	import './styles.css'
-	import { onMount } from 'svelte'
-	import { page, navigating } from '$app/stores'
+	import { onMount, createEventDispatcher } from 'svelte'
+	import { browser } from '$app/environment'
 	import { fly, fade, blur } from 'svelte/transition'
+	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth'
 
 	export let data
 
@@ -31,14 +32,18 @@
 		url: string,
 	}
 
+	const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 	let closed = false
-	$: isGuest = false
+	$: isGuest = true
 	let menu: Menu
 	let open: boolean = false
 	$: active = data.url
 	let dialogOpen: boolean = false
 	let username: string = ''
 	$: isInvalidUsername = username.length < 2 || username.match(/[!@#$%^&*()\[\]{}=,.]/g) ? true : false // no special characters in username
+	let email: string = ''
+	$: isInvalidEmail = email.match(emailRegex) ? false : true // reverse the match
 	let password: string = ''
 	$: isInvalidPassword = password.length < 8
 	$: modifiedUsername = username.trim().toLowerCase().replace(/[!@#$%^&*()\[\]{}=,. ]/g, '')
@@ -82,11 +87,19 @@
 		open = !open
 	}
 
-	function submit() {
-		if (!isInvalidUsername && !isInvalidPassword) {
+	async function submit() {
+		if (!isInvalidUsername && !isInvalidEmail && !isInvalidPassword) {
 			console.log(modifiedUsername)
 			console.log(password)
-			isGuest = false
+			if (browser) {
+				const { auth } = await import('../firebase')
+				try {
+					let user = await createUserWithEmailAndPassword(auth, email, password)
+					console.log(user)
+				} catch (e) {
+					console.log(e)
+				}
+			}
 		} else {
 			console.log('INVALID CREDENTIALS!')
 		}
@@ -165,6 +178,9 @@
 			<div class="login">
 				<Textfield invalid={isInvalidUsername} bind:value={username} label="Username" variant="outlined" id="username">
 					<HelperText slot="helper">{isInvalidUsername ? '2 letters no special characters!' : `You will be: ${modifiedUsername}`}</HelperText>
+				</Textfield>
+				<Textfield invalid={isInvalidEmail} bind:value={email} label="Email" variant="outlined" id="email">
+					<HelperText slot="helper">{isInvalidEmail ? 'Must be a valid email!' : `Good email!`}</HelperText>
 				</Textfield>
 				<Textfield invalid={isInvalidPassword} bind:value={password} label="Password" variant="outlined" id="password">
 					<HelperText slot="helper">{isInvalidPassword ? '8 letters!' : `Your password is: ${password.match(/[!@#$%^&*()\[\]{}0-9]/g) ? 'STRONG' : 'WEAK'}`}</HelperText>
