@@ -1,9 +1,8 @@
 <script lang="ts">
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
-	import { browser } from '$app/environment'
 	import { fly, fade, blur } from 'svelte/transition'
-	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, type User, type UserCredential } from 'firebase/auth'
 
 	export let data
 
@@ -38,7 +37,7 @@
 
 	let closed = false
 	let hasAccount = false
-	$: isGuest = true
+	$: isGuest = true // should be true during production
 	let menu: Menu
 	let open: boolean = false
 	$: active = data.url
@@ -54,19 +53,18 @@
 	onMount(async () => {
 		const { auth } = await import('../firebase')
 		async function submit() {
-			if (!isInvalidUsername && !isInvalidEmail && !isInvalidPassword) {
-				console.log(modifiedUsername)
-				console.log(password)
-				if (browser) {
-					try {
-						let user = hasAccount ? await signInWithEmailAndPassword(auth, email, password) : await createUserWithEmailAndPassword(auth, email, password)
-						console.log(user)
-					} catch (e) {
-						console.log(e)
-					}
+			if (isInvalidEmail || isInvalidPassword) return
+			let user: UserCredential
+			try {
+				if (hasAccount) {
+					user = await signInWithEmailAndPassword(auth, email, password)
+				} else {
+					if (isInvalidUsername) return
+					user = await createUserWithEmailAndPassword(auth, email, password)
 				}
-			} else {
-				console.log('INVALID CREDENTIALS!')
+				console.log(user)
+			} catch (e) {
+				console.log(e)
 			}
 		}
 		onAuthStateChanged(
@@ -179,7 +177,7 @@
 		<Scrim fixed={false}/>
 		<AppContent class="app-content">
 			{#key data.url}
-				<main class="main-content" in:fly={{ x: -200, duration: 1000, delay: 1000 }} out:fly={{ x: 200, duration: 1000 }}>
+				<main class="main-content" in:fly={{ x: -200, duration: 500, delay: 500 }} out:fly={{ x: 200, duration: 500 }}>
 					<slot/>
 				</main>
 			{/key}
