@@ -70,7 +70,6 @@
 					if (isInvalidUsername) return
 					user = await createUserWithEmailAndPassword(auth, email, password)
 				}
-				console.log(user)
 			} catch (e) {
 				console.log(e)
 				snackbarText = 'There was an error with your request.'
@@ -181,7 +180,7 @@
 	<div class="drawer-container">
 		<Drawer variant="modal" fixed={false} bind:open>
 			<Header>
-				<DrawerTitle>{isGuest ? 'Anonymous' : modifiedUsername}</DrawerTitle>
+				<DrawerTitle>{isGuest ? 'Anonymous' : displayName}</DrawerTitle>
 				<Subtitle>{isGuest ? 'Guest Account' : 'Verified Account'}</Subtitle>
 			</Header>
 			<Content>
