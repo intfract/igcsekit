@@ -2,7 +2,7 @@
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly, fade, blur } from 'svelte/transition'
-	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, type User, type UserCredential } from 'firebase/auth'
+	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential } from 'firebase/auth'
 
 	export let data
 
@@ -77,6 +77,13 @@
 				return
 			}
 		}
+		async function exit() {
+			try {
+				console.log(await signOut(auth))
+			} catch (e) {
+				console.log(e)
+			}
+		}
 		onAuthStateChanged(
 			auth,
 			user => {
@@ -99,6 +106,7 @@
 		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
 		document.querySelector('#submit')?.addEventListener('click', submit)
+		document.querySelector('#exit')?.addEventListener('click', exit)
 	})
 
 	$: drawerItems = [
@@ -165,7 +173,7 @@
 										<Text>Profile</Text>
 									</Item>
 									<Separator />
-									<Item on:click={() => (false)}>
+									<Item on:click={() => (false)} id="exit">
 										<Text>Exit</Text>
 									</Item>
 								{/if}
