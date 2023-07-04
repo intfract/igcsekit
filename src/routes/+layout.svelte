@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
-	import { fly, fade, blur } from 'svelte/transition'
+	import { fly } from 'svelte/transition'
 	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential } from 'firebase/auth'
 
 	export let data

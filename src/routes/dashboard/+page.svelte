@@ -2,8 +2,28 @@
 	import Carousel from '$lib/components/Carousel.svelte'
 	let igcse = [
 		{
-			title: 'biology',
+			title: 'Mathematics',
+			icon: 'calculate',
+		},
+		{
+			title: 'Biology',
 			icon: 'microbiology',
+		},
+		{
+			title: 'Chemistry',
+			icon: 'science',
+		},
+		{
+			title: 'Physics',
+			icon: 'speed',
+		},
+		{
+			title: 'Computer Science',
+			icon: 'terminal',
+		},
+		{
+			title: 'Economics',
+			icon: 'finance',
 		},
 	]
 </script>
