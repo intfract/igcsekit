@@ -80,6 +80,7 @@
 		async function exit() {
 			try {
 				console.log(await signOut(auth))
+				isGuest = true
 			} catch (e) {
 				console.log(e)
 			}
