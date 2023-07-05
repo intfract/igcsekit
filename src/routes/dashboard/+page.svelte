@@ -23,7 +23,11 @@
 		},
 		{
 			title: 'Economics',
-			icon: 'finance',
+			icon: 'savings',
+		},
+		{
+			title: 'Geography',
+			icon: 'public',
 		},
 	]
 </script>
