@@ -13,11 +13,8 @@
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="IGCSE Kit" />
-	<meta property="og:title" content="IGCSE Kit">
-	<meta property="og:url" content="https://igcsekit.vercel.app">
-	<meta property="og:description" content="Your free IGCSE training kit!">
-	<meta name="theme-color" content="#FF0000">
+	<meta property="og:title" content="Home">
+	<meta property="og:description" content="Create an account and start studying!">
 </svelte:head>
 
 <section>

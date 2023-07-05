@@ -145,6 +145,15 @@
 	}
 </script>
 
+<svelte:head>
+	<title>IGCSE Kit</title>
+	<meta name="description" content="IGCSE Kit" />
+	<meta property="og:title" content="IGCSE Kit">
+	<meta property="og:url" content="https://igcsekit.vercel.app">
+	<meta property="og:description" content="Your free IGCSE training kit!">
+	<meta name="theme-color" content="#2c6fef">
+</svelte:head>
+
 <div class="app">
 	<Snackbar bind:this={snackbar}>
 		<SnackbarLabel>{snackbarText}</SnackbarLabel>
