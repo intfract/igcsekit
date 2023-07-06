@@ -18,17 +18,17 @@ function update(user?: User | null) {
   isAuthorised.set(user ? true : false)
 }
 
-async function authorise(method: ((auth: Auth, email: string, password: string) => Promise<void | UserCredential>), email: string, password: string, callback: ((reason: string) => void)) {
-  let { user } = await method(auth, email, password).catch(reason => console.log(reason)) ?? { user: null }
+async function authorise(method: ((auth: Auth, email: string, password: string) => Promise<void | UserCredential>), email: string, password: string, callback: ((reason: Error) => void)) {
+  let { user } = await method(auth, email, password).catch(callback) ?? { user: null }
   update(user)
 }
 
 export const client = {
-  async signUp(email: string, password: string, callback: ((reason: string) => void)) {
+  async signUp(email: string, password: string, callback: ((reason: Error) => void)) {
     authorise(createUserWithEmailAndPassword, email, password, callback)
   },
 
-  async signIn(email: string, password: string, callback: ((reason: string) => void)) {
+  async signIn(email: string, password: string, callback: ((reason: Error) => void)) {
     authorise(signInWithEmailAndPassword, email, password, callback)
   },
 

@@ -36,6 +36,7 @@
 
 	const badRegex = /[^A-Za-z0-9_]/g
 	const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	const errorRegex = /auth\/[a-z-]+/g
 
 	let closed = false
 	let hasAccount = false
@@ -63,6 +64,12 @@
 		displayName = value.user?.displayName ?? ''
 	})
 
+	function showError(reason: Error) {
+		const match = reason.message.match(errorRegex)
+		snackbarText = match ? `Sorry, ${match[0].split('/')[1].replaceAll('-', ' ')}!` : 'An error occurred!'
+		snackbar.open()
+	}
+
 	onMount(async () => {
 		async function submit() {
 			if (isInvalidEmail || isInvalidPassword) {
@@ -72,15 +79,11 @@
 			}
 			if (hasAccount) {
 				// sign in
-				client.signIn(email, password, reason => {
-					console.log(reason)
-				})
+				client.signIn(email, password, showError)
 			} else {
 				if (isInvalidUsername) return
 				// create user
-				client.signUp(email, password, reason => {
-					console.log(reason)
-				})
+				client.signUp(email, password, showError)
 			}
 		}
 		async function exit() {
