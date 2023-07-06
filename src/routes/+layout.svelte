@@ -2,7 +2,8 @@
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
-	import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential } from 'firebase/auth'
+	import { auth } from '../firebase'
+	import { isAuthorised, client } from '../stores/auth'
 
 	export let data
 
@@ -38,7 +39,7 @@
 
 	let closed = false
 	let hasAccount = false
-	$: isGuest = true // should be true during production
+	let isGuest: boolean
 	let menu: Menu
 	let open: boolean = false
 	$: active = data.url
@@ -54,21 +55,25 @@
 	$: snackbarText = ''
 	$: displayName = ''
 
+	isAuthorised.subscribe(value => {
+		isGuest = !value
+	})
+
 	onMount(async () => {
-		const { auth } = await import('../firebase')
 		async function submit() {
 			if (isInvalidEmail || isInvalidPassword) {
 				snackbarText = 'Please check your email and password.'
 				snackbar.open()
 				return
 			}
-			let user: UserCredential
 			try {
 				if (hasAccount) {
-					user = await signInWithEmailAndPassword(auth, email, password)
+					// sign in
+					client.signIn(email, password)
 				} else {
 					if (isInvalidUsername) return
-					user = await createUserWithEmailAndPassword(auth, email, password)
+					// create user
+					client.signUp(email, password)
 				}
 			} catch (e) {
 				console.log(e)
@@ -79,22 +84,21 @@
 		}
 		async function exit() {
 			try {
-				console.log(await signOut(auth))
-				isGuest = true
+				// sign out
+				client.signOut()
 			} catch (e) {
 				console.log(e)
 			}
 		}
-		onAuthStateChanged(
-			auth,
+		auth.onAuthStateChanged(
 			user => {
 				if (user) {
 					if (!hasAccount) {
-						updateProfile(user, {
-							displayName: modifiedUsername
+						client.update(user, {
+							displayName: modifiedUsername,
 						})
 					}
-					isGuest = false
+					console.log(user)
 					displayName = user.displayName || ''
 					snackbarText = `You are now logged in as ${user.email}.`
 					snackbar.open()
@@ -116,7 +120,7 @@
 			label: 'Home',
 			url: '/',
 		},
-		...(isGuest? [
+		...(isGuest ? [
 			{
 				icon: 'emoji_objects',
 				label: 'Open IGCSE',
@@ -199,7 +203,7 @@
 		<Drawer variant="modal" fixed={false} bind:open>
 			<Header>
 				<DrawerTitle>{isGuest ? 'Anonymous' : displayName}</DrawerTitle>
-				<Subtitle>{isGuest ? 'Guest Account' : 'Verified Account'}</Subtitle>
+				<Subtitle>{isGuest ? 'Guest Account' : 'Valid Account'}</Subtitle>
 			</Header>
 			<Content>
 				<List>

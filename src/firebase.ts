@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app'
-import { getAnalytics } from 'firebase/analytics'
-import { getAuth } from 'firebase/auth'
+import { initializeApp, type FirebaseApp } from 'firebase/app'
+import { getAnalytics, type Analytics } from 'firebase/analytics'
+import { getAuth, type Auth } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBb9UYYJzmVnavxnHtXJOW1SoENQZfniAo",
@@ -12,12 +12,11 @@ const firebaseConfig = {
   measurementId: "G-VHLK5YL556"
 }
 
-let app = initializeApp(firebaseConfig)
-const auth = getAuth(app)
-const analytics = getAnalytics(app)
+let app: FirebaseApp = initializeApp(firebaseConfig)
+const auth: Auth = getAuth(app)
+// const analytics: Analytics = getAnalytics(app) // only works on client
 
 export {
   app,
   auth,
-  analytics,
 }
