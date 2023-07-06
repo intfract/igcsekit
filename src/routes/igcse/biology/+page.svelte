@@ -5,6 +5,8 @@
 
   let rows: string[][] = [
     ['Organisms', 'check', 'check', 'check'],
+    ['Cells', 'check', 'check', 'check'],
+    ['Reproduction', 'check', 'check', 'check'],
     ['Inheritance', 'check', 'check', 'close'],
   ]
 </script>

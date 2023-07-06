@@ -3,7 +3,7 @@ import { writable } from 'svelte/store'
 import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential, type Auth } from 'firebase/auth'
 import { auth } from '../firebase'
 
-export const isAuthorised = writable(false)
+export const isAuthorised = writable(true) // false during production
 
 type Person = {
   user?: User | null,
