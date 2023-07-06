@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store'
 
-import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential } from 'firebase/auth'
+import { signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signOut, type User, type UserCredential, type Auth } from 'firebase/auth'
 import { auth } from '../firebase'
 
 export const isAuthorised = writable(false)
@@ -13,25 +13,28 @@ let x: Person = { user: null }
 
 export const person = writable(x)
 
-function update(user: User) {
+function update(user?: User | null) {
   person.set({ user })
   isAuthorised.set(user ? true : false)
 }
 
+async function authorise(method: ((auth: Auth, email: string, password: string) => Promise<void | UserCredential>), email: string, password: string, callback: ((reason: string) => void)) {
+  let { user } = await method(auth, email, password).catch(reason => console.log(reason)) ?? { user: null }
+  update(user)
+}
+
 export const client = {
-  async signUp(email: string, password: string) {
-    let { user } = await createUserWithEmailAndPassword(auth, email, password)
-    update(user)
+  async signUp(email: string, password: string, callback: ((reason: string) => void)) {
+    authorise(createUserWithEmailAndPassword, email, password, callback)
   },
 
-  async signIn(email: string, password: string) {
-    let { user } = await signInWithEmailAndPassword(auth, email, password)
-    update(user)
+  async signIn(email: string, password: string, callback: ((reason: string) => void)) {
+    authorise(signInWithEmailAndPassword, email, password, callback)
   },
 
   async signOut() {
     await signOut(auth)
-    isAuthorised.set(false)
+    update(null)
   },
 
   async updateProfile(user: User, { displayName, photoURL }: { displayName?: string, photoURL?: string }) {

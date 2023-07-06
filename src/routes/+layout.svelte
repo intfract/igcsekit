@@ -70,20 +70,17 @@
 				snackbar.open()
 				return
 			}
-			try {
-				if (hasAccount) {
-					// sign in
-					client.signIn(email, password)
-				} else {
-					if (isInvalidUsername) return
-					// create user
-					client.signUp(email, password)
-				}
-			} catch (e) {
-				console.log(e)
-				snackbarText = 'There was an error with your request.'
-				snackbar.open()
-				return
+			if (hasAccount) {
+				// sign in
+				client.signIn(email, password, reason => {
+					console.log(reason)
+				})
+			} else {
+				if (isInvalidUsername) return
+				// create user
+				client.signUp(email, password, reason => {
+					console.log(reason)
+				})
 			}
 		}
 		async function exit() {
