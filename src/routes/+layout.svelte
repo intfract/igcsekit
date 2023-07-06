@@ -3,7 +3,7 @@
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { auth } from '../firebase'
-	import { isAuthorised, client } from '../stores/auth'
+	import { isAuthorised, client, person } from '../stores/auth'
 
 	export let data
 
@@ -40,6 +40,7 @@
 	let closed = false
 	let hasAccount = false
 	let isGuest: boolean
+	let displayName: string
 	let menu: Menu
 	let open: boolean = false
 	$: active = data.url
@@ -53,10 +54,13 @@
 	$: modifiedUsername = username.trim().toLowerCase().replace(badRegex, '')
 	let snackbar: Snackbar
 	$: snackbarText = ''
-	$: displayName = ''
 
 	isAuthorised.subscribe(value => {
 		isGuest = !value
+	})
+
+	person.subscribe(value => {
+		displayName = value.user?.displayName ?? ''
 	})
 
 	onMount(async () => {
@@ -94,12 +98,11 @@
 			user => {
 				if (user) {
 					if (!hasAccount) {
-						client.update(user, {
+						client.updateProfile(user, {
 							displayName: modifiedUsername,
 						})
 					}
 					console.log(user)
-					displayName = user.displayName || ''
 					snackbarText = `You are now logged in as ${user.email}.`
 					snackbar.open()
 				}

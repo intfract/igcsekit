@@ -5,19 +5,28 @@ import { auth } from '../firebase'
 
 export const isAuthorised = writable(false)
 
-export const person = writable({
-  user: null,
-})
+type Person = {
+  user?: User | null,
+}
+
+let x: Person = { user: null }
+
+export const person = writable(x)
+
+function update(user: User) {
+  person.set({ user })
+  isAuthorised.set(user ? true : false)
+}
 
 export const client = {
   async signUp(email: string, password: string) {
-    await createUserWithEmailAndPassword(auth, email, password)
-    isAuthorised.set(true)
+    let { user } = await createUserWithEmailAndPassword(auth, email, password)
+    update(user)
   },
 
   async signIn(email: string, password: string) {
-    await signInWithEmailAndPassword(auth, email, password)
-    isAuthorised.set(true)
+    let { user } = await signInWithEmailAndPassword(auth, email, password)
+    update(user)
   },
 
   async signOut() {
@@ -25,7 +34,7 @@ export const client = {
     isAuthorised.set(false)
   },
 
-  async update(user: User, { displayName, photoURL }: { displayName?: string, photoURL?: string }) {
+  async updateProfile(user: User, { displayName, photoURL }: { displayName?: string, photoURL?: string }) {
     await updateProfile(user, { displayName, photoURL })
   },
 }
