@@ -2,8 +2,7 @@
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
-	import { auth } from '../firebase'
-	import { isAuthorised, client, person } from '../stores/auth'
+	import { state } from '../stores/state'
 
 	export let data
 
@@ -56,12 +55,8 @@
 	let snackbar: Snackbar
 	$: snackbarText = ''
 
-	isAuthorised.subscribe(value => {
-		isGuest = !value
-	})
-
-	person.subscribe(value => {
-		displayName = value.user?.displayName ?? ''
+	state.subscribe(value => {
+		isGuest = !value.account
 	})
 
 	function showError(reason: Error) {
@@ -77,44 +72,27 @@
 				snackbar.open()
 				return
 			}
-			if (hasAccount) {
-				// sign in
-				client.signIn(email, password, showError)
-			} else {
+			if (!hasAccount) {
 				if (isInvalidUsername) return
-				// create user
-				client.signUp(email, password, showError)
-			}
-		}
-		async function exit() {
-			try {
-				// sign out
-				client.signOut()
-			} catch (e) {
-				console.log(e)
-			}
-		}
-		auth.onAuthStateChanged(
-			user => {
-				if (user) {
-					if (!hasAccount) {
-						client.updateProfile(user, {
-							displayName: modifiedUsername,
-						})
-					}
-					console.log(user)
-					snackbarText = `You are now logged in as ${user.email}.`
+				try {
+					await state.signUp(email, password, modifiedUsername)
+				} catch (e) {
+					console.log(e)
+					snackbarText = 'A user with the same email already exists!'
 					snackbar.open()
 				}
-			},
-			error => {
-				console.log(error)
 			}
-		)
+			try {
+				await state.signIn(email, password)
+			} catch (e) {
+				console.log(e)
+				snackbarText = 'Invalid credentials were provided!'
+				snackbar.open()
+			}
+		}
 		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
 		document.querySelector('#submit')?.addEventListener('click', submit)
-		document.querySelector('#exit')?.addEventListener('click', exit)
 	})
 
 	$: drawerItems = [
@@ -186,11 +164,11 @@
 										<Text>Account</Text>
 									</Item>
 									{:else}
-									<Item on:click={() => (false)}>
+									<Item>
 										<Text>Profile</Text>
 									</Item>
 									<Separator />
-									<Item on:click={() => (false)} id="exit">
+									<Item on:click={() => state.signOut()} id="exit">
 										<Text>Exit</Text>
 									</Item>
 								{/if}

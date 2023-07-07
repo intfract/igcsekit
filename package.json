@@ -42,7 +42,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"firebase": "^9.23.0",
+		"appwrite": "^11.0.0",
 		"svelte-material-ui": "^7.0.0-beta.3"
 	}
 }
