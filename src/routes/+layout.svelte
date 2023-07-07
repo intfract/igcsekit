@@ -57,13 +57,8 @@
 
 	state.subscribe(value => {
 		isGuest = !value.account
+		displayName = value.account?.name || ''
 	})
-
-	function showError(reason: Error) {
-		const match = reason.message.match(errorRegex)
-		snackbarText = match ? `Sorry, ${match[0].split('/')[1].replaceAll('-', ' ')}!` : 'An error occurred!'
-		snackbar.open()
-	}
 
 	onMount(async () => {
 		async function submit() {
@@ -163,7 +158,7 @@
 									<Item on:click={toggleDialog}>
 										<Text>Account</Text>
 									</Item>
-									{:else}
+								{:else}
 									<Item>
 										<Text>Profile</Text>
 									</Item>
