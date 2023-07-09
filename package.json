@@ -28,6 +28,8 @@
 		"@smui/select": "^7.0.0-beta.3",
 		"@smui/snackbar": "^7.0.0-beta.14",
 		"@smui/switch": "^7.0.0-beta.14",
+		"@smui/tab": "^7.0.0-beta.14",
+		"@smui/tab-bar": "^7.0.0-beta.14",
 		"@smui/textfield": "^7.0.0-beta.3",
 		"@smui/top-app-bar": "^7.0.0-beta.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
