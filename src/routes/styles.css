@@ -74,6 +74,10 @@ main.main-content {
   color: var(--mdc-theme-primary);
 }
 
+.smui-paper {
+  padding: 32px;
+}
+
 .middle {
   display: flex;
   flex-direction: row;

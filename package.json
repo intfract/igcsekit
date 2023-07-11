@@ -18,6 +18,7 @@
 		"@smui/data-table": "^7.0.0-beta.14",
 		"@smui/dialog": "^7.0.0-beta.3",
 		"@smui/drawer": "^7.0.0-beta.3",
+		"@smui/form-field": "^7.0.0-beta.14",
 		"@smui/icon-button": "^7.0.0-beta.3",
 		"@smui/linear-progress": "^7.0.0-beta.4",
 		"@smui/list": "^7.0.0-beta.3",
