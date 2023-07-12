@@ -34,6 +34,9 @@ const createState = () => {
     init: async (account: Models.User<Models.Preferences> | null = null) => {
       return set({ account })
     },
+    oAuth: async (provider: string) => {
+      sdk.account.createOAuth2Session(provider);
+    }
   }
 }
 

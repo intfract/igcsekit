@@ -226,6 +226,11 @@
 				<Checkbox bind:checked={hasAccount}/>
 				<span class="label">I already have an account.</span>
 			</div>
+			<div class="oauth">
+				<Button on:click={() => state.oAuth('github')}>
+					<Label>GitHub</Label>
+				</Button>
+			</div>
 		</DialogContent>
 		<Actions>
 			<Button on:click={() => (false)}>
