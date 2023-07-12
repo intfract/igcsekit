@@ -1,11 +1,4 @@
 <script context="module" lang="ts">
-  type Part = {
-    question: string,
-    marks: number,
-    solution: string,
-    explanation: string,
-  }
-
   type Difficulty = 'Easy' | 'Medium' | 'Hard' | 'Tough'
 
   export type MultipleChoice = {
@@ -22,7 +15,7 @@
 </script>
 
 <script lang="ts">
-  import { fade } from 'svelte/transition'
+  import { fly } from 'svelte/transition'
 
   import Paper, { Title, Subtitle, Content } from '@smui/paper'
   import Tab, { Label } from '@smui/tab'
@@ -34,9 +27,11 @@
   const imagePath = '/assets/'
 
   let active: number = 1
-  let selected: number
+  let selected: number | null
   export let name: string
   export let questions: MultipleChoice[]
+
+  $: active, selected = null // set selected radio to null when active tab changes
 </script>
 
 <div class="quiz">
@@ -45,31 +40,35 @@
       <Label>{tab}</Label>
     </Tab>
   </TabBar>
-  {#key active}
-    <div in:fade={{ duration: 500, delay: 500 }} out:fade={{ duration: 500 }}>
-      <Paper>
-        <h3>{name}</h3>
-        {#if 'intro' in questions[active - 1]}
-          <p class="intro">{questions[active - 1].intro}</p>
-        {/if}
-        {#if 'images' in questions[active - 1]}
-          {#each questions[active - 1].images as image}
-            <img src={imagePath + image} alt="Question Image">
-          {/each}
-        {/if}
-        <p class="question">{questions[active - 1].question}</p>
-        {#each questions[active - 1].choices as choice,i}
-          <FormField>
-            <Radio bind:group={selected} value={i}/>
-            <span slot="label">
-              {choice}
-            </span>
-          </FormField>
-        {/each}
-        <Button style="display: block; margin-top: 16px;" variant="raised">
-          <ButtonLabel>Submit</ButtonLabel>
-        </Button>
-      </Paper>
-    </div>
-  {/key}
+  <div class="column">
+    {#key active}
+      <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
+        <Paper>
+          <h3>{name}</h3>
+          {#if 'intro' in questions[active - 1]}
+            <p class="intro">{questions[active - 1].intro}</p>
+          {/if}
+          {#if 'images' in questions[active - 1]}
+            {#each questions[active - 1].images as image}
+              <img src={imagePath + image} alt="Question Image">
+            {/each}
+          {/if}
+          <p class="question">{questions[active - 1].question}</p>
+          <div class="column">
+            {#each questions[active - 1].choices as choice,i}
+              <FormField>
+                <Radio bind:group={selected} value={i}/>
+                <span slot="label">
+                  {choice}
+                </span>
+              </FormField>
+            {/each}
+          </div>
+          <Button style="display: block; margin-top: 16px;" variant="raised">
+            <ButtonLabel>Submit</ButtonLabel>
+          </Button>
+        </Paper>
+      </div>
+    {/key}
+  </div>
 </div>
