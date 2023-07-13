@@ -240,6 +240,7 @@
 			</Button>
 			<Button
 				defaultAction
+				variant="raised"
 				use={[InitialFocus]}
 				id="submit"
 			>

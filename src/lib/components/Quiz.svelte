@@ -39,8 +39,20 @@
 <Dialog bind:open>
   <DialogTitle>Answer</DialogTitle>
   <DialogContent>
-    {questions[active - 1].explanation}
+    {@html questions[active - 1].explanation}
   </DialogContent>
+  <Actions>
+    <Button on:click={() => (false)}>
+      <Label>Report Mistake</Label>
+    </Button>
+    <Button
+      defaultAction
+      variant="raised"
+      use={[InitialFocus]}
+    >
+      <Label>Close</Label>
+    </Button>
+  </Actions>
 </Dialog>
 
 <div class="quiz">
