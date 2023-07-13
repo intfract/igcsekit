@@ -33,13 +33,14 @@
   export let name: string
   export let questions: MultipleChoice[]
 
+  $: current = questions[active - 1]
   $: active, selected = null // set selected radio to null when active tab changes
 </script>
 
 <Dialog bind:open>
-  <DialogTitle>Answer</DialogTitle>
+  <DialogTitle>{selected === current.correctChoice ? 'Right Answer' : 'Wrong Answer'}</DialogTitle>
   <DialogContent>
-    {@html questions[active - 1].explanation}
+    {@html current.explanation}
   </DialogContent>
   <Actions>
     <Button on:click={() => (false)}>
@@ -66,17 +67,17 @@
       <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
         <Paper>
           <Title>{name}</Title>
-          {#if 'intro' in questions[active - 1]}
-            <p class="intro">{questions[active - 1].intro}</p>
+          {#if 'intro' in current}
+            <p class="intro">{current.intro}</p>
           {/if}
-          {#if 'images' in questions[active - 1]}
-            {#each questions[active - 1].images as image}
+          {#if 'images' in current}
+            {#each current.images as image}
               <img src={imagePath + image} alt="Question Image">
             {/each}
           {/if}
-          <p class="question">{questions[active - 1].question}</p>
+          <p class="question">{current.question}</p>
           <div class="column">
-            {#each questions[active - 1].choices as choice,i}
+            {#each current.choices as choice,i}
               <FormField>
                 <Radio bind:group={selected} value={i}/>
                 <span slot="label">
