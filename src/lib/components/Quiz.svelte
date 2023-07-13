@@ -23,16 +23,25 @@
   import Radio from '@smui/radio'
   import FormField from '@smui/form-field'
   import Button, { Label as ButtonLabel } from '@smui/button'
+  import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
 
   const imagePath = '/assets/'
 
   let active: number = 1
   let selected: number | null
+  let open = false
   export let name: string
   export let questions: MultipleChoice[]
 
   $: active, selected = null // set selected radio to null when active tab changes
 </script>
+
+<Dialog bind:open>
+  <DialogTitle>Answer</DialogTitle>
+  <DialogContent>
+    {questions[active - 1].explanation}
+  </DialogContent>
+</Dialog>
 
 <div class="quiz">
   <TabBar tabs={questions.map((value, index) => index + 1)} let:tab bind:active>
@@ -44,7 +53,7 @@
     {#key active}
       <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
         <Paper>
-          <h3>{name}</h3>
+          <Title>{name}</Title>
           {#if 'intro' in questions[active - 1]}
             <p class="intro">{questions[active - 1].intro}</p>
           {/if}
@@ -64,7 +73,7 @@
               </FormField>
             {/each}
           </div>
-          <Button style="display: block; margin-top: 16px;" variant="raised">
+          <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
             <ButtonLabel>Submit</ButtonLabel>
           </Button>
         </Paper>
