@@ -3,7 +3,7 @@
 
   export let data
 
-  let rows: string[][] = [
+  let rows: [string, string, string, string][] = [
     ['Organisms', 'check', 'check', 'check'],
     ['Cells', 'check', 'check', 'check'],
     ['Reproduction', 'check', 'check', 'check'],

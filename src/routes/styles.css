@@ -74,6 +74,10 @@ main.main-content {
   color: var(--mdc-theme-primary);
 }
 
+.mdc-data-table {
+  max-width: 100%;
+}
+
 .smui-paper {
   padding: 32px;
 }
