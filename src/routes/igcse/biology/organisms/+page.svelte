@@ -32,4 +32,7 @@
       {/each}
     </Body>
   </DataTable>
+  <h2>Classification</h2>
+  <h3>Species</h3>
+  <p>A species is a group of organisms that can reproduce to give birth to fertile offspring. This means that sterile animals like mules are not a species.</p>
 </section>

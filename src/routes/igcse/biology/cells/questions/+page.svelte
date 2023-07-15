@@ -48,5 +48,5 @@
 
 <section>
   <h1>Questions</h1>
-  <Quiz bind:questions name="Cells"></Quiz>
+  <Quiz {questions} name="Cells"></Quiz>
 </section>
