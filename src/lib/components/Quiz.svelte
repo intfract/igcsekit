@@ -67,28 +67,30 @@
       <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
         <Paper>
           <Title>{name}</Title>
-          {#if 'intro' in current}
-            <p class="intro">{current.intro}</p>
-          {/if}
-          {#if 'images' in current}
-            {#each current.images as image}
-              <img src={imagePath + image} alt="Question Image">
-            {/each}
-          {/if}
-          <p class="question">{current.question}</p>
-          <div class="column">
-            {#each current.choices as choice,i}
-              <FormField>
-                <Radio bind:group={selected} value={i}/>
-                <span slot="label">
-                  {choice}
-                </span>
-              </FormField>
-            {/each}
-          </div>
-          <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
-            <ButtonLabel>Submit</ButtonLabel>
-          </Button>
+          <Content>
+            {#if 'intro' in current}
+              <p class="intro">{current.intro}</p>
+            {/if}
+            {#if 'images' in current}
+              {#each current.images as image}
+                <img src={imagePath + image} alt="Question Image">
+              {/each}
+            {/if}
+            <p class="question">{current.question}</p>
+            <div class="column">
+              {#each current.choices as choice,i}
+                <FormField>
+                  <Radio bind:group={selected} value={i}/>
+                  <span slot="label">
+                    {choice}
+                  </span>
+                </FormField>
+              {/each}
+            </div>
+            <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
+              <ButtonLabel>Submit</ButtonLabel>
+            </Button>
+          </Content>
         </Paper>
       </div>
     {/key}

@@ -78,31 +78,12 @@ main.main-content {
   max-width: 100%;
 }
 
-.mdc-linear-progress {
-  height: 8px;
-  border-radius: 4px;
-}
-
-.mdc-linear-progress__bar {
-  background: var(--mdc-theme-primary);
-  border-radius: 4px;
-}
-
-.mdc-linear-progress__bar-inner {
-  border: none;
-}
-
-.progress {
-  box-sizing: border-box;
-  margin: 0 auto 16px auto;
-  padding: 16px;
-  max-width: 800px;
-  border-radius: 4px;
-  box-shadow: var(--mdc-theme-text-disabled-on-background) 0px 0px 8px -2px;
-}
-
 .smui-paper {
   padding: 32px;
+}
+
+.smui-paper .mdc-text-field {
+  display: flex;
 }
 
 .middle {
@@ -188,6 +169,10 @@ h2 {
 h3 {
   color: var(--mdc-theme-on-surface);
   font-size: 24px;
+}
+
+ol {
+  padding-inline-start: 32px;
 }
 
 .hero {
