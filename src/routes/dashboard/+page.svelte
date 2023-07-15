@@ -40,7 +40,7 @@
 	]
 
 	for (const item of igcse) {
-		item['link'] = ['igcse', item.title.toLowerCase().replaceAll(' ', '_')].join('/')
+		item['link'] = ['/igcse', item.title.toLowerCase().replaceAll(' ', '_')].join('/')
 	}
 </script>
 

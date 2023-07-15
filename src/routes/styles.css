@@ -74,8 +74,16 @@ main.main-content {
   color: var(--mdc-theme-primary);
 }
 
+.mdc-data-table {
+  max-width: 100%;
+}
+
 .smui-paper {
   padding: 32px;
+}
+
+.smui-paper .mdc-text-field {
+  display: flex;
 }
 
 .middle {
@@ -163,6 +171,10 @@ h3 {
   font-size: 24px;
 }
 
+ol {
+  padding-inline-start: 32px;
+}
+
 .hero {
   display: flex;
   flex-direction: row;
@@ -188,7 +200,7 @@ h3 {
   transform: scale(1);
 }
 
-section {
-  width: 800px;
+main section {
+  max-width: 800px;
   margin: auto;
 }
