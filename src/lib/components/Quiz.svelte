@@ -73,7 +73,7 @@
             {/if}
             {#if 'images' in current}
               {#each current.images as image}
-                <img src={imagePath + image} alt="Question Image">
+                <img src={imagePath + image} alt="Diagram">
               {/each}
             {/if}
             <p class="question">{current.question}</p>

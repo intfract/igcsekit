@@ -60,6 +60,7 @@ body {
 
 main.main-content {
   height: calc(100vh - var(--top-app-bar-height)) !important;
+  overflow-x: hidden;
 }
 
 .mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
@@ -173,31 +174,6 @@ h3 {
 
 ol {
   padding-inline-start: 32px;
-}
-
-.hero {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 800px;
-  transform: scale(0);
-  transition: transform 0.3s ease-out;
-}
-
-.hero.loaded {
-  transform: scale(1);
-}
-
-.hero-text ul li {
-  opacity: 0;
-  transform: scale(0);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.hero-text ul li.loaded {
-  opacity: 1;
-  transform: scale(1);
 }
 
 main section {
