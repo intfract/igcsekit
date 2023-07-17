@@ -2,7 +2,6 @@ import { ID, Permission, Role } from 'appwrite'
 import type { Models } from 'appwrite'
 import { get, writable } from 'svelte/store'
 import { sdk, server } from '$lib/appwrite/appwrite'
-import { HOSTNAME } from '$env/static/private'
 
 export type Flashcard = {
   front: string,
@@ -35,8 +34,8 @@ const createState = () => {
     init: async (account: Models.User<Models.Preferences> | null = null) => {
       return set({ account })
     },
-    oAuth: async (provider: string) => {
-      sdk.account.createOAuth2Session(provider, HOSTNAME) // needs check
+    oAuth: async (provider: string, success: string) => {
+      sdk.account.createOAuth2Session(provider, success)
     }
   }
 }

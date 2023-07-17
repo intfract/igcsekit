@@ -1,5 +1,11 @@
-export function load({ url }): { url: string } {
+export function load({ url }): 
+{
+  pathname: string,
+  hostname: string,
+} 
+{
   return {
-    url: url.pathname,
+    pathname: url.pathname,
+    hostname: url.hostname,
   }
 }
