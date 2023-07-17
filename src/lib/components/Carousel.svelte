@@ -1,6 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte'
 
+  type TrackItem = {
+    image: string,
+    caption: string,
+  }
+
   let view: { width: number, height: number, } = { width: 0, height: 0, }
   let max: number = 0
   let track: HTMLElement
@@ -8,7 +13,7 @@
   let start: number = 0
   let prev: number = 0
   let x: number = 0
-  export let images: string[]
+  export let items: TrackItem[]
 
   onMount(() => {
     view.width = window.innerWidth
@@ -58,9 +63,10 @@
 
 <div class="carousel">
   <div class="track" bind:this={track} on:mousedown={handleOnDown} on:touchstart={e => handleOnDown(e.touches[0])}>
-    {#each images as image,i}
+    {#each items as item,i}
       <div class="track-item">
-        <img src={image} alt="Background" draggable="false" bind:this={children[i]}>
+        <img src={item.image} alt="Background" draggable="false" bind:this={children[i]}>
+        <span class="caption">{item.caption}</span>
       </div>
     {/each}
   </div>
@@ -86,7 +92,9 @@
   }
 
   .track-item {
-    width: 50vw;
+    position: relative;
+    min-width: 256px;
+    width: 40vw;
     border-radius: 16px;
     overflow: hidden;
     transition: width 0.3s ease-out;
@@ -97,5 +105,13 @@
     height: 100%;
     object-fit: cover;
     object-position: 100% center;
+  }
+
+  .track .caption {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: white;
+    font-size: 32px;
   }
 </style>
