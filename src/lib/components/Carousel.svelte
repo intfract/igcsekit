@@ -66,7 +66,9 @@
     {#each items as item,i}
       <div class="track-item">
         <img src={item.image} alt="Background" draggable="false" bind:this={children[i]}>
-        <span class="caption">{item.caption}</span>
+        <div class="wrapper">
+          <div class="caption">{item.caption}</div>
+        </div>
       </div>
     {/each}
   </div>
@@ -100,18 +102,30 @@
     transition: width 0.3s ease-out;
   }
 
-  .track img {
+  .track .track-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: 100% center;
+    transition: filter 0.3s;
   }
 
-  .track .caption {
+  .wrapper {
     position: absolute;
+    height: 48px;
     bottom: 16px;
     left: 16px;
+    overflow: hidden;
+  }
+
+  .track .track-item .caption {
     color: white;
     font-size: 32px;
+    margin-top: 48px;
+    transition: margin-top 0.3s;
+  }
+
+  .track-item:hover .caption {
+    margin-top: 0;
   }
 </style>
