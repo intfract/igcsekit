@@ -35,8 +35,9 @@ const createState = () => {
       return set({ account })
     },
     oAuth: async (provider: string, redirectURL: string) => {
-      const details = sdk.account.createOAuth2Session(provider, redirectURL, redirectURL)
-      console.log(details)
+      sdk.account.createOAuth2Session(provider, redirectURL, redirectURL)
+      const user = await sdk.account.get()
+      state.init(user)
     }
   }
 }
