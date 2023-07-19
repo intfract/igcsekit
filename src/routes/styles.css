@@ -79,6 +79,10 @@ main.main-content {
   max-width: 100%;
 }
 
+.mdc-data-table__row {
+  transition: background-color 0.2s;
+}
+
 .smui-paper {
   padding: 32px;
 }
