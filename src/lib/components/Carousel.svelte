@@ -76,6 +76,7 @@
 
 <style>
   .carousel {
+    --height: 40px;
     width: 100%;
     height: 100%;
     border-radius: 16px;
@@ -112,7 +113,7 @@
 
   .wrapper {
     position: absolute;
-    height: 48px;
+    height: var(--height);
     bottom: 16px;
     left: 16px;
     overflow: hidden;
@@ -121,7 +122,7 @@
   .track .track-item .caption {
     color: white;
     font-size: 32px;
-    margin-top: 48px;
+    margin-top: var(--height);
     transition: margin-top 0.3s;
   }
 

@@ -35,7 +35,7 @@
         <Row>
           {#each row as cell,i}
             <Cell>
-              {#if i == 0}
+              {#if i === 0}
                 <a href={[data.url, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
               {:else}
                 <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell}</span>
