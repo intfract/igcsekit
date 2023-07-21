@@ -36,8 +36,23 @@ const createState = () => {
     },
     oAuth: async (provider: string, redirectURL: string) => {
       sdk.account.createOAuth2Session(provider, redirectURL)
-      const user = await sdk.account.get()
-      state.init(user)
+
+      const urlParams = new URLSearchParams(window.location.search)
+      const code = urlParams.get('code')
+
+      const response = await fetch('/api/github-oauth', {
+        method: 'POST',
+        body: JSON.stringify({ code }),
+
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        const user = await response.json()
+        state.init(user)
+      }
     }
   }
 }
