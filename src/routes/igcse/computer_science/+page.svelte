@@ -3,7 +3,7 @@
 
   export let data
 
-  console.log(listLinks(data.url))
+  let links = listLinks(data.url, import.meta.glob('./**/+page.svelte'))
 
   let page = 'IGCSE Computer Science'
 </script>
@@ -18,4 +18,12 @@
   <h1>Computer Science</h1>
   <h2>Syllabus</h2>
   <p>In 2023, the pre-release material was removed from the course along with the security and ethics chapter.</p>
+  <h2>Link Tree</h2>
+  <ul>
+    {#each links as link}
+      <li>
+        <a href={link}>{link}</a>
+      </li>
+    {/each}
+  </ul>
 </section>

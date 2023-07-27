@@ -1,5 +1,4 @@
-export function listLinks(url: string) {
-  const modules = import.meta.glob('./**/+page.svelte')
+export function listLinks(url: string, modules) {
   let links: string[] = []
 
   for (const key of Object.keys(modules)) {
