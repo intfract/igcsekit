@@ -24,7 +24,7 @@
       <Row>
         <Cell>Term</Cell>
         <Cell>Abbreviation</Cell>
-        <Cell>Definition</Cell>
+        <Cell>Function</Cell>
       </Row>
     </Head>
     <Body>
