@@ -24,6 +24,15 @@
       <li>
         <a href={link.url}>{link.name}</a>
       </li>
+      {#if link.sub.length}
+        <ul>
+          {#each link.sub as sub}
+            <li>
+              <a href={sub.url}>{sub.name}</a>
+            </li>
+          {/each}
+        </ul>
+      {/if}
     {/each}
   </ul>
 </section>
