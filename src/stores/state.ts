@@ -36,11 +36,10 @@ const createState = () => {
     },
     oAuth: async (provider: string, redirectURL: string) => {
       sdk.account.createOAuth2Session(provider, redirectURL)
-
-      const urlParams = new URLSearchParams(window.location.search)
-      const code = urlParams.get('code')
-
-      console.log(code)
+    },
+    getSession: async (id: string) => {
+      const session = await sdk.account.getSession(id)
+      console.log(session)
     }
   }
 }
