@@ -19,4 +19,22 @@
     <li>CPU fetches instructions from memory and executes them <strong>serially</strong> (one at a time)</li>
     <li>CPU stores results in memory</li>
   </ul>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Term</Cell>
+        <Cell>Abbreviation</Cell>
+        <Cell>Definition</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each a as row}
+        <Row>
+          {#each row as cell}
+            <Cell>{cell}</Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
 </section>
