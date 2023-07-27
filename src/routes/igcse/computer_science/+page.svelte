@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { listLinks } from '$lib/utils/links'
+  import { listLinks, type Link } from '$lib/utils/links'
 
   export let data
 
-  let links = listLinks(data.url, import.meta.glob('./**/+page.svelte'))
+  let links: Link[] = listLinks(data.url, import.meta.glob('./**/+page.svelte'))
 
   let page = 'IGCSE Computer Science'
 </script>
@@ -22,7 +22,7 @@
   <ul>
     {#each links as link}
       <li>
-        <a href={link}>{link}</a>
+        <a href={link.url}>{link.name}</a>
       </li>
     {/each}
   </ul>

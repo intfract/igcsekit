@@ -1,7 +1,10 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import { listLinks, type Link } from '$lib/utils/links'
 
   export let data
+
+  let links: Link[] = listLinks(data.url, import.meta.glob('./**/+page.svelte'))
 
   let rows: [string, string, string, string][] = [
     ['Organisms', 'check', 'check', 'check'],
@@ -48,4 +51,12 @@
       {/each}
     </Body>
   </DataTable>
+  <h2>Link Tree</h2>
+  <ul>
+    {#each links as link}
+      <li>
+        <a href={link.url}>{link.name}</a>
+      </li>
+    {/each}
+  </ul>
 </section>
