@@ -9,12 +9,14 @@
     ['Reproduction', 'check', 'check', 'check'],
     ['Inheritance', 'check', 'check', 'close'],
   ]
+
+  let page = 'IGCSE Biology'
 </script>
 
 <svelte:head>
-	<title>IGCSE Biology</title>
-	<meta property="og:title" content="IGCSE Biology">
-	<meta property="og:description" content="Read IGCSE Biology notes and answer topic questions for free!">
+	<title>{page}y</title>
+	<meta property="og:title" content={page}>
+	<meta property="og:description" content={`Read ${page} notes and answer topic questions for free!`}>
 </svelte:head>
 
 <section>

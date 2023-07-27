@@ -96,24 +96,16 @@
 			label: 'Home',
 			url: '/',
 		},
-		...(isGuest ? [
-			{
-				icon: 'emoji_objects',
-				label: 'Open IGCSE',
-				url: 'https://igcse.cyclic.app',
-			},
-		] : [
-			{
-				icon: 'dashboard',
-				label: 'Dashboard',
-				url: '/dashboard',
-			},
-			{
-				icon: 'bolt',
-				label: 'Flashcards',
-				url: '/flashcards',
-			},
-		]),
+		{
+			icon: 'dashboard',
+			label: 'Dashboard',
+			url: '/dashboard',
+		},
+		{
+			icon: 'bolt',
+			label: 'Flashcards',
+			url: '/flashcards',
+		},
 	]
 
 	function toggleDialog() {
