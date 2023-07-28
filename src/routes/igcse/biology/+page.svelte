@@ -4,11 +4,11 @@
 
   export let data
 
-  let rows: [string, string, string, string][] = [
-    ['Organisms', 'check', 'check', 'check'],
-    ['Cells', 'check', 'check', 'check'],
-    ['Reproduction', 'check', 'check', 'check'],
-    ['Inheritance', 'check', 'check', 'close'],
+  let rows: [string, boolean, boolean, boolean][] = [
+    ['Organisms', true, true, true],
+    ['Cells', true, true, true],
+    ['Reproduction', true, true, true],
+    ['Inheritance', true, true, false],
   ]
 
   let page = 'IGCSE Biology'
@@ -38,10 +38,10 @@
         <Row>
           {#each row as cell,i}
             <Cell>
-              {#if i === 0}
+              {#if i === 0 && typeof cell === 'string'}
                 <a href={[data.url, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
               {:else}
-                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell}</span>
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
               {/if}
             </Cell>
           {/each}
