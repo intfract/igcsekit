@@ -11,24 +11,8 @@ export function listLinks(url: string, modules: Record<string, () => Promise<unk
   let temp: string[] = []
   let markers: number[] = []
 
-  // for (const key of Object.keys(modules)) {
-  //   const path = key.replace('.', url).replace('/+page.svelte', '')
-  //   const parts = path.split('/')
-
-  //   const link = {
-  //     name: titleCase(parts.at(-1) ?? ''),
-  //     url: path,
-  //   }
-
-  //   if (temp.length && parts.length > temp.length) {
-  //     // create sub link
-  //   } else {
-  //     temp = parts
-  //     links.push(link)
-  //   }
-  // }
-
   let i: number = 0
+  let j: number = 0
   const keys = Object.keys(modules)
 
   while (i < keys.length) {
@@ -43,11 +27,13 @@ export function listLinks(url: string, modules: Record<string, () => Promise<unk
     }
 
     if (temp.length && parts.length > temp.length) {
+      console.log(links, markers)
       links[markers.at(-1) ?? 0].sub.push(link)
     } else {
-      markers.push(i)
+      markers.push(j)
       temp = parts
       links.push(link)
+      j++
     }
 
     i++

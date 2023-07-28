@@ -1,10 +1,13 @@
-<script lang="ts">
-  import { onMount } from 'svelte'
-
-  type TrackItem = {
+<script context="module" lang="ts">
+  export type TrackItem = {
     image: string,
     caption: string,
+    link: string,
   }
+</script>
+
+<script lang="ts">
+  import { onMount } from 'svelte'
 
   let view: { width: number, height: number, } = { width: 0, height: 0, }
   let max: number = 0
@@ -64,12 +67,12 @@
 <div class="carousel">
   <div class="track" bind:this={track} on:mousedown={handleOnDown} on:touchstart={e => handleOnDown(e.touches[0])}>
     {#each items as item,i}
-      <div class="track-item">
+      <a class="track-item" href={item.link}>
         <img src={item.image} alt="Background" draggable="false" bind:this={children[i]}>
         <div class="wrapper">
           <div class="caption">{item.caption}</div>
         </div>
-      </div>
+      </a>
     {/each}
   </div>
 </div>
