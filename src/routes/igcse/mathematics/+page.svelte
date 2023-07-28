@@ -1,30 +1,20 @@
 <script lang="ts">
-  import { listLinks, type Link } from '$lib/utils/links'
+  import LinkTree from '$lib/components/LinkTree.svelte'
 
   export let data
 
-  let links: Link[] = listLinks(data.url, import.meta.glob('./**/+page.svelte'))
+  let page = 'IGCSE Mathematics'
 </script>
+
+<svelte:head>
+	<title>{page}</title>
+	<meta property="og:title" content={page}>
+	<meta property="og:description" content={`Read ${page} notes and answer topic questions for free!`}>
+</svelte:head>
 
 <section>
   <h1>Mathematics</h1>
   <h2>Syllabus</h2>
   <p>The IGCSE syllabus contains precalculus content.</p>
-  <h2>Link Tree</h2>
-  <ul>
-    {#each links as link}
-      <li>
-        <a href={link.url}>{link.name}</a>
-      </li>
-      {#if link.sub.length}
-        <ul>
-          {#each link.sub as sub}
-            <li>
-              <a href={sub.url}>{sub.name}</a>
-            </li>
-          {/each}
-        </ul>
-      {/if}
-    {/each}
-  </ul>
+  <LinkTree url={data.url} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
