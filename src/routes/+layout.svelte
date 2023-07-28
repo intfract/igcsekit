@@ -3,6 +3,7 @@
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
 	import { state } from '../stores/state'
+	import { titleCase } from '$lib/utils/text'
 
 	export let data
 
@@ -37,6 +38,7 @@
 	const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	const errorRegex = /auth\/[a-z-]+/g
 
+	$: title = titleCase(data.pathname.split('/').at(-1) ?? '')
 	let closed = false
 	let hasAccount = false
 	let isGuest: boolean
@@ -118,9 +120,9 @@
 </script>
 
 <svelte:head>
-	<title>IGCSE Kit</title>
-	<meta name="description" content="IGCSE Kit" />
-	<meta property="og:title" content="IGCSE Kit">
+	<title>{title}</title>
+	<meta name="description" content={title} />
+	<meta property="og:title" content={title}>
 	<meta property="og:url" content="https://igcsekit.vercel.app">
 	<meta property="og:description" content="Your free IGCSE training kit!">
 	<meta name="theme-color" content="#2c6fef">
