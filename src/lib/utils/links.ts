@@ -24,8 +24,6 @@ export function createLinkTree(paths: string[], url: string) {
     })
   })
 
-  console.log(pathTree)
-
   function buildHTMLList(node: { [x: string]: any }, acc: string[]) {
     let html = '<ul>'
 

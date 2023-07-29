@@ -112,4 +112,23 @@
     <li>security systems</li>
   </ul>
   <p>Embedded systems run on firmware and do not have any additional peripheral devices. Some of these are <strong>microcontrollers</strong> which are integrated circuits with built in memory.</p>
+  <h2>Input and Output Devices</h2>
+  <h3>Input Devices</h3>
+  <p>Computers use input devices to receive data or instructions from the real world. Input devices convert real world inputs into digital data that can be processed.</p>
+  <ul>
+    <li>
+      Barcode Scanner
+      <ul>
+        <li>Barcodes are a series of black and white bars which represent a code</li>
+        <li>A barcode reader shines a <strong>red laser</strong> at the barcode to read the data it represents</li>
+        <li>The light from the white lines is reflected back</li>
+        <li>Black lines absorb the light so less is reflected</li>
+        <li>The different levels of reflection are <strong>converted into a binary value</strong> which can be processed by a microprocessor</li>
+        <li>Barcodes can be used in many ways such as identifying a product being sold or tracking a package through the delivery process</li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Output Devices</h3>
+  <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
+  <h3>Sensors</h3>
 </section>
