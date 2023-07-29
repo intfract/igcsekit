@@ -1,4 +1,5 @@
 import { titleCase } from './text'
+import { tag } from './html'
 
 export type Link = {
   name: string,
@@ -6,38 +7,38 @@ export type Link = {
   sub: Link[],
 }
 
-export function listLinks(url: string, modules: Record<string, () => Promise<unknown>>): Link[] {
-  let links: Link[] = []
-  let temp: string[] = []
-  let markers: number[] = []
+function cleanPaths(paths: string[]): string[] {
+  return paths.map(path => path.replace('./', '').replace('/+page.svelte', ''))
+}
 
-  let i: number = 0
-  let j: number = 0
-  const keys = Object.keys(modules)
+export function createLinkTree(paths: string[], url: string) {
+  paths = cleanPaths(paths)
+  const pathTree = {}
 
-  while (i < keys.length) {
-    const key = keys[i]
-    const path = key.replace('.', url).replace('/+page.svelte', '')
+  paths.forEach((path) => {
     const parts = path.split('/')
+    let currentLevel = pathTree
+    parts.forEach(part => {
+      currentLevel[part] = currentLevel[part] || {}
+      currentLevel = currentLevel[part]
+    })
+  })
 
-    const link = {
-      name: titleCase(parts.at(-1) ?? ''),
-      url: path,
-      sub: [],
+  console.log(pathTree)
+
+  function buildHTMLList(node: { [x: string]: any }, acc: string[]) {
+    let html = '<ul>'
+
+    for (const key in node) {
+      if (Object.prototype.hasOwnProperty.call(node, key)) {
+        const path = acc.concat(key)
+        html += tag('li', tag('a', titleCase(key), { href: path.join('/') }) + buildHTMLList(node[key], path))
+      }
     }
 
-    if (temp.length && parts.length > temp.length) {
-      console.log(links, markers)
-      links[markers.at(-1) ?? 0].sub.push(link)
-    } else {
-      markers.push(j)
-      temp = parts
-      links.push(link)
-      j++
-    }
-
-    i++
+    html += '</ul>'
+    return html
   }
-  
-  return links
+
+  return buildHTMLList(pathTree, [...url.split('/')])
 }

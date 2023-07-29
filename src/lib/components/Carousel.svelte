@@ -67,7 +67,7 @@
 <div class="carousel">
   <div class="track" bind:this={track} on:mousedown={handleOnDown} on:touchstart={e => handleOnDown(e.touches[0])}>
     {#each items as item,i}
-      <a class="track-item" href={item.link}>
+      <a class="track-item" href={item.link} draggable="false">
         <img src={item.image} alt="Background" draggable="false" bind:this={children[i]}>
         <div class="wrapper">
           <div class="caption">{item.caption}</div>
