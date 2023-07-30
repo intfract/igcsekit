@@ -87,9 +87,12 @@
 				snackbar.open()
 			}
 		}
+
+		const twemoji: any = 'twemoji' in window ? window.twemoji : null
 		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
 		document.querySelector('#submit')?.addEventListener('click', submit)
+		document.querySelectorAll('p, li, .callout').forEach(element => twemoji.parse(element))
 	})
 
 	$: drawerItems = [
