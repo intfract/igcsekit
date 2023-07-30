@@ -31,6 +31,7 @@
     <li>CPU fetches instructions from memory and executes them <strong>serially</strong> (one at a time)</li>
     <li>CPU stores results in memory</li>
   </ul>
+  <h4>Registers</h4>
   <p>The CPU contains many units and registers.</p>
   <DataTable>
     <Head>
@@ -50,6 +51,7 @@
       {/each}
     </Body>
   </DataTable>
+  <h4>Buses</h4>
   <p>Components within the CPU and wider computer system are connected by buses. Electronic signals and data travel down these wires. Collectively, these buses are called the <strong>system bus</strong>.</p>
   <DataTable>
     <Head>

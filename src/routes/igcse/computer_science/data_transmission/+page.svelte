@@ -1,5 +1,15 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+
+  import Comparison from '$lib/components/Comparison.svelte'
+
+  let positives = [
+    'devices plugged into the computer are automatically detected and device drivers are automatically loaded up',
+  ]
+
+  let negatives = [
+    'maximum cable length is roughly 5 metres meaning it cannot be used over long distances',
+  ]
 </script>
 
 <section>
@@ -37,6 +47,14 @@
     </div>
   </div>
   <h3>USB</h3>
+  <p>The <strong>Universal Serial Bus</strong> is an <strong>asynchronous</strong> and <strong>serial</strong> method of transmitting data between devices and has become an industry standard.</p>
+  <p>Using a USB is a common way of transmitting data from <strong>peripherals</strong> like keyboards, mice, and printers to personal computers. When a device is connected to a USB port, the computer <strong>automatically</strong>:</p>
+  <ul>
+    <li>detects that the device has been connected</li>
+    <li>recognises the device and loads the appropriate <strong>device driver</strong> so that the device can communicate with the computer</li>
+  </ul>
+  <h4>Advantages and Disadvantages</h4>
+  <Comparison {positives} {negatives}></Comparison>
   <h3>Data Packets</h3>
   <p>TCP stands for Transmission Control Protocol and allows programs and computers to exchange information over a network. Information is broken down into <strong>packets</strong> before transmission because smaller chunks of data are easier and quicker to route than large chunks of data.</p>
   <p>Data transmitted over the internet can include any media such as text, images, audio, video, markup, or a combination of theses.</p>
