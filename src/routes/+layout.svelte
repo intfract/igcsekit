@@ -2,6 +2,7 @@
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
+	import { afterNavigate } from '$app/navigation'
 	import { state } from '../stores/state'
 	import { titleCase } from '$lib/utils/text'
 
@@ -88,10 +89,13 @@
 			}
 		}
 
-		const twemoji: any = 'twemoji' in window ? window.twemoji : null
 		closed = true
 		document.querySelector('#password input')?.setAttribute('type', 'password')
 		document.querySelector('#submit')?.addEventListener('click', submit)
+	})
+
+	afterNavigate(() => {
+		const twemoji: any = 'twemoji' in window ? window.twemoji : null
 		document.querySelectorAll('p, li, .callout').forEach(element => twemoji.parse(element))
 	})
 
