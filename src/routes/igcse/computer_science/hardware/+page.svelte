@@ -15,6 +15,16 @@
     ['Address Bus', 'Transfers addresses from the CPU to memory', false],
     ['Control Bus', 'Transfers control signals from the CU to other components like IO controllers', true],
   ]
+
+  let c: [string, boolean, string][] = [
+    ['RAM', true, 'Read & Write'],
+    ['ROM', false, 'Read'],
+  ]
+
+  let d: [string, number, string, string][] = [
+    ['IPv4', 32, '4 groups of denary digits separated by a full stop', '2<sup>32</sup> possible addresses'],
+    ['IPv6', 128, '8 groups of 4 hexadecimal digits separated by a colon', '2<sup>128</sup> possible addresses'],
+  ]
 </script>
 
 <section>
@@ -133,4 +143,73 @@
   <h3>Output Devices</h3>
   <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
   <h3>Sensors</h3>
+  <h2>Storage Devices</h2>
+  <h3>Primary Storage</h3>
+  <ul>
+    <li>Primary storage is directly accessed by the CPU</li>
+    <li>
+      Examples include:
+      <ul>
+        <li>random access memory (RAM)</li>
+        <li>read only memory (ROM)</li>
+      </ul>
+    </li>
+  </ul>
+  <h4>RAM and ROM</h4>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Memory</Cell>
+        <Cell>Volatile</Cell>
+        <Cell>Actions</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each c as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i === 1}
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
+              {:else}
+                {cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
+  <h2>Network Hardware</h2>
+  <h3>IP Addresses</h3>
+  <p>An internet protocol (IP) address is a <strong>unique</strong> identifier assigned to devices connected on the internet. IP addresses:</p>
+  <ul>
+    <li>can be public or private</li>
+    <li>can be static (fixed) or dynamic (changing)</li>
+    <li>are made of 4 bytes (0 to 255) separated by full stops</li>
+  </ul>
+  <h4>IPv4 and IPv6</h4>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Address</Cell>
+        <Cell>Bits</Cell>
+        <Cell>Format</Cell>
+        <Cell>Possible Addresses</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each d as row}
+        <Row>
+          {#each row as cell,i}
+            {#if i === 3}
+              <Cell>{@html cell}</Cell>
+            {:else}
+              <Cell>{cell}</Cell>
+            {/if}
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
 </section>
