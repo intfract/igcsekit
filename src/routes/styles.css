@@ -84,6 +84,32 @@ main.main-content {
   transition: background-color 0.2s;
 }
 
+.mdc-top-app-bar .search {
+  /* align-self: flex-start; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 16px;
+  overflow: visible;
+}
+
+.mdc-top-app-bar .search .mdc-list-group {
+  position: absolute;
+  height: 0;
+  width: 100%;
+  margin-top: 64px;
+  background-color: var(--mdc-theme-background);
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px var(--mdc-theme-text-hint-on-light);
+  overflow: hidden;
+  transition: height 0.3s ease-out;
+}
+
+.mdc-top-app-bar .search .mdc-text-field--focused + .mdc-list-group, .mdc-top-app-bar .search .mdc-list-group:hover {
+  height: fit-content;
+}
+
 .smui-paper {
   padding: 32px;
 }

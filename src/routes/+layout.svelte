@@ -5,6 +5,7 @@
 	import { afterNavigate } from '$app/navigation'
 	import { state } from '../stores/state'
 	import { titleCase } from '$lib/utils/text'
+	import SearchBar from '$lib/components/SearchBar.svelte'
 
 	export let data
 
@@ -57,6 +58,7 @@
 	$: modifiedUsername = username.trim().toLowerCase().replace(badRegex, '')
 	let snackbar: Snackbar
 	$: snackbarText = ''
+	let glob = import.meta.glob('./**/+page.svelte')
 
 	state.subscribe(value => {
 		isGuest = !value.account
@@ -150,6 +152,7 @@
 					<Title>IGCSE Kit</Title>
 				</Section>
 				<Section align="end" toolbar>
+					<SearchBar {glob}></SearchBar>
 					<IconButton class="material-symbols-rounded" aria-label="Settings">settings</IconButton>
 					<div>
 						<IconButton class="material-symbols-rounded" aria-label="Account" on:click={() => (menu.setOpen(true))}>account_circle</IconButton>
