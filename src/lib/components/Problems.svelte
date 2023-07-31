@@ -75,6 +75,13 @@
           temp += tag('li', part.task.items[j])
         }
         s += tag('ul', temp)
+      } else if ('points' in part.task) {
+        s += p(`Any ${part.task.marks} from:`)
+        let temp: string = ''
+        for (let j = 0; j < part.task.points.length; j++) {
+          temp += tag('li', part.task.points[j])
+        }
+        s += tag('ul', temp)
       }
     }
     return s
@@ -121,7 +128,7 @@
     <p>{current.intro}</p>
     {#if 'images' in current}
       {#each current.images as image}
-        <img src={imagePath + image} alt="Question Image">
+        <img src={imagePath + image} alt="Diagram">
       {/each}
     {/if}
     {#each current.parts as part,i}
