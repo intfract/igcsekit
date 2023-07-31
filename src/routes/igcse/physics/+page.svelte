@@ -6,5 +6,5 @@
 
 <section>
   <h1>Physics</h1>
-  <LinkTree url={data.url} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>

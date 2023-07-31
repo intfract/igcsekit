@@ -39,7 +39,7 @@
           {#each row as cell,i}
             <Cell>
               {#if i === 0 && typeof cell === 'string'}
-                <a href={[data.url, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
+                <a href={[data.pathname, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
               {:else}
                 <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
               {/if}
@@ -49,5 +49,5 @@
       {/each}
     </Body>
   </DataTable>
-  <LinkTree url={data.url} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>

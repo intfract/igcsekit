@@ -16,5 +16,5 @@
   <h1>Computer Science</h1>
   <h2>Syllabus</h2>
   <p>In 2023, the pre-release material was removed from the course along with the security and ethics chapter.</p>
-  <LinkTree url={data.url} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>

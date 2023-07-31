@@ -16,5 +16,5 @@
   <h1>Mathematics</h1>
   <h2>Syllabus</h2>
   <p>The IGCSE syllabus contains precalculus content.</p>
-  <LinkTree url={data.url} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
