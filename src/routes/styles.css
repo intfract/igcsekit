@@ -27,7 +27,7 @@ body {
   --mdc-theme-text-icon-on-background: rgba(0, 0, 0, 0.38);
   --mdc-theme-text-primary-on-light: rgba(0, 0, 0, 0.87);
   --mdc-theme-text-secondary-on-light: rgba(0, 0, 0, 0.54);
-  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.38);
+  --mdc-theme-text-hint-on-light: rgba(0, 0, 0, 0.24);
   --mdc-theme-text-disabled-on-light: rgba(0, 0, 0, 0.38);
   --mdc-theme-text-icon-on-light: rgba(0, 0, 0, 0.38);
   --mdc-theme-text-primary-on-dark: white;
@@ -82,6 +82,34 @@ main.main-content {
 
 .mdc-data-table__row {
   transition: background-color 0.2s;
+}
+
+.mdc-top-app-bar .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--mdc-theme-text-hint-on-light);
+}
+
+.mdc-top-app-bar .mdc-text-field--filled {
+  width: 320px;
+}
+
+.mdc-top-app-bar .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: var(--mdc-theme-text-hint-on-light);
+}
+
+.mdc-top-app-bar .mdc-text-field--filled .mdc-text-field__input {
+  color: var(--mdc-theme-on-primary);
+}
+
+.mdc-top-app-bar .mdc-text-field--filled .mdc-line-ripple::after {
+  border-bottom-color: var(--mdc-theme-on-primary);
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: var(--mdc-theme-primary);
+}
+
+.search .mdc-floating-label {
+  color: var(--mdc-theme-on-primary) !important;
 }
 
 .mdc-top-app-bar .search {
