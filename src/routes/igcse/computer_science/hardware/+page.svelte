@@ -127,19 +127,37 @@
   <h2>Input and Output Devices</h2>
   <h3>Input Devices</h3>
   <p>Computers use input devices to receive data or instructions from the real world. Input devices convert real world inputs into digital data that can be processed.</p>
+  <h4>Barcode Scanner</h4>
   <ul>
-    <li>
-      Barcode Scanner
-      <ul>
-        <li>Barcodes are a series of black and white bars which represent a code</li>
-        <li>A barcode reader shines a <strong>red laser</strong> at the barcode to read the data it represents</li>
-        <li>The light from the white lines is reflected back</li>
-        <li>Black lines absorb the light so less is reflected</li>
-        <li>The different levels of reflection are <strong>converted into a binary value</strong> which can be processed by a microprocessor</li>
-        <li>Barcodes can be used in many ways such as identifying a product being sold or tracking a package through the delivery process</li>
-      </ul>
-    </li>
+    <li>Barcodes are a series of black and white bars which represent a code</li>
+    <li>A barcode reader shines a <strong>red laser</strong> at the barcode to read the data it represents</li>
+    <li>The light from the white lines is reflected back</li>
+    <li>Black lines reflect less light than the white lines</li>
+    <li>The different levels of reflection are <strong>converted into a binary value</strong> (by photoelectric cells) which can be processed by a microprocessor</li>
+    <li>Barcodes can be used in many ways such as identifying a product being sold in a supermarket or tracking a package through the delivery process</li>
   </ul>
+  <h4>QR Code Scanner</h4>
+  <ul>
+    <li>QR codes are made of many black and white squares which represent a code</li>
+    <li>A QR code can hold over 7000 digits while a barcode can only store up to 30 digits</li>
+    <li>A QR code scanner shines a <strong>red laser</strong> onto the QR code to read its data</li>
+    <li>The corner squares are used for alignment and orientation</li>
+    <li>The light from the white squares is reflected back</li>
+    <li>Black squares reflect less light than the white squares</li>
+    <li>The different levels of relfection are <strong>converted into a binary value</strong> (by photoelectric cells) which can be processed by a microprocessor</li>
+    <li>Using QR codes is a popular method for storing website addresses and URLs</li>
+  </ul>
+  <h4>2D Scanner</h4>
+  <ul>
+    <li>2D scanners usually convert visual data stored on paper into a digital image that can be processed by a microprocessor</li>
+    <li>A bright light illuminates the document</li>
+    <li>A scan head moves across the document until the whole page has been scanned</li>
+    <li>An image is produced and sent to a lens</li>
+    <li>The lens focuses the image ontp a <strong>charge couple device (CCD)</strong></li>
+    <li>Each pixel generates an electric charge when light falls on it</li>
+    <li>Software produces a digital image and may make use of <strong>optical character recognition (OCR)</strong> to convert the scanned text in the digital image into a text file format</li>
+  </ul>
+  <h4>3D Scanner</h4>
   <h3>Output Devices</h3>
   <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
   <h3>Sensors</h3>
