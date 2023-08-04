@@ -7,7 +7,7 @@ export type Link = {
   sub: Link[],
 }
 
-function cleanPaths(paths: string[]): string[] {
+export function cleanPaths(paths: string[]): string[] {
   return paths.map(path => path.replace('./', '').replace('/+page.svelte', ''))
 }
 

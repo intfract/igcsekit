@@ -58,7 +58,7 @@
 	$: modifiedUsername = username.trim().toLowerCase().replace(badRegex, '')
 	let snackbar: Snackbar
 	$: snackbarText = ''
-	let glob = import.meta.glob('./**/+page.svelte')
+	let glob = import.meta.glob('./**/+page.svelte', { as: 'raw', eager: true })
 
 	state.subscribe(value => {
 		isGuest = !value.account
