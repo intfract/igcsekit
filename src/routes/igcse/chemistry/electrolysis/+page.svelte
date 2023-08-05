@@ -1,5 +1,6 @@
 <script lang="ts">
-  //
+  import katex from 'katex'
+  import { wrap, times, div, frac } from '$lib/utils/katex'
 </script>
 
 <section>
@@ -44,6 +45,10 @@
       </ul>
     </li>
   </ul>
+  <h3>Ionic Half Equations</h3>
+  <div class="katex-display">
+    {@html katex.renderToString(`Al^{3+} + 3e^{-} → Al`, { displayMode: true })}
+  </div>
   <h2>Examples</h2>
   <h3>Molten Lead Bromide</h3>
   <h3>Concentrated Aqueous Sodium Chloride</h3>

@@ -46,7 +46,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@types/katex": "^0.16.2",
 		"appwrite": "^11.0.0",
+		"katex": "^0.16.8",
 		"svelte-material-ui": "^7.0.0-beta.3"
 	}
 }
