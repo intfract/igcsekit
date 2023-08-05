@@ -1,6 +1,6 @@
 import { titleCase } from "./text"
 
-type SearchResult = {
+export type SearchResult = {
   name: string,
   link: string,
   body: string,
@@ -13,7 +13,7 @@ export function getContentFrom(html: string): string {
   nodes.forEach(node => {
     node.remove()
   })
-  return doc.textContent ?? ''
+  return doc.body.textContent?.replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').trim() ?? ''
 }
 
 export function listResults(glob: Record<string, string>) {

@@ -2,15 +2,16 @@
   import Textfield from '@smui/textfield'
   import Icon from '@smui/textfield/icon'
 
-  import { listResults } from '$lib/utils/files'
+  import { listResults, type SearchResult } from '$lib/utils/files'
 
   export let glob: Record<string, string>
+  export let results: SearchResult[]
   
   let query: string = ''
 
   function handleInput(e: CustomEvent<any>) {
     if (!query) return
-    console.log(listResults(glob))
+    results = listResults(glob)
   }
 </script>
 

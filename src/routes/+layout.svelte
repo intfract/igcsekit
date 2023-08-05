@@ -6,6 +6,7 @@
 	import { state } from '../stores/state'
 	import { titleCase } from '$lib/utils/text'
 	import SearchBar from '$lib/components/SearchBar.svelte'
+	import type { SearchResult } from '$lib/utils/files'
 
 	export let data
 
@@ -46,6 +47,7 @@
 	let isGuest: boolean
 	let displayName: string
 	let menu: Menu
+	let search: Menu
 	let open: boolean = false
 	$: active = data.pathname
 	let dialogOpen: boolean = false
@@ -59,6 +61,7 @@
 	let snackbar: Snackbar
 	$: snackbarText = ''
 	let glob = import.meta.glob('./**/+page.svelte', { as: 'raw', eager: true })
+	let results: SearchResult[] = []
 
 	state.subscribe(value => {
 		isGuest = !value.account
@@ -152,7 +155,19 @@
 					<Title>IGCSE Kit</Title>
 				</Section>
 				<Section align="end" toolbar>
-					<SearchBar {glob}></SearchBar>
+					<SearchBar {glob} bind:results></SearchBar>
+					<div>
+						<IconButton class="material-symbols-rounded" aria-label="Search" on:click={() => (search.setOpen(true))}>search</IconButton>
+						<Menu bind:this={search}>
+							<List>
+								{#each results as result}
+									<Item>
+										<Text>{result.name}</Text>
+									</Item>
+								{/each}
+							</List>
+						</Menu>
+					</div>
 					<IconButton class="material-symbols-rounded" aria-label="Settings">settings</IconButton>
 					<div>
 						<IconButton class="material-symbols-rounded" aria-label="Account" on:click={() => (menu.setOpen(true))}>account_circle</IconButton>
