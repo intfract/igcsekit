@@ -277,3 +277,11 @@ main section {
   max-width: 800px;
   margin: auto;
 }
+
+.katex-display {
+  font-size: 24px;
+}
+
+.katex .katex-html>.newline {
+  height: 8px;
+}

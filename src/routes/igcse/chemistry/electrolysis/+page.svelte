@@ -1,6 +1,5 @@
 <script lang="ts">
-  import katex from 'katex'
-  import { wrap, times, div, frac } from '$lib/utils/katex'
+  import { math } from '$lib/utils/katex'
 </script>
 
 <section>
@@ -46,8 +45,9 @@
     </li>
   </ul>
   <h3>Ionic Half Equations</h3>
+  <p>Half equations are used to represent the reactions that take place at each electrode. Half equations only involve ions and electrons. Electrons are represented by {@html math(`e^{-}`)} in half equations due to their negative charge.</p>
   <div class="katex-display">
-    {@html katex.renderToString(`Al^{3+} + 3e^{-} → Al`, { displayMode: true })}
+    {@html math(`Al^{3+} + 3e^{-} → Al`)}
   </div>
   <h2>Examples</h2>
   <h3>Molten Lead Bromide</h3>
