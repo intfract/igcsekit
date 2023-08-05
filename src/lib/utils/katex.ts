@@ -1,6 +1,6 @@
 import katex from 'katex'
 
-export function math(tex: string) {
+export function math(tex: string): string {
   return katex.renderToString(tex, {
     displayMode: false,
     throwOnError: false,
@@ -10,6 +10,6 @@ export function math(tex: string) {
 export const times = '\\times'
 export const div = '\\div'
 
-export function frac(numerator: string, denominator: string) {
+export function frac(numerator: string, denominator: string): string {
   return `frac{${numerator}}{${denominator}}`
 }

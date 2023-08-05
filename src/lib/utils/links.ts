@@ -11,7 +11,7 @@ export function cleanPaths(paths: string[]): string[] {
   return paths.map(path => path.replace('./', '').replace('/+page.svelte', ''))
 }
 
-export function createLinkTree(paths: string[], url: string) {
+export function createLinkTree(paths: string[], url: string): string {
   paths = cleanPaths(paths)
   const pathTree = {}
 
@@ -24,7 +24,7 @@ export function createLinkTree(paths: string[], url: string) {
     })
   })
 
-  function buildHTMLList(node: { [x: string]: any }, acc: string[]) {
+  function buildHTMLList(node: { [x: string]: any }, acc: string[]): string {
     let html = '<ul>'
 
     for (const key in node) {

@@ -16,15 +16,20 @@ export function getContentFrom(html: string): string {
   return doc.body.textContent?.replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').trim() ?? ''
 }
 
-export function listResults(glob: Record<string, string>) {
-  const results: SearchResult[] = []
+export function listFiles(glob: Record<string, string>): SearchResult[] {
+  const items: SearchResult[] = []
   for (const [key, value] of Object.entries(glob)) {
     const path = key.replace('./', '').replace('+page.svelte', '')
-    results.push({
-      name: titleCase(path.split('/').at(-2) ?? 'Home'),
+    const parts = path.split('/')
+    items.push({
+      name: titleCase(['problems', 'questions'].includes(parts.at(-2) ?? '') ? [parts.at(-3), parts.at(-2)].join(': ') : parts.at(-2) ?? 'Home'),
       link: path,
       body: getContentFrom(value),
     })
   }
-  return results
+  return items
+}
+
+export function matches(item: SearchResult, query: string): boolean {
+  return item.body.toLowerCase().includes(query.toLowerCase())
 }

@@ -15,7 +15,7 @@
 	import { Row, Section, Title } from '@smui/top-app-bar'
 	import IconButton from '@smui/icon-button'
 	import Menu from '@smui/menu'
-	import List, { Item, Separator, Text, Graphic, Subheader } from '@smui/list'
+	import List, { Item, Separator, Text, Graphic, Subheader, PrimaryText, SecondaryText } from '@smui/list'
 	import Drawer, {
     AppContent,
     Content,
@@ -62,6 +62,9 @@
 	$: snackbarText = ''
 	let glob = import.meta.glob('./**/+page.svelte', { as: 'raw', eager: true })
 	let results: SearchResult[] = []
+	let focused: boolean = false
+	let hovered: boolean = false
+	$: searchOpen = focused || hovered
 
 	state.subscribe(value => {
 		isGuest = !value.account
@@ -155,14 +158,15 @@
 					<Title>IGCSE Kit</Title>
 				</Section>
 				<Section align="end" toolbar>
-					<SearchBar {glob} bind:results></SearchBar>
 					<div>
-						<IconButton class="material-symbols-rounded" aria-label="Search" on:click={() => (search.setOpen(true))}>search</IconButton>
-						<Menu bind:this={search}>
+						<SearchBar {glob} bind:results bind:focused></SearchBar>
+						<Menu bind:open={searchOpen} anchorCorner="BOTTOM_LEFT" on:mouseover={() => hovered = true} on:mouseleave={() => hovered = false}>
 							<List>
 								{#each results as result}
 									<Item>
-										<Text>{result.name}</Text>
+										<Text>
+											<a href={result.link}>{result.name}</a>
+										</Text>
 									</Item>
 								{/each}
 							</List>
