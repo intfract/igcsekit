@@ -7,9 +7,11 @@ export function math(tex: string): string {
   })
 }
 
+export const end = '\\\\'
 export const times = '\\times'
 export const div = '\\div'
+export const lambda = '\\lambda'
 
 export function frac(numerator: string, denominator: string): string {
-  return `frac{${numerator}}{${denominator}}`
+  return `\\frac{${numerator}}{${denominator}}`
 }
