@@ -64,7 +64,7 @@ main.main-content {
   overflow-x: hidden;
 }
 
-.mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
+.mdc-text-field--filled.mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
   color: var(--mdc-theme-primary);
 }
 
@@ -102,10 +102,6 @@ main.main-content {
 
 .mdc-top-app-bar .mdc-text-field--filled .mdc-line-ripple::after {
   border-bottom-color: var(--mdc-theme-on-primary);
-}
-
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-  color: var(--mdc-theme-primary);
 }
 
 .search .mdc-floating-label {
