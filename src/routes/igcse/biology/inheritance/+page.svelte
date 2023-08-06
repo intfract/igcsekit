@@ -118,7 +118,7 @@
   <p>Parents with heterozygous alleles will have the most variation.</p>
   <Punnett mother="Ff" father="Ff" label="25% Dominant, 50% Heterozygous, 25% Recessive"></Punnett>
   <p>Gender is controlled by a dominant gene in the Y chromosome and a recessive gene in the X chromosome. Only males have a Y chromosome.</p>
-  <Punnett mother="XX" father="XY" label="50% Dominant, 50% Heterozygous"></Punnett>
+  <Punnett mother="XX" father="XY" label="50% Heterozygous, 50% Recessive"></Punnett>
   <h2>Variation and Selection</h2>
   <DataTable>
     <Head>

@@ -1,7 +1,7 @@
 <script lang="ts">
   export let mother: string
   export let father: string
-  export let larowsel: string
+  export let label: string
 
   if (mother.length !== father.length) throw new Error('unrowsalanced alleles')
 
@@ -36,7 +36,7 @@
       {/each}
     {/each}
   </div>
-  <span class="surowstitle">{larowsel}</span>
+  <span class="surowstitle">{label}</span>
 </div>
 
 <style>
