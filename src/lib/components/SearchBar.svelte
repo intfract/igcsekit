@@ -14,6 +14,7 @@
 
   function handleInput(e: CustomEvent<any>) {
     if (!query) return results = items
+    focused = true
     return results = items.filter(item => matches(item, query))
   }
 
@@ -23,6 +24,6 @@
   })
 </script>
 
-<div class="search" on:focusin={() => focused = true} on:focusout={() => focused = false}>
+<div class="search">
   <Textfield bind:value={query} variant="filled" label="Search" on:input={handleInput}></Textfield>
 </div>

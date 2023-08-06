@@ -13,7 +13,7 @@ export function getContentFrom(html: string): string {
   nodes.forEach(node => {
     node.remove()
   })
-  return doc.body.textContent?.replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').trim() ?? ''
+  return doc.body.textContent?.replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').replaceAll(/{.+}/g, '').trim() ?? ''
 }
 
 export function listFiles(glob: Record<string, string>): SearchResult[] {
@@ -21,15 +21,16 @@ export function listFiles(glob: Record<string, string>): SearchResult[] {
   for (const [key, value] of Object.entries(glob)) {
     const path = key.replace('./', '').replace('+page.svelte', '')
     const parts = path.split('/')
+    const content = getContentFrom(value)
     items.push({
       name: titleCase(['problems', 'questions'].includes(parts.at(-2) ?? '') ? [parts.at(-3), parts.at(-2)].join(': ') : parts.at(-2) ?? 'Home'),
       link: path,
-      body: getContentFrom(value),
+      body: content.length ? content : 'IGCSE Kit',
     })
   }
   return items
 }
 
 export function matches(item: SearchResult, query: string): boolean {
-  return item.body.toLowerCase().includes(query.toLowerCase())
+  return item.body.toLowerCase().includes(query.toLowerCase()) || item.name.toLowerCase().includes(query.toLowerCase())
 }

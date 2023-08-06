@@ -63,8 +63,6 @@
 	let glob = import.meta.glob('./**/+page.svelte', { as: 'raw', eager: true })
 	let results: SearchResult[] = []
 	let focused: boolean = false
-	let hovered: boolean = false
-	$: searchOpen = focused || hovered
 
 	state.subscribe(value => {
 		isGuest = !value.account
@@ -160,12 +158,13 @@
 				<Section align="end" toolbar>
 					<div>
 						<SearchBar {glob} bind:results bind:focused></SearchBar>
-						<Menu bind:open={searchOpen} anchorCorner="BOTTOM_LEFT" on:mouseover={() => hovered = true} on:mouseleave={() => hovered = false}>
-							<List>
+						<Menu bind:open={focused} anchorCorner="BOTTOM_LEFT" style="width: 320px;">
+							<List twoLine>
 								{#each results as result}
 									<Item>
 										<Text>
-											<a href={result.link}>{result.name}</a>
+											<PrimaryText>{result.name}</PrimaryText>
+											<SecondaryText>{result.body}</SecondaryText>
 										</Text>
 									</Item>
 								{/each}
