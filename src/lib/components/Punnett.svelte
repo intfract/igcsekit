@@ -26,7 +26,7 @@
       {#each row as cell}
         <div class="alleles">
           {#each cell.split('') as allele,j}
-            {#if j || i && cell.length === 1}
+            {#if i && (!j || cell.length === 1)}
               <span class="allele father">{allele}</span>
             {:else}
               <span class="allele mother">{allele}</span>

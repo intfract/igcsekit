@@ -186,7 +186,10 @@
       Cystic fibrosis is an example of discontinuous variation because it has a <strong>limited number of phenotypes</strong> and is <strong>caused by genes alone</strong>.
     </div>
   </div>
-  <h3>Natural Selection</h3>
+  <h3>Mutations</h3>
+  <p>Ionising radiation and some chemicals can increase the rate of mutation. Mutations allow organisms that produce asexually to develop new traits. For example, antibiotic resistance is caused by mutations in bacteria.</p>
+  <h3>Selection</h3>
+  <h4>Natural Selection</h4>
   <p>Natural selection takes place without human intervention.</p>
   <ol>
     <li>Lots of variation within populations</li>
@@ -195,5 +198,13 @@
     <li>Many individuals struggle for survival</li>
     <li>Individuals that are better adapted to the environment reproduce</li>
     <li>Advantageous alleles are passed down to the next generation</li>
+  </ol>
+  <p>The development of strains of antibiotic resistant bacteria is an example of evolution by natural selection.</p>
+  <h4>Artificial Selection</h4>
+  <p>Traits and characteristics are selected by humans during artificial selection.</p>
+  <ol>
+    <li>Humans select individuals with desirable features</li>
+    <li>These individuals get crossed to produce the next generation</li>
+    <li>Offspring showing desirable features selected</li>
   </ol>
 </section>
