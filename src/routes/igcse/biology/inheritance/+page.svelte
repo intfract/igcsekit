@@ -186,4 +186,14 @@
       Cystic fibrosis is an example of discontinuous variation because it has a <strong>limited number of phenotypes</strong> and is <strong>caused by genes alone</strong>.
     </div>
   </div>
+  <h3>Natural Selection</h3>
+  <p>Natural selection takes place without human intervention.</p>
+  <ol>
+    <li>Lots of variation within populations</li>
+    <li>Production of many offspring</li>
+    <li>Increase in population increases competition for resources</li>
+    <li>Many individuals struggle for survival</li>
+    <li>Individuals that are better adapted to the environment reproduce</li>
+    <li>Advantageous alleles are passed down to the next generation</li>
+  </ol>
 </section>
