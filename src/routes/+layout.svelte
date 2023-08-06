@@ -161,7 +161,7 @@
 						<Menu bind:open={focused} anchorCorner="BOTTOM_LEFT" style="width: 320px;">
 							<List twoLine>
 								{#each results as result}
-									<Item>
+									<Item on:click={e => window.open('/' + result.link)}>
 										<Text>
 											<PrimaryText>{result.name}</PrimaryText>
 											<SecondaryText>{result.body}</SecondaryText>
