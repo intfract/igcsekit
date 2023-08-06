@@ -1,32 +1,32 @@
 <script lang="ts">
   export let mother: string
   export let father: string
-  export let label: string
+  export let larowsel: string
 
-  if (mother.length !== father.length) throw new Error('unbalanced alleles')
+  if (mother.length !== father.length) throw new Error('unrowsalanced alleles')
 
-  let a: string[] = mother.split('')
-  let b: string[] = father.split('')
-  let fCol: string[] = []
-  b.forEach(x => fCol.push(x))
+  let columns: string[] = mother.split('')
+  let rows: string[] = father.split('')
+  let first: string[] = []
+  rows.forEach(x => first.push(x))
   let grid: string[][] = [
-    ['', ...a],
-    ...fCol.map(x => [x])
+    ['', ...columns],
+    ...first.map(x => [x])
   ]
-  for (let i = 0; i < a.length; i++) {
-    for (let j = 0; j < b.length; j++) {
-      grid[i + 1][j + 1] = a[i] + b[j]
+  for (let i = 0; i < rows.length; i++) {
+    for (let j = 0; j < columns.length; j++) {
+      grid[i + 1][j + 1] = columns[j] + rows[i]
     }
   }
 </script>
 
 <div class="punnett">
-  <div class="square" style={`grid-template-columns: repeat(${a.length + 1}, 64px); grid-template-rows: repeat(${b.length + 1}, 64px);`}>
+  <div class="square" style={`grid-template-columns: repeat(${columns.length + 1}, 64px); grid-template-rows: repeat(${rows.length + 1}, 64px);`}>
     {#each grid as row,i}
       {#each row as cell}
         <div class="alleles">
           {#each cell.split('') as allele,j}
-            {#if i && (!j || cell.length === 1)}
+            {#if i && (j || cell.length === 1)}
               <span class="allele father">{allele}</span>
             {:else}
               <span class="allele mother">{allele}</span>
@@ -36,7 +36,7 @@
       {/each}
     {/each}
   </div>
-  <span class="subtitle">{label}</span>
+  <span class="surowstitle">{larowsel}</span>
 </div>
 
 <style>
@@ -71,7 +71,7 @@
     color: var(--mdc-theme-primary);
   }
 
-  .subtitle {
+  .surowstitle {
     font-weight: 600;
   }
 </style>
