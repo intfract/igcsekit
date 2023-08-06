@@ -106,8 +106,15 @@
     <li>Dominant alleles are usually represented with an uppercase letter</li>
     <li>Recessive alleles are usually represented with a lowercase letter</li>
   </ul>
-  <p>Only parents with the same pair of homozygous alleles can ensure pure-breeding.</p>
+  <p>There are a maximum of 3 possible genotypes in a simple Punnet square (ignoring co-dominance).</p>
+  <ul>
+    <li>Homozygous Dominant</li>
+    <li>Homozygous Recessive</li>
+    <li>Heterozygous</li>
+  </ul>
+  <p>Only parents with the same pair of <strong>homozygous</strong> alleles can ensure <strong>pure-breeding</strong>.</p>
   <Punnett mother="TT" father="TT" label="100% Dominant"></Punnett>
+  <Punnett mother="tt" father="tt" label="100% Recessive"></Punnett>
   <p>Parents with heterozygous alleles will have the most variation.</p>
   <Punnett mother="Ff" father="Ff" label="25% Dominant, 50% Heterozygous, 25% Recessive"></Punnett>
   <p>Gender is controlled by a dominant gene in the Y chromosome and a recessive gene in the X chromosome. Only males have a Y chromosome.</p>
@@ -158,6 +165,7 @@
       <strong>Continuous</strong>
       <ul>
         <li>When a <strong>range of phenotypes</strong> can be expressed</li>
+        <li>Caused by both genes and the environment</li>
         <li>Continuous data like <strong>height in humans</strong></li>
       </ul>
     </li>
@@ -165,8 +173,17 @@
       <strong>Discontinuous</strong>
       <ul>
         <li>When only a <strong>limited number of phenotypes</strong> can be expressed</li>
+        <li>Caused by genes alone</li>
         <li>Discrete data like <strong>blood group</strong></li>
       </ul>
     </li>
   </ul>
+  <div class="callout">
+    <div class="emoji-container">
+      🤔
+    </div>
+    <div class="notes">
+      Cystic fibrosis is an example of discontinuous variation because it has a <strong>limited number of phenotypes</strong> and is <strong>caused by genes alone</strong>.
+    </div>
+  </div>
 </section>
