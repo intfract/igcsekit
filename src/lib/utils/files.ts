@@ -13,7 +13,7 @@ export function getContentFrom(html: string): string {
   nodes.forEach(node => {
     node.remove()
   })
-  return doc.body.textContent?.replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').replaceAll(/{.+}/g, '').trim() ?? ''
+  return doc.body.textContent?.replaceAll(/{.+}/g, '').replaceAll(/(\n|\t)/g, ' ').replaceAll(/ +/g, ' ').trim() ?? ''
 }
 
 export function listFiles(glob: Record<string, string>): SearchResult[] {

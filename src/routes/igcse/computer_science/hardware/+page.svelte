@@ -198,6 +198,17 @@
       {/each}
     </Body>
   </DataTable>
+  <h3>Secondary Storage</h3>
+  <ul>
+    <li>Secondary storage is not directly accessed by the CPU</li>
+    <li>
+      Examples include:
+      <ul>
+        <li>hard disk drive (HDD)</li>
+        <li>solid state drive (SSD)</li>
+      </ul>
+    </li>
+  </ul>
   <h2>Network Hardware</h2>
   <h3>IP Addresses</h3>
   <p>An internet protocol (IP) address is a <strong>unique</strong> identifier assigned to devices connected on the internet. IP addresses:</p>
