@@ -21,7 +21,12 @@
     ['ROM', false, 'Read'],
   ]
 
-  let d: [string, number, string, string][] = [
+  let d: [string, string, boolean, string, string][] = [
+    ['HDD', 'Electromagnets', true, 'Slower', 'High'],
+    ['SSD', 'NAND & NOR Logic Gates', false, 'Faster', 'Low'],
+  ]
+
+  let e: [string, number, string, string][] = [
     ['IPv4', 32, '4 groups of denary digits separated by a full stop', '2<sup>32</sup> possible addresses'],
     ['IPv6', 128, '8 groups of 4 hexadecimal digits separated by a colon', '2<sup>128</sup> possible addresses'],
   ]
@@ -209,6 +214,32 @@
       </ul>
     </li>
   </ul>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Storage Device</Cell>
+        <Cell>Technology</Cell>
+        <Cell>Moving Parts</Cell>
+        <Cell>Speed</Cell>
+        <Cell>Power Consumption</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each d as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i === 2}
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
+              {:else}
+                {cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
   <h2>Network Hardware</h2>
   <h3>IP Addresses</h3>
   <p>An internet protocol (IP) address is a <strong>unique</strong> identifier assigned to devices connected on the internet. IP addresses:</p>
@@ -228,7 +259,7 @@
       </Row>
     </Head>
     <Body>
-      {#each d as row}
+      {#each e as row}
         <Row>
           {#each row as cell,i}
             {#if i === 3}
