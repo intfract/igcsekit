@@ -2,6 +2,7 @@
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
   import Comparison from '$lib/components/Comparison.svelte'
+  import Callout from '$lib/components/Callout.svelte'
 
   let positives = [
     'devices plugged into the computer are automatically detected and device drivers are automatically loaded up',
@@ -38,14 +39,9 @@
       <strong>Full-Duplex</strong>: data transmission can occur in both directions simultaneously
     </li>
   </ul>
-  <div class="callout">
-    <div class="emoji-container">
-      🤔
-    </div>
-    <div class="notes">
-      Data transmission cables are a combination of (serial or parallel) and (simplex or half-duplex or full-duplex).
-    </div>
-  </div>
+  <Callout emoji="🤔">
+    Data transmission cables are a combination of (serial or parallel) and (simplex or half-duplex or full-duplex).
+  </Callout>
   <h3>USB</h3>
   <p>The <strong>Universal Serial Bus</strong> is an <strong>asynchronous</strong> and <strong>serial</strong> method of transmitting data between devices and has become an industry standard.</p>
   <p>Using a USB is a common way of transmitting data from <strong>peripherals</strong> like keyboards, mice, and printers to personal computers. When a device is connected to a USB port, the computer <strong>automatically</strong>:</p>

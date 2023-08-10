@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Callout from '$lib/components/Callout.svelte'
   import Punnett from '$lib/components/Punnett.svelte'
 
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
@@ -178,14 +179,9 @@
       </ul>
     </li>
   </ul>
-  <div class="callout">
-    <div class="emoji-container">
-      🤔
-    </div>
-    <div class="notes">
-      Cystic fibrosis is an example of discontinuous variation because it has a <strong>limited number of phenotypes</strong> and is <strong>caused by genes alone</strong>.
-    </div>
-  </div>
+  <Callout emoji="🤔">
+    Cystic fibrosis is an example of discontinuous variation because it has a <strong>limited number of phenotypes</strong> and is <strong>caused by genes alone</strong>.
+  </Callout>
   <h3>Mutations</h3>
   <p>Ionising radiation and some chemicals can increase the rate of mutation. Mutations allow organisms that produce asexually to develop new traits. For example, antibiotic resistance is caused by mutations in bacteria.</p>
   <h3>Selection</h3>
