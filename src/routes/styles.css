@@ -64,7 +64,7 @@ main.main-content {
   overflow-x: hidden;
 }
 
-.mdc-text-field--filled.mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
+.mdc-text-field--focused:not(.mdc-text-field--disabled, .mdc-text-field--invalid) .mdc-floating-label {
   color: var(--mdc-theme-primary);
 }
 
