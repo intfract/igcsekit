@@ -32,6 +32,12 @@
     }
     a.push(temp)
   }
+
+  let b: [string, string, boolean][] = [
+    ['Alkenes', `C${sub('n')}H${sub('2n')}`, false],
+    ['Alkanes', `C${sub('n')}H${sub('2n+2')}`, true],
+    ['Alcohols', `C${sub('n')}H${sub('2n+1')}OH`, true],
+  ]
 </script>
 
 <section>
@@ -70,10 +76,35 @@
     </Body>
   </DataTable>
   <h2>Homologous Series</h2>
-  <p>Homologous series are a family of compounds with the same general formula and similar chemical properties. All compounds in a homologous series contain the same <strong>functional group</strong>.</p>
+  <p>Homologous series are a family of compounds with the same general formula and similar chemical properties. Compounds in the same homologous series have the:</p>
   <ul>
-    <li>Alkene: double carbon bonds</li>
-    <li>Alkane: <em>none</em></li>
-    <li>Alcohol: hydroxide</li>
+    <li>same functional group</li>
+    <li>same general formula</li>
+    <li>similar chemical reactions</li>
+    <li>similar physical properties</li>
   </ul>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Series</Cell>
+        <Cell>General Formula</Cell>
+        <Cell>Saturated</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each b as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i === 2}
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
+              {:else}
+                {@html cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>  
 </section>
