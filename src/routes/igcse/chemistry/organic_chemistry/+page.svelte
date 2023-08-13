@@ -75,6 +75,7 @@
       {/each}
     </Body>
   </DataTable>
+  <p><em>Methene</em> does not exist because it is impossible for a single carbon atom to form double bonds with itself.</p>
   <h2>Homologous Series</h2>
   <p>Homologous series are a family of compounds with the same general formula and similar chemical properties. Compounds in the same homologous series have the:</p>
   <ul>
@@ -107,6 +108,7 @@
       {/each}
     </Body>
   </DataTable>
+  <p>Alkenes have double bonds because they are unsaturated (some carbon atoms need more bonds). Alkanes are saturated with hydrogen atoms. Alcohols have a hydroxide molecule attached to them which means they are not hydrocarbons.</p>
   <h2>Fuels</h2>
   <h3>Fractional Distillation of Petroleum</h3>
   <p>Petroleum is a mixture of hydrocarbons with <strong>different boiling points</strong>. These hydrocarbons can be separated into fractions in a furnace.</p>
