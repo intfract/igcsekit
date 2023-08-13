@@ -106,5 +106,31 @@
         </Row>
       {/each}
     </Body>
-  </DataTable>  
+  </DataTable>
+  <h2>Fuels</h2>
+  <h3>Fractional Distillation of Petroleum</h3>
+  <p>Petroleum is a mixture of hydrocarbons with <strong>different boiling points</strong>. These hydrocarbons can be separated into fractions in a furnace.</p>
+  <p>The temperature is not the same throughout the furnace.</p>
+  <ul>
+    <li>Bottom of the furnace is hot so only the fraction with the highest boiling point (bitumen) can condense</li>
+    <li>Top of the furnace is cool so only the fraction with the lowest boiling point (refinery gas) can remain as vapour</li>
+  </ul>
+  <p>The different fractions have different uses.</p>
+  <ul>
+    <li>
+      <strong>Refinery Gas</strong>: bottled gas for heating
+    </li>
+    <li>
+      <strong>Gasoline</strong>: fuel in cars
+    </li>
+    <li>
+      <strong>Naphtha</strong>: feedstock for manufacturing chemicals
+    </li>
+    <li>
+      <strong>Diesel</strong>: fuel in diesel engines
+    </li>
+    <li>
+      <strong>Bitumen</strong>: road surfaces
+    </li>
+  </ul>
 </section>
