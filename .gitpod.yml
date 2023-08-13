@@ -3,7 +3,7 @@ image:
 
 tasks:
   - init: npm install && cd src-tauri && cargo build --no-default-features
-    command: "npm tauri dev"
+    command: "npm run tauri dev"
 
 ports:
   - name: VNC UI
