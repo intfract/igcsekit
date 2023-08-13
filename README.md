@@ -1,6 +1,6 @@
 # IGCSE Kit
 
-IGCSE Kit is a free IGCSE progress-tracking svelte app. 
+IGCSE Kit is a free IGCSE SvelteKit app. 
 
 ## Open IGCSE Initiative
 
@@ -8,4 +8,4 @@ This app comes from the [Open IGCSE Initiative](https://igcse.cyclic.app) ecosys
 
 ## Contributing
 
-You can fork this repository on [GitHub](https://github.com/intfract) or use the `git clone` command. 
+You can fork this repository on [GitHub](https://github.com/intfract) or use the `git clone` command.
