@@ -240,6 +240,14 @@
       {/each}
     </Body>
   </DataTable>
+  <h3>Virtual Memory</h3>
+  <p>Virtual memory is used when there is not enough RAM to run complex software. Virtual memory:</p>
+  <ul>
+    <li>is allocated inside the hard disk to extend RAM capacity</li>
+    <li>prevents software from crashing</li>
+    <li>allows the computer to process large amounts of data required for complex software</li>
+  </ul>
+  <p>Pages of data are transferred between virtual memory and RAM when needed. Inactive RAM resides in virtual memory until it is required for processing again.</p>
   <h2>Network Hardware</h2>
   <h3>IP Addresses</h3>
   <p>An internet protocol (IP) address is a <strong>unique</strong> identifier assigned to devices connected on the internet. IP addresses:</p>
