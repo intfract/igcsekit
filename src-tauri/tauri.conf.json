@@ -4,7 +4,7 @@
     "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
     "devPath": "http://localhost:5173",
-    "distDir": "../build"
+    "distDir": "../.svelte-kit"
   },
   "package": {
     "productName": "igcsekit",
@@ -29,7 +29,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "app.vercel.igcsekit",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
