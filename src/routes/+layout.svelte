@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { invoke } from '@tauri-apps/api/tauri'
+
 	import './styles.css'
 	import { onMount, createEventDispatcher } from 'svelte'
 	import { fly } from 'svelte/transition'
@@ -39,7 +41,6 @@
 
 	const badRegex = /[^A-Za-z0-9_]/g
 	const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-	const errorRegex = /auth\/[a-z-]+/g
 
 	$: title = titleCase(data.pathname.split('/').at(-1) ?? '')
 	let closed = false
@@ -70,6 +71,9 @@
 	})
 
 	onMount(async () => {
+		if ('__TAURI__' in window) {
+			console.log('TAURI')
+		}
 		async function submit() {
 			if (isInvalidEmail || isInvalidPassword) {
 				snackbarText = 'Please check your email and password.'

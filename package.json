@@ -48,6 +48,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@tauri-apps/api": "^1.4.0",
 		"@types/katex": "^0.16.2",
 		"appwrite": "^11.0.0",
 		"katex": "^0.16.8",
