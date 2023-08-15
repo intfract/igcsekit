@@ -87,4 +87,19 @@
     <li>Interference and corruption are minimal since individual packets can be resent instead of the whole file</li>
     <li>Resending only corrupted packets can save time and <strong>bandwidth</strong> compared to resending an entire file</li>
   </ul>
+  <h2>Error Detection</h2>
+  <h3>Parity Bit</h3>
+  <h3>Parity Byte</h3>
+  <h3>Checksum</h3>
+  <p>A checksum can determine whether data has been corrupted but it does not reveal where the error has been made.</p>
+  <ol>
+    <li>Sender and receiver agree on checksum algorithm</li>
+    <li>Sender calculates a value from the data</li>
+    <li>Value is sent along with data</li>
+    <li>Receiver recalculates value</li>
+    <li>Error has occurred if both values are not equal</li>
+    <li>Receiver requests for the data to be resent</li>
+  </ol>
+  <h3>Check Digit</h3>
+  <h3>ARQ</h3>
 </section>

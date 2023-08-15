@@ -18,6 +18,13 @@
     return results = items.filter(item => matches(item, query))
   }
 
+  function handleArrows(e: any) {
+    if (!e.key.startsWith('Arrow')) return
+    if (e.key === 'ArrowDown') {
+      focused = true
+    }
+  }
+
   onMount(() => {
     items = listFiles(glob)
     results = items
@@ -25,5 +32,5 @@
 </script>
 
 <div class="search">
-  <Textfield bind:value={query} variant="filled" label="Search" on:input={handleInput}></Textfield>
+  <Textfield bind:value={query} variant="filled" label="Search" on:input={handleInput} on:keydown={handleArrows}></Textfield>
 </div>
