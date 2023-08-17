@@ -5,6 +5,29 @@
 
 <section>
   <h1>Software</h1>
+  <h2>Computer Software</h2>
+  <p>System software is <strong>essential</strong> and includes the <strong>operating system</strong> and <strong>utility software</strong>. It is installed directly on the computer and manages the hardware. On the other hand, application software is optional and installed on top of system software to allow the user to perform specific tasks using the computer.</p>
+  <h3>Operating System</h3>
+  <p>The operating system is booted after the BIOS has loaded successfully. An operating system is a program designed to manage hardware and software resources. It performs a variety of tasks:</p>
+  <ul>
+    <li>
+      <strong>Memory Allocation</strong>
+    </li>
+    <li>
+      <strong>Peripheral Management</strong>
+    </li>
+    <li>
+      <strong>Interrupt Handling</strong>
+    </li>
+  </ul>
+  <h3>Utility Software</h3>
+  <p>Utilility programs perform specific tasks related to computer functions, resources, files, and security. They help to configure the system and optimise performance. Some examples include:</p>
+  <ul>
+    <li>Security Software</li>
+    <li>Disk Allocation</li>
+  </ul>
+  <h3>Application Software</h3>
+  <h3>Interrupts</h3>
   <h2>Programming Languages</h2>
   <h3>High-Level</h3>
   <p>A high-level language uses natural language as syntax and is designed to make writing code easier for programmers. Examples of high level langauges include:</p>
@@ -34,9 +57,9 @@
   <p>A translator converts source code written in a high-level or low-level language into machine code.</p>
   <p>There are 3 types of translators:</p>
   <ul>
-    <li>assemblers</li>
-    <li>compilers</li>
-    <li>interpreters</li>
+    <li>Assemblers</li>
+    <li>Compilers</li>
+    <li>Interpreters</li>
   </ul>
   <h3>Assemblers</h3>
   <p>An assembler translates low-level assembly code into machine code.</p>
