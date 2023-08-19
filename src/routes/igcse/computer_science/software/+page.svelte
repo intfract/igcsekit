@@ -20,6 +20,9 @@
       <strong>Interrupt Handling</strong>
     </li>
   </ul>
+  <Callout emoji="🤔">
+    There are many operating systems like Windows, Linux, and macOS!
+  </Callout>
   <h3>Utility Software</h3>
   <p>Utilility programs perform specific tasks related to computer functions, resources, files, and security. They help to configure the system and optimise performance. Some examples include:</p>
   <ul>
@@ -28,7 +31,33 @@
   </ul>
   <h3>Application Software</h3>
   <h3>Interrupts</h3>
-  <p>Interrupts allow computers to multitask.</p>
+  <p>Interrupts allow computers to multitask. When an interrupt is generated, the CPU stops processing the current task and services the interrupt. There are 2 types of interrupts:</p>
+  <ul>
+    <li>
+      <strong>Hardware Interrupts</strong>
+      <ul>
+        <li>Keyboard Keystroke</li>
+        <li>Mouse Movement</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Software Interrupts</strong>
+      <ul>
+        <li>Unresponsive Program</li>
+        <li>Division by Zero</li>
+      </ul>
+    </li>
+  </ul>
+  <h4>Interrupt Service Routine</h4>
+  <p>Interrupts are handled by the <strong>operating system</strong>. It contains the <strong>interrupt handler</strong>.</p>
+  <ol>
+    <li>Interrupt is generated</li>
+    <li>Operating system assigns interrupt a priority</li>
+    <li>Interrupt is added to queue</li>
+    <li>Interrupt stops CPU from processing current instruction</li>
+    <li>Interrupt handler services the interrupt</li>
+    <li>CPU executes interrupt and continues processing other interrupts or instructions</li>
+  </ol>
   <h2>Programming Languages</h2>
   <h3>High-Level</h3>
   <p>A high-level language uses natural language as syntax and is designed to make writing code easier for programmers. Examples of high level langauges include:</p>
