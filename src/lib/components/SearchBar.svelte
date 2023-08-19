@@ -18,11 +18,9 @@
     return results = items.filter(item => matches(item, query))
   }
 
-  function handleArrows(e: any) {
-    if (!e.key.startsWith('Arrow')) return
-    if (e.key === 'ArrowDown') {
-      focused = true
-    }
+  function handleKeyDown(e: any) {
+    if (e.key === 'Enter') window.open('/' + results[0].link, '_self')
+    else if (e.key === 'ArrowDown') focused = true
   }
 
   onMount(() => {
@@ -32,5 +30,5 @@
 </script>
 
 <div class="search">
-  <Textfield bind:value={query} variant="filled" label="Search" on:input={handleInput} on:keydown={handleArrows}></Textfield>
+  <Textfield bind:value={query} variant="filled" label="Search" on:input={handleInput} on:keydown={handleKeyDown}></Textfield>
 </div>

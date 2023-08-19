@@ -28,6 +28,7 @@
   </ul>
   <h3>Application Software</h3>
   <h3>Interrupts</h3>
+  <p>Interrupts allow computers to multitask.</p>
   <h2>Programming Languages</h2>
   <h3>High-Level</h3>
   <p>A high-level language uses natural language as syntax and is designed to make writing code easier for programmers. Examples of high level langauges include:</p>
