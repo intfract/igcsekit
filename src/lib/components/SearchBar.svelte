@@ -4,6 +4,7 @@
 
   import { listFiles, matches, type SearchResult } from '$lib/utils/files'
   import { onMount } from 'svelte'
+  import { goto } from '$app/navigation'
 
   export let glob: Record<string, string>
   export let results: SearchResult[]
@@ -19,7 +20,7 @@
   }
 
   function handleKeyDown(e: any) {
-    if (e.key === 'Enter') window.open('/' + results[0].link, '_self')
+    if (e.key === 'Enter') goto('/' + results[0].link)
     else if (e.key === 'ArrowDown') focused = true
   }
 

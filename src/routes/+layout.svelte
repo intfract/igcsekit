@@ -2,9 +2,9 @@
 	import { invoke } from '@tauri-apps/api/tauri'
 
 	import './styles.css'
-	import { onMount, createEventDispatcher } from 'svelte'
+	import { onMount } from 'svelte'
 	import { fly } from 'svelte/transition'
-	import { afterNavigate } from '$app/navigation'
+	import { afterNavigate, goto } from '$app/navigation'
 	import { state } from '../stores/state'
 	import { titleCase } from '$lib/utils/text'
 	import SearchBar from '$lib/components/SearchBar.svelte'
@@ -165,7 +165,7 @@
 						<Menu bind:open={focused} anchorCorner="BOTTOM_LEFT" style="width: 320px;">
 							<List twoLine>
 								{#each results as result}
-									<Item on:click={e => window.open('/' + result.link, '_self')}>
+									<Item on:click={e => goto('/' + result.link)}>
 										<Text>
 											<PrimaryText>{result.name}</PrimaryText>
 											<SecondaryText>{result.body}</SecondaryText>
