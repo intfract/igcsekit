@@ -91,7 +91,7 @@
         </Row>
       {/each}
     </Body>
-  </DataTable>  
+  </DataTable>
   <h3>CPU Cycle</h3>
   <p>CPUs perform the <strong>fetch-decode-execute</strong> cycle to process data.</p>
   <ol>

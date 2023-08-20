@@ -1,6 +1,9 @@
 <script lang="ts">
+  import Callout from '$lib/components/Callout.svelte'
   import { end, frac, lambda, math } from '$lib/utils/katex'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+
+  type Relative = 'Good' | 'Poor'
 
   let a: [string, string, string, string][] = [
     ['Solid', 'Strong', 'Small', 'Vibrate about a fixed point'],
@@ -11,6 +14,19 @@
   let b: [string, string, string][] = [
     ['Boiling', 'Throughout', 'Specific'],
     ['Evaporation', 'Surface', 'Any'],
+  ]
+
+  let c: [string, string, boolean][] = [
+    ['Conduction', 'Solid', true],
+    ['Convection', 'Liquid & Gas', true],
+    ['Radiation', 'Any', false],
+  ]
+
+  let d: [string, Relative, Relative, Relative][] = [
+    ['Black', 'Good', 'Good', 'Poor'],
+    ['Dull', 'Good', 'Good', 'Poor'],
+    ['White', 'Poor', 'Poor', 'Good'],
+    ['Shiny', 'Poor', 'Poor', 'Good'],
   ]
 </script>
 
@@ -88,4 +104,78 @@
     <li>Most energetic particles leave the surface of the skin</li>
     <li>The average kinetic energy of the remaining particles is reduced</li>
   </ol>
+  <h2>Pressure Changes</h2>
+  <h2>Thermal Expansion</h2>
+  <h2>Measuring Temperature</h2>
+  <h2>Thermal Processes</h2>
+  <p>Objects can transfer thermal energy in 3 ways:</p>
+  <ul>
+    <li>Conduction</li>
+    <li>Convection</li>
+    <li>Radiation</li>
+  </ul>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Process</Cell>
+        <Cell>States</Cell>
+        <Cell>Needs Medium</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each c as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i === 2}
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
+              {:else}
+                {cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
+  <h3>Conduction</h3>
+  <p>Conduction can technically happen in any medium. However it is more common in solids than fluids.</p>
+  <p>Conudction occurs when particles collide and transfer their kinetic energy.</p>
+  <ul>
+    <li>Solids transfer thermal energy by vibrating</li>
+    <li>Metals can also transfer thermal energy by colliding with electrons</li>
+  </ul>
+  <h3>Convection</h3>
+  <p>Convection is the main method of energy transfer in fluids. Heating fluids can cause convection currents.</p>
+  <ol>
+    <li>Heated fluid <strong>expands</strong> and becomes <strong>less dense</strong></li>
+    <li>Heated fluid rises</li>
+    <li>Colder fluid sinks to replace the heated fluid</li>
+  </ol>
+  <p>The convection currents will cycle if the heat source is placed at the bottom of the fluid.</p>
+  <Callout emoji="🤔">
+    Increasing the surface area of an object can increase the amount of heat lost through convection.
+  </Callout>
+  <h3>Radiation</h3>
+  <p>Thermal energy can travel as infrared waves. Infrared waves can <strong>travel in a vacuum</strong> unlike methods of thermal energy transfer.</p>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Process</Cell>
+        <Cell>Absorption</Cell>
+        <Cell>Emission</Cell>
+        <Cell>Reflection</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each d as row}
+        <Row>
+          {#each row as cell}
+            <Cell>{cell}</Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
+  <p>Dark and dull objects will absorb the most heat when it is hot and emit the most heat when it is cold.</p>
 </section>
