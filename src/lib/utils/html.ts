@@ -18,6 +18,12 @@ export function sub(innerHTML: string, attributes?: Record<string, string> | und
   return tag('sub', innerHTML, attributes)
 }
 
+export function h(level: number, innerHTML: string, attributes?: Record<string, string> | undefined): string {
+  level = Math.floor(level)
+  if (level > 6) throw new Error('max heading level is 6')
+  return tag(`h${level}`, innerHTML, attributes)
+}
+
 export function join(...tags: string[]): string {
   return tags.join('')
 }
