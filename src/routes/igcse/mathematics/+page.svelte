@@ -8,8 +8,8 @@
 
 <svelte:head>
   <title>{page}</title>
-	<meta property="og:title" content={page}>
-	<meta property="og:description" content={`Read ${page} notes and answer topic questions for free!`}>
+  <meta property="og:title" content={page}>
+  <meta property="og:description" content={`Read ${page} notes and answer topic questions for free!`}>
 </svelte:head>
 
 <section>
