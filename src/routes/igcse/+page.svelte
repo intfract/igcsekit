@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>IGCSE</title>
+  <title>IGCSE</title>
 	<meta property="og:title" content="IGCSE">
 	<meta property="og:description" content="Continue your IGCSE journey with free notes and practice questions!">
 </svelte:head>

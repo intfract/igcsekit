@@ -1,5 +1,5 @@
 <script>
-	import Paper, { Title, Subtitle, Content } from '@smui/paper'
+  import Paper, { Title, Subtitle, Content } from '@smui/paper'
 	import Ripple from '@smui/ripple'
 	let igcse = [
 		{

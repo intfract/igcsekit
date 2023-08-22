@@ -1,5 +1,5 @@
 <script>
-	
+  
 </script>
 
 <svelte:head>
@@ -11,7 +11,3 @@
 	<h1>Flashcards</h1>
   <p>Create flashcards and share them with the public!</p>
 </section>
-
-<style>
-	
-</style>
