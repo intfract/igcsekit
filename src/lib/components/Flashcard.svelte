@@ -2,9 +2,13 @@
   export let front: string
   export let back: string
   export let flipped: boolean
+
+  function flipCard(e: any) {
+    flipped = !flipped
+  }
 </script>
 
-<div class="flashcard" class:flipped on:click={e => flipped = !flipped}>
+<div class="flashcard" class:flipped on:click={e => flipCard(e)} on:keypress={e => flipCard(e)}>
   <div class="front">
     {@html front}
   </div>

@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
   import Flashcard from '$lib/components/Flashcard.svelte'
-  import { tag, h } from '$lib/utils/html'
+  import { h } from '$lib/utils/html'
 
   let flipped = false
   let front = h(3, 'Click to flip!')
