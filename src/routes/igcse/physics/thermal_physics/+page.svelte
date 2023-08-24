@@ -145,6 +145,7 @@
     <li>Solids transfer thermal energy by vibrating</li>
     <li>Metals can also transfer thermal energy by colliding with electrons</li>
   </ul>
+  <p>Vacuum flasks are good at reducing heat lost by conduction because their vacuum layer has no particles. Conduction and convection are not possible in a vacuum.</p>
   <h3>Convection</h3>
   <p>Convection is the main method of energy transfer in fluids. Heating fluids can cause convection currents.</p>
   <ol>
@@ -156,7 +157,7 @@
   <Callout emoji="🤔">
     Increasing the surface area of an object can increase the amount of heat lost by convection.
   </Callout>
-  <p>Blankets are good at reducing heat lost by convection because they trap a layer of air. Air is a poor conductor of air.</p>
+  <p>Blankets are good at reducing heat lost by convection because they trap a layer of air. Air is a poor conductor of heat.</p>
   <h3>Radiation</h3>
   <p>Thermal energy can travel as infrared waves. Infrared waves can <strong>travel in a vacuum</strong> unlike methods of thermal energy transfer.</p>
   <DataTable>
