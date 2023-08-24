@@ -154,8 +154,9 @@
   </ol>
   <p>The convection currents will cycle if the heat source is placed at the bottom of the fluid.</p>
   <Callout emoji="🤔">
-    Increasing the surface area of an object can increase the amount of heat lost through convection.
+    Increasing the surface area of an object can increase the amount of heat lost by convection.
   </Callout>
+  <p>Blankets are good at reducing heat lost by convection because they trap a layer of air. Air is a poor conductor of air.</p>
   <h3>Radiation</h3>
   <p>Thermal energy can travel as infrared waves. Infrared waves can <strong>travel in a vacuum</strong> unlike methods of thermal energy transfer.</p>
   <DataTable>
