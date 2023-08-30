@@ -3,7 +3,7 @@ import type { Models } from 'appwrite'
 import { get, writable } from 'svelte/store'
 import { sdk, server } from '$lib/appwrite/appwrite'
 
-export type Flashcard = {
+export type FlashcardDocument = {
   front: string,
   back: string,
 } & Models.Document

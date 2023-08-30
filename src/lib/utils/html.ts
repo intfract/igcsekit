@@ -24,6 +24,14 @@ export function h(level: number, innerHTML: string, attributes?: Record<string, 
   return tag(`h${level}`, innerHTML, attributes)
 }
 
+export function style(declarations: Record<string, string>): string {
+  let s: string = ''
+  for (const [key, value] of Object.entries(declarations)) {
+    s += `${key}: ${value};`
+  }
+  return s
+}
+
 export function join(...tags: string[]): string {
   return tags.join('')
 }

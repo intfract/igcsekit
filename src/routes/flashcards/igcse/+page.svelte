@@ -1,7 +1,11 @@
 <script>
-  import LinkTree from '$lib/components/LinkTree.svelte'
+  import Flashcard from '$lib/components/Flashcard.svelte'
 
   export let data
+  const { flashcards } = data
+
+  let flipped = false
+  let index = 0
 </script>
 
 <svelte:head>
@@ -10,5 +14,5 @@
 
 <section>
   <h1>IGCSE</h1>
-  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
+  <Flashcard front={flashcards[index].front} back={flashcards[index].back} {flipped}></Flashcard>
 </section>
