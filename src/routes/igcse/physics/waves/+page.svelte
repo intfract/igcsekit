@@ -38,4 +38,6 @@
   <div class="katex-display">
     {@html math(`f=${frac(`1`, `T`)} ${end} v=f${lambda}`)}
   </div>
+  <h2>Light</h2>
+  <p>Light is an example of a transverse wave in the electromagnetic spectrum.</p>
 </section>

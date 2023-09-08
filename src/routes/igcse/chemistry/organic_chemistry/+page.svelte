@@ -113,6 +113,8 @@
   <p>An alkene is an unsaturated hydrocarbon that contains 1 (carbon) double covalent bond.</p>
   <h4>Cracking</h4>
   <p>Cracking is the process of breaking down larger alkane molecules into smaller alkenes and alkanes. Sometimes, hydrogen can be produced in the process as well.</p>
+  <h3>Alkanes</h3>
+  <p>An alkane is a saturated hydrocarbon that only contains single covalent bonds. Alkanes are less reactive than alkenes.</p>
   <h2>Fuels</h2>
   <h3>Fractional Distillation of Petroleum</h3>
   <p>Petroleum is a mixture of hydrocarbons with <strong>different boiling points</strong>. These hydrocarbons can be separated into fractions in a furnace.</p>
