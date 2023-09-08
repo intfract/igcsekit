@@ -196,6 +196,13 @@
     <li>Advantageous alleles are passed down to the next generation</li>
   </ol>
   <p>The development of strains of antibiotic resistant bacteria is an example of evolution by natural selection.</p>
+  <ol>
+    <li>Antibiotic is given</li>
+    <li>Mutated bacteria that are resistant to antibiotic survive</li>
+    <li>Antibiotic kills non-resistant bacteria</li>
+    <li>Resistant bacteria multiplies</li>
+    <li>The genes for antibiotic resistance are passed down to the next generation</li>
+  </ol>
   <h4>Artificial Selection</h4>
   <p>Traits and characteristics are selected by humans during artificial selection.</p>
   <ol>
