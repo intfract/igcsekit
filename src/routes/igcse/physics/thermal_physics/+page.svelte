@@ -100,6 +100,7 @@
   <h4>Sweating</h4>
   <p>Sweating cools down the body due to evaporation.</p>
   <ol>
+    <li>Energy is transferred from skin to water molecules</li>
     <li>Water in sweat evaporates</li>
     <li>Most energetic particles leave the surface of the skin</li>
     <li>The average kinetic energy of the remaining particles is reduced</li>
@@ -107,6 +108,14 @@
   <h2>Pressure Changes</h2>
   <h2>Thermal Expansion</h2>
   <h2>Measuring Temperature</h2>
+  <p>Thermometers and thermocouples can be used to measure temperature.</p>
+  <h3>Thermometer</h3>
+  <p>Thermometers are made of a bulb and tube containing liquid. This liquid is usually mercury or alcohol.</p>
+  <p>The sensitivity of a thermometer is measured by how much the liquid expands for an increase in temperature.</p>
+  <ul>
+    <li>Increasing the diameter of the tube will decrease the sensitivity</li>
+    <li>Increasing the size of the bulb will increase the sensitivity</li>
+  </ul>
   <h2>Thermal Processes</h2>
   <p>Objects can transfer thermal energy in 3 ways:</p>
   <ul>
