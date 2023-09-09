@@ -110,12 +110,15 @@
   <h2>Measuring Temperature</h2>
   <p>Thermometers and thermocouples can be used to measure temperature.</p>
   <h3>Thermometer</h3>
-  <p>Thermometers are made of a bulb and tube containing liquid. This liquid is usually mercury or alcohol.</p>
+  <p>A thermometer is made of a bulb and tube containing liquid. This liquid is usually mercury or alcohol.</p>
   <p>The sensitivity of a thermometer is measured by how much the liquid expands for an increase in temperature.</p>
   <ul>
     <li>Increasing the diameter of the tube will decrease the sensitivity</li>
     <li>Increasing the size of the bulb will increase the sensitivity</li>
   </ul>
+  <h3>Thermocouple</h3>
+  <p>A thermocouple is made up of <strong>2 different metals</strong>. The <strong>junction</strong> of these metals is heated. Both metals are connected to a voltmeter by a copper wires.</p>
+  <p>Thermocouples are used as thermometers for measuring <strong>high temperatures</strong> and temperatures that <strong>vary rapidly</strong>.</p>
   <h2>Thermal Processes</h2>
   <p>Objects can transfer thermal energy in 3 ways:</p>
   <ul>
@@ -151,9 +154,10 @@
   <p>Conduction can technically happen in any medium. However it is more common in solids than fluids.</p>
   <p>Conudction occurs when particles collide and transfer their kinetic energy.</p>
   <ul>
-    <li>Solids transfer thermal energy by vibrating</li>
-    <li>Metals can also transfer thermal energy by colliding with electrons</li>
+    <li>Solids transfer thermal energy from particle to particle by vibrating</li>
+    <li><strong>Electrons</strong> can transfer thermal energy throughout a <strong>metal</strong> by colliding with other metal atoms</li>
   </ul>
+  <p>Metals are made up of a lattice of positive ions and a sea of <strong>delocalised</strong> (free) electrons.</p>
   <p>Vacuum flasks are good at reducing heat lost by conduction because their vacuum layer has no particles. Conduction and convection are not possible in a vacuum.</p>
   <h3>Convection</h3>
   <p>Convection is the main method of energy transfer in fluids. Heating fluids can cause convection currents.</p>
