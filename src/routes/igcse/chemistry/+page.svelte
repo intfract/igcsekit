@@ -56,6 +56,9 @@
     <li>Test Tube</li>
     <li>Measuring Cylinder</li>
     <li>Syringe</li>
+    <li>Pipette</li>
+    <li>Glass Rod</li>
+    <li>Delivery Tube</li>
   </ul>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
