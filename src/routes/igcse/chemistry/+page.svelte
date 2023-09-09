@@ -21,14 +21,14 @@
 <section>
   <h1>Chemistry</h1>
   <h2>Syllabus</h2>
-  <p>The double science and triple science column refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
+  <p>The double and combined column refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
   <DataTable>
     <Head>
       <Row>
         <Cell>Topic</Cell>
-        <Cell>Single Science</Cell>
-        <Cell>Double Science</Cell>
-        <Cell>Triple Science</Cell>
+        <Cell>Separate</Cell>
+        <Cell>Double</Cell>
+        <Cell>Combined</Cell>
       </Row>
     </Head>
     <Body>
@@ -47,5 +47,15 @@
       {/each}
     </Body>
   </DataTable>
+  <h2>Practical</h2>
+  <p>The <strong>alternative to practical</strong> paper assesses practical skills and includes writing about experiments.</p>
+  <h3>Apparatus</h3>
+  <ul>
+    <li>Beaker</li>
+    <li>Conical Flask</li>
+    <li>Test Tube</li>
+    <li>Measuring Cylinder</li>
+    <li>Syringe</li>
+  </ul>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>

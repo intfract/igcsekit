@@ -23,14 +23,14 @@
 <section>
   <h1>Biology</h1>
   <h2>Syllabus</h2>
-  <p>The double science and triple science column refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
+  <p>The double and combined columns refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
   <DataTable>
     <Head>
       <Row>
         <Cell>Topic</Cell>
-        <Cell>Single Science</Cell>
-        <Cell>Double Science</Cell>
-        <Cell>Triple Science</Cell>
+        <Cell>Separate</Cell>
+        <Cell>Double</Cell>
+        <Cell>Combined</Cell>
       </Row>
     </Head>
     <Body>
