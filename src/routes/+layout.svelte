@@ -134,6 +134,10 @@
   function toggleDrawer() {
     open = !open
   }
+
+  function handleKeyDown(e: any, link: string) {
+    if (e.key === 'Enter') goto('/' + link)
+  }
 </script>
 
 <svelte:head>
@@ -165,7 +169,7 @@
             <Menu bind:open={focused} anchorCorner="BOTTOM_LEFT" style="width: 320px;">
               <List twoLine>
                 {#each results as result}
-                  <Item on:click={e => goto('/' + result.link)}>
+                  <Item on:click={e => goto('/' + result.link)} on:keydown={e => handleKeyDown(e, result.link)}>
                     <Text>
                       <PrimaryText>{result.name}</PrimaryText>
                       <SecondaryText>{result.body}</SecondaryText>
