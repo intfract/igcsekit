@@ -91,7 +91,7 @@
   <h3>Parity Bit</h3>
   <h3>Parity Byte</h3>
   <h3>Checksum</h3>
-  <p>A checksum can determine whether data has been corrupted but it does not reveal where the error has been made.</p>
+  <p>A checksum can determine whether data has been corrupted but it does not reveal where the error has been made. A checksum is calculated once by the sender and once by the receiver.</p>
   <ol>
     <li>Sender and receiver agree on checksum algorithm</li>
     <li>Sender calculates a value from the data</li>
@@ -101,5 +101,15 @@
     <li>Receiver requests for the data to be resent</li>
   </ol>
   <h3>Check Digit</h3>
+  <p>Validates data on data entry.</p>
   <h3>ARQ</h3>
+  <p>An automatic repeat request sends data in a loop until the sender receives a confirmation message. It does not <em>check</em> for errors and relies on other error checking methods to function effectively.</p>
+  <ol>
+    <li>Sender and receiver agree on a certain error checking method</li>
+    <li>Sender transmits calculated value along with data</li>
+    <li>Receiver checks or recalculates value</li>
+    <li>Receiver sends acknowledgement if no errors have been found</li>
+    <li>Receiver requests resend if an error is found</li>
+    <li>Sender resends data until receiver sends an acknowledgement</li>
+  </ol>
 </section>
