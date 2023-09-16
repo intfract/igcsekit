@@ -38,7 +38,6 @@ body {
 	--mdc-typography-font-family: 'Plus Jakarta Sans';
 }
 
-/* Layout grid spacing. */
 :root {
   --mdc-layout-grid-margin-desktop: 24px;
   --mdc-layout-grid-gutter-desktop: 24px;
@@ -53,6 +52,13 @@ body {
 
 :root {
   --top-app-bar-height: 64px;
+}
+
+code {
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--mdc-theme-callout);
+  padding: 0 4px;
+  border-radius: 4px;
 }
 
 .mdc-top-app-bar__row {

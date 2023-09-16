@@ -5,13 +5,45 @@
   import Callout from '$lib/components/Callout.svelte'
 
   let positives = [
-    'devices plugged into the computer are automatically detected and device drivers are automatically loaded up',
+    'Devices plugged into the computer are automatically detected and device drivers are automatically loaded up',
   ]
 
   let negatives = [
-    'maximum cable length is roughly 5 metres meaning it cannot be used over long distances',
+    'Maximum cable length is roughly 5 metres meaning it cannot be used over long distances',
   ]
+
+  function calculateParityBit(parity: number, data: string): number {
+    return (data.split('1').length - 1 + parity) % 2
+  }
+
+  let a: [string, string, string, string][] = []
+
+  let parityBitData = [
+    '0000000',
+    '1111111',
+    '0000001',
+    '1010101',
+  ]
+
+  let parities = [0, 0, 1, 1]
+  let parityNames = ['Even', 'Odd']
+
+  for (let i = 0; i < parityBitData.length; i++) {
+    const data = parityBitData[i]
+    const parity = parities[i]
+    const row: [string, string, string, string] = ['', '', '', '']
+    const parityBit = calculateParityBit(parity, data).toString()
+    row[0] = parityNames[parity]
+    row[1] = data
+    row[2] = parityBit
+    row[3] = parityBit + data
+    a.push(row)
+  }
 </script>
+
+<svelte:head>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+</svelte:head>
 
 <section>
   <h1>Data Transmission</h1>
@@ -75,21 +107,53 @@
     <li><strong>Packet Number</strong></li>
   </ul>
   <h4>Packet Switching</h4>
-  <p>A router controls the route a data packet takes. Data packets usually take the most optimal route (path). Packets may arrive out of order or through different routes. This means the packets need to be reordered once the last packet arrives. The process of transmitting data over the internet is called <strong>packet switching</strong></p>
-  <ul>
-    <li>Routers know which nearby router is closer to the destination device</li>
-    <li>Routers can send packets from the same file though different routes to avoid <strong>data traffic</strong></li>
-    <li>Packets may arrive out of order and the <strong>packet number</strong> helps the receiving device to reorder the data</li>
-    <li>The receiver can send a <strong>resend request</strong> if a packet is missing</li>
-  </ul>
+  <p>A router controls the route a data packet takes. Data packets usually take the most optimal route (path). Packets may arrive out of order or through different routes. This means the packets need to be reordered once the last packet arrives.</p>
+  <ol>
+    <li>Data is <strong>broken</strong> into packets</li>
+    <li>A router controls the route a packet takes</li>
+    <li>The fastest available route is selected</li>
+    <li>Packets may arrive out of order</li>
+    <li>Packets are <strong>reordered</strong> once the last packet has arrived</li>
+    <li>Any missing or corrupted packets are requested to be resent</li>
+  </ol>
   <p>Packet switching has many advantages.</p>
   <ul>
     <li>Interference and corruption are minimal since individual packets can be resent instead of the whole file</li>
     <li>Resending only corrupted packets can save time and <strong>bandwidth</strong> compared to resending an entire file</li>
   </ul>
   <h2>Error Detection</h2>
-  <h3>Parity Bit</h3>
-  <h3>Parity Byte</h3>
+  <h3>Parity Check</h3>
+  <p>Parity checks can come in 2 forms:</p>
+  <ul>
+    <li>parity bit</li>
+    <li>parity byte</li>
+  </ul>
+  <p>The sender and receiver must agree on odd or even parity before transmission. A parity bit is added to the data to make sure that the number of <code>1</code> digits is even or odd</p>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Parity</Cell>
+        <Cell>Data</Cell>
+        <Cell>Parity Bit</Cell>
+        <Cell>Final Value</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each a as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i}
+                <code>{cell}</code>
+              {:else}
+                {cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
   <h3>Checksum</h3>
   <p>A checksum can determine whether data has been corrupted but it does not reveal where the error has been made. A checksum is calculated once by the sender and once by the receiver.</p>
   <ol>
