@@ -280,4 +280,16 @@
       {/each}
     </Body>
   </DataTable>
+  <h4>Static and Dynamic</h4>
+  <p>A static IP address does not change when a device connects to the same network. Static IPs:</p>
+  <ul>
+    <li>have a consistent location</li>
+    <li>are fully traceable</li>
+    <li>can reduce network traffic because the website resources can be accessed directly</li>
+  </ul>
+  <p>A dynamic IP address can change every time a device connects to a network. Dynamic IPs:</p>
+  <ul>
+    <li>are automatically addigned by the <strong>Dynamic Host Configuration Protocol (DHCP)</strong></li>
+    <li>have greater privacy and security</li>
+  </ul>
 </section>
