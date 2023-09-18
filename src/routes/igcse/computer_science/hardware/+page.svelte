@@ -122,7 +122,7 @@
   <h3>Instruction Sets</h3>
   <p>An instruction set is a list of all the commands that can be processed by a CPU. Each command has a <strong>unique binary code</strong>.</p>
   <h3>Embedded Systems</h3>
-  <p>An embedded system is a computer system used to perform a dedicated function. This is different to a general purpose computer like a personal computer. Here are some examples of embedded systems:</p>
+  <p>An embedded system is a computer system used to perform a dedicated function. This is different to a general purpose computer like a personal computer. Some examples of embedded systems include:</p>
   <ul>
     <li>lighting systems</li>
     <li>vending machines</li>
@@ -166,6 +166,7 @@
   <h3>Output Devices</h3>
   <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
   <h3>Sensors</h3>
+  <p>Multiple sensors can be used to perform the same task. Sensors convert real-world data into electrical signals that can be processed by a microprocessor.</p>
   <h2>Storage Devices</h2>
   <h3>Primary Storage</h3>
   <ul>
