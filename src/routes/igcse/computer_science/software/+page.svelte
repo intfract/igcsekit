@@ -108,6 +108,9 @@
     <li>generates a report of <strong>all the errors</strong> found in the program</li>
     <li>produces an executable file</li>
   </ul>
+  <Callout emoji="🤔">
+    A transpiler translates a high-level language to another high-level language in a similar fashion to a compiler.
+  </Callout>
   <h3>Interpreter</h3>
   <p>An interpreter translates source code one line after the other. It also:</p>
   <ul>
