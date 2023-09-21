@@ -7,7 +7,7 @@
   let rows: [string, boolean, boolean, boolean][] = [
     ['Organisms', true, true, true],
     ['Cells', true, true, true],
-    ['Mammal Transport', true, true, true],
+    ['Animal Transport', true, true, true],
     ['Reproduction', true, true, true],
     ['Inheritance', true, true, false],
   ]
