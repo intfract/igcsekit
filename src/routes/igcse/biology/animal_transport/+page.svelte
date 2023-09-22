@@ -39,7 +39,7 @@
       <strong>phagocytosis</strong>: the process of ingesting and killing foreign microorganisms
     </li>
     <li>
-      <strong>antobody production</strong>: the process of releasing antibodies to slow the movement of pathogenic cells
+      <strong>antibody production</strong>: the process of releasing antibodies to slow the movement of pathogenic cells
     </li>
   </ul>
 </section>
