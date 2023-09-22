@@ -11,10 +11,10 @@
     <li>Most mammals have a double circulatory system</li>
   </ul>
   <h3>Double Circulation</h3>
-  <p>Circulation occurs to both the lungs and to the body tissues in mammals.</p>
+  <p>Circulation occurs to both the lungs and to the body tissues in mammals. This gives the heart more control over blood pressure.</p>
   <ul>
-    <li>Blood is pumped more slowly to the lungs to not damange the delicate lung tissues</li>
-    <li>Blood is pumped more quickly to the rest of the body to supply organs with oxygen more frequently</li>
+    <li>Blood is pumped at a lower pressure to the lungs to not damange the delicate lung tissues</li>
+    <li>Blood is pumped at a higer pressure to the rest of the body to supply organs with oxygen more quickly and frequently</li>
   </ul>
   <h2>Blood Components</h2>
   <p>Blood is made up of 3 main components:</p>
