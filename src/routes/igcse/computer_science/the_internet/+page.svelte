@@ -76,4 +76,23 @@
   <Callout emoji="🤔">
     Coookies are harmless, but hackers could use the data stored in cookies to steal personal information. They are not very tasty either.
   </Callout>
+  <h2>Digital Currency</h2>
+  <p>A digital currency is a type of currency that only exists electronically. It has no physical form like fiat currency issued by governments.</p>
+  <h3>Blockchain</h3>
+  <p>Blockchain is an example of a decentralised system because it is not controlled by a singular and central authority.</p>
+  <p>Blockchain is basically a digital ledger with a time-stamped series of records that are impossible to alter. Each block:</p>
+  <ul>
+    <li>
+      represents a transaction and contains data related to the:
+      <ul>
+        <li>sender</li>
+        <li>recipient</li>
+        <li>amount of money</li>
+        <li>currency</li>
+      </ul>
+    </li>
+    <li>has a timestamp</li>
+    <li>has a <strong>hash</strong> that acts as a unique identifier or digital fingerprint</li>
+    <li>except the first block stores the hash value of the previous block in the chain</li>
+  </ul>
 </section>
