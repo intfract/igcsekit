@@ -36,10 +36,10 @@
   <p>A white blood cell is a type of cell that is part of the immune system. White blood cells play a major role in:</p>
   <ul>
     <li>
-      <strong>phagocytosis</strong>: the process of ingesting and killing foreign microorganisms
+      <strong>Phagocytosis</strong>: the process of ingesting and killing foreign microorganisms
     </li>
     <li>
-      <strong>antibody production</strong>: the process of releasing antibodies to slow the movement of pathogenic cells
+      <strong>Antibody Production</strong>: the process of releasing antibodies to slow the movement of pathogenic cells
     </li>
   </ul>
 </section>
