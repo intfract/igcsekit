@@ -95,4 +95,30 @@
     <li>has a <strong>hash</strong> that acts as a unique identifier or digital fingerprint</li>
     <li>except the first block stores the hash value of the previous block in the chain</li>
   </ul>
+  <h2>Cyber Security</h2>
+  <h3>Threats</h3>
+  <p>Different cyber security threats have different aims and processes although most have similar aims.</p>
+  <h4>Brute-Force</h4>
+  <p>A brute-force attack relies on <strong>trial and error</strong> to <strong>guess</strong> a password.</p>
+  <ul>
+    <li><strong>Combinations</strong> are repeatedly entered until correct password is found</li>
+    <li>Can be done automatically by software or manually</li>
+  </ul>
+  <p>These attacks have many aims such as:</p>
+  <ul>
+    <li>damaging reputation of a business</li>
+    <li>installing malware</li>
+    <li>stealing, deleting, and changing data</li>
+    <li>locking accounts</li>
+  </ul>
+  <h4>Denial of Service</h4>
+  <p>A DoS attack is carried out by sending multiple requests per second to <strong>overwhelm</strong> a web server and make it unresponsive.</p>
+  <p>A distributed denial of service (DDoS) attack involved multiple devices making requests. It is often done using a botnet.</p>
+  <ul>
+    <li>Offender installs malware on multiple devices to create a botnet</li>
+    <li>Offender initiates DDoS attack remotely</li>
+    <li>Botnet sends multiple requests to web server</li>
+    <li>Server is overwhelmed and shuts down</li>
+    <li>Legitimate users are no longer able to connect to the unresponsive web server</li>
+  </ul>
 </section>
