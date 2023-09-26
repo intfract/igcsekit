@@ -141,4 +141,18 @@
       <strong>Bitumen</strong>: road surfaces
     </li>
   </ul>
+  <h2>Polymer</h2>
+  <p>A polymer is a <strong>long chain</strong> molecule formed from small repeating units called <strong>monomers</strong>.</p>
+  <h3>Addition Polymerisation</h3>
+  <p>The addition of multiple monomer units results in an addition polymer. Addition polymers have the <em>poly</em> prefix attached to the name of the monomer. For example, <strong>poly(ethene)</strong> is an addition polymer made from multiple ethene molecules.</p>
+  <p>The orientation of each monomer does not matter as long as they have the same chemical structure and formula.</p>
+  <h3>Condensation Polymerisation</h3>
+  <p>Nylon is an example of a condensation polymer. Condensation polymerisation forms a polymer and a <strong>small molecular waste product</strong> while addition polymerisation only produces a polymer.</p>
+  <p>Nylon is made from a dicarboxylic acid and a diamine.</p>
+  <ol>
+    <li>dicarboxylic acid loses its hydroxide</li>
+    <li>diamine loses one of its hydrogens</li>
+    <li>hydrogen and hydroxide react to produce water</li>
+    <li>dicarboxylic acid and diamine join together to form a larger molecule</li>
+  </ol>
 </section>
