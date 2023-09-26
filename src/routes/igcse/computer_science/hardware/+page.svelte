@@ -129,6 +129,15 @@
     <li>security systems</li>
   </ul>
   <p>Embedded systems run on firmware and do not have any additional peripheral devices. Some of these are <strong>microcontrollers</strong> which are integrated circuits with built in memory.</p>
+  <h4>Process</h4>
+  <p>Most embedded systems follow a simmilar process or pattern.</p>
+  <ol>
+    <li>Sensor <strong>continually</strong> sends <strong>digitised data</strong> to microprocessor</li>
+    <li>Microprocessor checks data against <strong>stored values</strong></li>
+    <li>Microprocessor sends signal to perform action if value is outisde range</li>
+    <li>Output device is used to perform action</li>
+    <li>Whole process is repeated until stopped</li>
+  </ol>
   <h2>Input and Output Devices</h2>
   <h3>Input Devices</h3>
   <p>Computers use input devices to receive data or instructions from the real world. Input devices convert real world inputs into digital data that can be processed.</p>
