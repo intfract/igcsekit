@@ -213,7 +213,15 @@
       {/each}
     </Body>
   </DataTable>
+  <p>RAM stores currently running:</p>
+  <ul>
+    <li>data</li>
+    <li>instructions</li>
+    <li>application software</li>
+    <li>parts of the OS</li>
+  </ul>
   <h3>Secondary Storage</h3>
+  <p>The purpose of secondary storage is to <strong>permanently</strong> store files that are <strong>not currently required by the CPU</strong>. It allows data to be transferred to another computer.</p>
   <ul>
     <li>Secondary storage is not directly accessed by the CPU</li>
     <li>
