@@ -53,12 +53,21 @@
   <ul>
     <li>
       <strong>Serial</strong>: bits are transmitted <strong>one by one</strong> along a <strong>single wire</strong>
+      <ul>
+        <li>less likely to experience <strong>interference</strong> means data is less likely to have errors</li>
+        <li>can be used for longer distances</li>
+        <li>bits do not have to be reordered</li>
+      </ul>
     </li>
     <li>
       <strong>Parallel</strong>: multiple bits are transmitted <strong>simultaneously</strong> across <strong>multiple wires</strong>
+      <ul>
+        <li>faster transmission than serial</li>
+        <li>unlikely to skew when the connection is a short distance</li>
+      </ul>
     </li>
   </ul>
-  <p>Parallel transmission has the advantage of sending more bits per cycle. However, parallel transmission is more prone to <strong>errors</strong> than serial transmission. Serial transmission is better for transmitting data over a long distance because data is less likely to <strong>skew</strong>.</p>
+  <p>Skewing occurs when bits travel at different speeds and arrive out of sync. This is only a problem with parallel data transmission.</p>
   <p>There are 3 methods that determine the direction of data transmission.</p>
   <ul>
     <li>

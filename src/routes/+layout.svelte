@@ -6,7 +6,7 @@
   import { fly } from 'svelte/transition'
   import { afterNavigate, goto } from '$app/navigation'
   import { state } from '../stores/state'
-  import { titleCase } from '$lib/utils/text'
+  import { titleCase, getLastFolder } from '$lib/utils/text'
   import SearchBar from '$lib/components/SearchBar.svelte'
   import type { SearchResult } from '$lib/utils/files'
 
@@ -42,7 +42,7 @@
   const badRegex = /[^A-Za-z0-9_]/g
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-  $: title = titleCase(data.pathname.split('/').at(-1) ?? '')
+  $: title = titleCase(getLastFolder(data.pathname))
   let closed = false
   let hasAccount = false
   let isGuest: boolean

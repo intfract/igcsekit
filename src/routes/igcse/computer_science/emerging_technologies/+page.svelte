@@ -17,7 +17,13 @@
   <h1>Emerging Technologies</h1>
   <h2>Automated Systems</h2>
   <h2>Robotics</h2>
-  <p>Robotics is a branch of computer science that incorporates the design, construction, and operation of robots.</p>
+  <p>Robotics is a branch of computer science that incorporates the:</p>
+  <ul>
+    <li>design</li>
+    <li>construction</li>
+    <li>operation</li>
+  </ul>
+  <p>... of robots.</p>
   <p>Applications of robotics include:</p>
   <ul>
     <li>factory equipment</li>
@@ -43,8 +49,15 @@
   </ul>
   <p>There are many advantages and disadvantages to using robots in a commercial environment. This is where economic concepts intersect with computer science.</p>
   <Comparison {positives} {negatives}></Comparison>
-  <h2>Artifical Intelligence</h2>
+  <h2>Artificial Intelligence</h2>
   <p>AI is a branch of computer science dealing with the simulation of intelligent behaviours by computers.</p>
+  <p>The characteristics of AI include the:</p>
+  <ul>
+    <li>collection of data</li>
+    <li>storage of rules for using data</li>
+    <li>ability to reason</li>
+    <li>ability to adapt</li>
+  </ul>
   <h3>Expert System</h3>
   <p>An expert system tries to make decisions and works alongside humans. Expert systems have:</p>
   <ul>
