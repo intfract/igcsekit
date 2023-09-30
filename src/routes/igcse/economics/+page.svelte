@@ -4,15 +4,9 @@
 
   export let data
 
-  let a: [string, string][] = [
-    ['Data Transmission', 'Types, Error Detection, Encryption'],
-    ['Hardware', 'Computer Artchitecture, IO Devices, Data Storage, Network'],
-    ['Software', 'Types and Interrupts, Programming Languages and IDEs'],
-    ['The Internet', 'WWW, Digital Currency, Cyber Security'],
-    ['Emerging Technologies', 'Automated Systems, Robotics, Artificial Intelligence'],
-  ]
+  let a: [string, string][] = []
 
-  let page = 'IGCSE Computer Science'
+  let page = 'IGCSE Economics'
 </script>
 
 <svelte:head>
@@ -22,10 +16,9 @@
 </svelte:head>
 
 <section>
-  <h1>Computer Science</h1>
+  <h1>Economics</h1>
   <h2>Syllabus</h2>
-  <p>In 2023, the <strong>pre-release material was removed</strong> from the course along with the security and ethics chapter. Cyber security is now part of the "The internet and its uses" chapter. The completely new "Automated and emerging technologies" introduces robotics and artificial intelligence into the syllabus.</p>
-  <p>The 2023 syllabus update was a <em>breaking</em> change. This means that old textbooks are largely incompatible with the new syllabus.</p>
+  <p>No major changes were made to this syllabus.</p>
   <DataTable>
     <Head>
       <Row>
