@@ -1,6 +1,7 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
+  import CodeBlock from '$lib/components/CodeBlock.svelte'
 
   export let data
 
@@ -11,6 +12,8 @@
     ['The Internet', 'WWW, Digital Currency, Cyber Security'],
     ['Emerging Technologies', 'Automated Systems, Robotics, Artificial Intelligence'],
   ]
+
+  let code = 'INPUT Name\nOUTPUT "Hello, ", Name, "!"'
 
   let page = 'IGCSE Computer Science'
 </script>
@@ -49,5 +52,8 @@
       {/each}
     </Body>
   </DataTable>
+  <h2>Pseudocode</h2>
+  <p>Pseudocode must be handwritten in the computer programming paper.</p>
+  <CodeBlock {code}></CodeBlock>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
