@@ -15,6 +15,10 @@
     ['Tectonics', 'Plate Movement, Volcanoes, Earthquakes'],
   ]
 
+  let c: [string, string][] = [
+    ['Environmental Risks', 'Soil Erosion, Desertification, Pollution'],
+  ]
+
   let page = 'IGCSE Geography'
 </script>
 
@@ -77,4 +81,28 @@
     </Body>
   </DataTable>
   <h3>Economic</h3>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Topic</Cell>
+        <Cell>Description</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each c as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>
+              {#if i === 0 && typeof cell === 'string'}
+                <a href={[data.pathname, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
+              {:else}
+                {cell}
+              {/if}
+            </Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
