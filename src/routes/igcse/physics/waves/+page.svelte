@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { end, frac, lambda, math } from '$lib/utils/katex'
+  import { end, frac, lambda, math, sin, theta, times } from '$lib/utils/katex'
 </script>
 
 <section>
@@ -14,10 +14,10 @@
   <p class="hidden offset">There are 2 types of waves.</p>
   <ul class="hidden offset">
     <li>
-      <strong>Transverse</strong>: energy transfer is perpendicular to the direction of wave travel 
+      <strong>Transverse</strong>: oscillation is <strong>perpendicular</strong> to the direction of wave travel 
     </li>
     <li>
-      <strong>Longitudinal</strong>: energy transfer is parallel to the direction of wave travel
+      <strong>Longitudinal</strong>: oscillation is <strong>parallel</strong> to the direction of wave travel
     </li>
   </ul>
   <p class="hidden offset">All waves have 4 basic properties.</p>
@@ -40,4 +40,21 @@
   </div>
   <h2>Light</h2>
   <p>Light is an example of a transverse wave in the electromagnetic spectrum.</p>
+  <h3>Reflection</h3>
+  <h4>Plane Mirror</h4>
+  <p>A plane mirror always produces an image that is:</p>
+  <ul>
+    <li>virtual</li>
+    <li>laterally inverted</li>
+    <li>equal</li>
+  </ul>
+  <p>Plane mirrors are flat. This means there is no distortion or scaling of the image. A virtual image is produced because the rays diverge but appear to converge behind the mirror.</p>
+  <h3>Refraction</h3>
+  <p>The refractive index is the ratio of the speed of light in a vacuum to the speed of light in another medium.</p>
+  <div class="katex-display">
+    {@html math(`n_i ${times} ${sin} ${theta}_i=n_r ${times} ${sin} ${theta}_r ${end} n_r=${frac(`${sin} ${theta}_i`, `${sin} ${theta}_r`)}`)}
+  </div>
+  <h4>Total Internal Reflection</h4>
+  <h4>Convex Lens</h4>
+  <p>A convex lens bulges outwards. It is also known as a <strong>converging lens</strong> because it bends rays towards the principal axis.</p>
 </section>
