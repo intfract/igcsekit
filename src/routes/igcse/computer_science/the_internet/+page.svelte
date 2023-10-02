@@ -113,7 +113,7 @@
   </ul>
   <h4>Denial of Service</h4>
   <p>A DoS attack is carried out by sending multiple requests per second to <strong>overwhelm</strong> a web server and make it unresponsive.</p>
-  <p>A distributed denial of service (DDoS) attack involved multiple devices making requests. It is often done using a botnet.</p>
+  <p>A distributed denial of service (DDoS) attack involved multiple devices making requests. It is often done using a <strong>botnet</strong>.</p>
   <ul>
     <li>Offender installs malware on multiple devices to create a botnet</li>
     <li>Offender initiates DDoS attack remotely</li>
