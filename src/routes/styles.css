@@ -78,6 +78,10 @@ main.main-content {
   margin-top: 16px;
 }
 
+.mdc-drawer-app-content {
+  overflow: hidden !important;
+}
+
 .mdc-drawer .mdc-deprecated-list-item--activated, .mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
   color: var(--mdc-theme-primary);
 }

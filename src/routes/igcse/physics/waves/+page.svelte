@@ -51,8 +51,13 @@
   <p>Plane mirrors are flat. This means there is no distortion or scaling of the image. A virtual image is produced because the rays diverge but appear to converge behind the mirror.</p>
   <h3>Refraction</h3>
   <p>The refractive index is the ratio of the speed of light in a vacuum to the speed of light in another medium.</p>
+  <p>Snell's law is used to calculate the refractive index of a medium. Denser mediums will have a refractive index that is <strong>always greater than 1</strong>.</p>
   <div class="katex-display">
-    {@html math(`n_i ${times} ${sin} ${theta}_i=n_r ${times} ${sin} ${theta}_r ${end} n_r=${frac(`${sin} ${theta}_i`, `${sin} ${theta}_r`)}`)}
+    {@html math(`n_i ${times} ${sin} ${theta}_i=n_r ${times} ${sin} ${theta}_r`)}
+  </div>
+  <p>The incident material is assumed to be a vacuum which means it has a refractive index of 1. Therefore, Snell's law can be simplified.</p>
+  <div class="katex-display">
+    {@html math(`n_r=${frac(`${sin} ${theta}_i`, `${sin} ${theta}_r`)}`)}
   </div>
   <h4>Total Internal Reflection</h4>
   <h4>Convex Lens</h4>
