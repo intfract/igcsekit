@@ -22,6 +22,7 @@
 
   function run(code: string) {
     terminal = ''
+    index = 0
     // compile pseudocode to tasks
   }
 
