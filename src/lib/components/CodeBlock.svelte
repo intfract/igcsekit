@@ -16,7 +16,7 @@
   let tasks: Function[] = [
     (vars: Record<string, any>, input: string) => {
       vars['name'] = input
-      output("Hello ", vars['name'], "!")
+      output("Hello, ", vars['name'], "!")
     },
   ] // dummy pseudocode compilation
 
