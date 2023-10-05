@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { Compiler } from '$lib/utils/compiler'
+
   import Button, { Label, Icon } from '@smui/button'
   import Textfield from '@smui/textfield'
 
@@ -6,6 +8,7 @@
   let terminal: string = ''
   let value: string = ''
   let index: number = 0
+  let inputted: boolean = false
 
   function output(...args: string[]) {
     let s = ''
@@ -13,27 +16,25 @@
     terminal += s
   }
 
-  let tasks: Function[] = [
-    (vars: Record<string, any>, input: string) => {
-      vars['name'] = input
-      output("Hello, ", vars['name'], "!")
-    },
-  ] // dummy pseudocode compilation
+  const timeout = async (ms: number) => new Promise(res => setTimeout(res, ms))
+  async function waitForInput() {
+    while (!inputted) await timeout(1)
+    inputted = false
+    return value
+  }
 
-  function run(code: string) {
+  async function run(code: string) {
     terminal = ''
     index = 0
-    // compile pseudocode to tasks
+    // dummy compiled pseudocode
+    const Name = await waitForInput()
+    output("Hello, ", Name, "!")
   }
 
   function submit(e: any) {
     if (e.key !== 'Enter') return
     terminal += value + '\n'
-    const task = tasks[index]
-    if (task) {
-      task(vars, value)
-      index++
-    }
+    inputted = true
   }
 
   export let code: string
