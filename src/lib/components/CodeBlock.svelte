@@ -4,11 +4,12 @@
   import Button, { Label, Icon } from '@smui/button'
   import Textfield from '@smui/textfield'
 
-  let vars: Record<string, any> = {}
   let terminal: string = ''
   let value: string = ''
   let index: number = 0
   let inputted: boolean = false
+
+  const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
 
   function output(...args: string[]) {
     let s = ''
@@ -17,7 +18,7 @@
   }
 
   const timeout = async (ms: number) => new Promise(res => setTimeout(res, ms))
-  async function waitForInput() {
+  async function input() {
     while (!inputted) await timeout(1)
     inputted = false
     return value
@@ -26,9 +27,24 @@
   async function run(code: string) {
     terminal = ''
     index = 0
-    // dummy compiled pseudocode
-    const Name = await waitForInput()
-    output("Hello, ", Name, "!")
+    const lib = {
+      input,
+      output,
+    }
+    const compiler = new Compiler(code)
+    const js = compiler.compile()
+    const { variables } = compiler
+    const f = new AsyncFunction(...Object.keys(lib), ...variables, js)
+    try {
+      const y = f(...Object.values(lib), ...(new Array(variables.length)))
+      const error = await y
+      console.log(error)
+      if (error) {
+        terminal += error
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   function submit(e: any) {

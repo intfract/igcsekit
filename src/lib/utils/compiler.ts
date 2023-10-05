@@ -6,15 +6,16 @@ export function compile(pseudocode: string): Function[] {
 }
 
 export class Compiler {
-  tasks: Function[] = []
   i: number = 0
   end: boolean = false
   code: string
   char: string
+  variables: string[] = []
 
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare']
+  keywords: string[] = ['input', 'output']
   blocks: string[] = ['while', 'if']
   symbols: string = ':<=>+-*/&|!^'
   operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!']
@@ -101,11 +102,10 @@ export class Compiler {
     }
   }
 
-  compile(): Function[] {
-    let temp: string
+  compile(): string {
+    let temp: string = ''
     let indent: number = 0
-    let counter: number = 1 << 8
-    while (!this.end && counter) {
+    while (!this.end) {
       if (this.brackets.includes(this.char)) {
         if ('()[]'.includes(this.char)) {
           this.js += this.char
@@ -128,14 +128,35 @@ export class Compiler {
       }
       if (this.isLetter(this.char)) {
         const word = this.extractWord()
-        if (this.assignment.includes(word)) {
+        const wordL = word.toLowerCase()
+        if (this.assignment.includes(wordL)) {
           this.js += ' '
-        } else {
-          if (this.blocks.includes(word)) {
-            this.js += ' '
+        } else if (this.blocks.includes(wordL)) {
+          this.js += ' '
+        } else if (this.keywords.includes(wordL)) {
+          if (wordL === 'input') {
+            this.move()
+            if (this.isLetter(this.char)) {
+              const x = this.extractWord()
+              const xL = x.toLowerCase()
+              if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error('reserved word used for variable name')
+              // if (!this.variables.includes(x)) {
+              //   this.variables.push(x)
+              //   this.js += 'var '
+              // }
+              this.js += `${x} = await input()`
+            }
+          } else if (wordL === 'output') {
+            this.js += 'output('
+            temp = ')'
           }
+        } else {
+          // if (!this.variables.includes(word)) {
+          //   this.variables.push(word)
+          //   this.js += 'var '
+          // }
+          this.js += word
         }
-        temp = word
         continue
       }
       if (this.symbols.includes(this.char)) {
@@ -157,9 +178,19 @@ export class Compiler {
         this.move()
         continue
       }
-      counter--
+      if (this.separator.includes(this.char)) {
+        this.js += ','
+        this.move()
+        continue
+      }
+      if (this.char === '\n') {
+        this.js += temp + ';'
+        temp = ''
+        this.move()
+        continue
+      }
     }
-    console.log(this.js)
-    return this.tasks
+    this.js += temp
+    return `try{${this.js};return false}catch($e){return $e}`
   }
 }
