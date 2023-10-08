@@ -13,7 +13,7 @@
     ['Emerging Technologies', 'Automated Systems, Robotics, Artificial Intelligence'],
   ]
 
-  let code = 'INPUT Name\nOUTPUT "Hello, ", Name, "!"'
+  let code = 'Count <- 0\nWHILE Count < 10 DO\n\tOUTPUT Count\n\tCount <- Count + 1\nENDWHILE'
 
   let page = 'IGCSE Computer Science'
 </script>

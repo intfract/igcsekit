@@ -14,7 +14,7 @@
   function output(...args: string[]) {
     let s = ''
     args.forEach(arg => s += arg)
-    terminal += s
+    terminal += s + '\n'
   }
 
   const timeout = async (ms: number) => new Promise(res => setTimeout(res, ms))
@@ -33,6 +33,7 @@
     }
     const compiler = new Compiler(code)
     const js = compiler.compile()
+    console.log(js)
     const { variables } = compiler
     const f = new AsyncFunction(...Object.keys(lib), ...variables, js)
     try {
@@ -89,5 +90,6 @@
 
   pre {
     margin: 0;
+    tab-size: 4;
   }
 </style>

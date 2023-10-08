@@ -29,6 +29,9 @@ export class Compiler {
       '<-': '=',
       '=': '==',
       '^': '**',
+      'do': '){',
+      'then': '){',
+      'next': '}',
     },
   }
 
@@ -132,7 +135,7 @@ export class Compiler {
         if (this.assignment.includes(wordL)) {
           this.js += ' '
         } else if (this.blocks.includes(wordL)) {
-          this.js += ' '
+          this.js += wordL + '('
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
             this.move()
@@ -140,21 +143,17 @@ export class Compiler {
               const x = this.extractWord()
               const xL = x.toLowerCase()
               if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error('reserved word used for variable name')
-              // if (!this.variables.includes(x)) {
-              //   this.variables.push(x)
-              //   this.js += 'var '
-              // }
               this.js += `${x} = await input()`
             }
           } else if (wordL === 'output') {
             this.js += 'output('
             temp = ')'
           }
+        } else if (Object.keys(this.maps.js).includes(wordL)) {
+          this.js += this.maps.js[wordL]
+        } else if (wordL.startsWith('end')) {
+          this.js += '}'
         } else {
-          // if (!this.variables.includes(word)) {
-          //   this.variables.push(word)
-          //   this.js += 'var '
-          // }
           this.js += word
         }
         continue
