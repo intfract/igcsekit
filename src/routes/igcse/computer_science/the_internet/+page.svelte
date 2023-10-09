@@ -121,4 +121,20 @@
     <li>Server is overwhelmed and shuts down</li>
     <li>Legitimate users are no longer able to connect to the unresponsive web server</li>
   </ul>
+  <h3>Solutions</h3>
+  <h4>Access Levels</h4>
+  <p>Access levels provide users with different permissions for data. They notably limit access to:</p>
+  <ul>
+    <li>reading data</li>
+    <li>editing data</li>
+  </ul>
+  <p>An access level is usually controlled by a username. Users with a higher access level will have more permissions or higher privileges.</p>
+  <h4>Firewall</h4>
+  <p>A firewall is software or hardware that:</p>
+  <ul>
+    <li>filters traffic</li>
+    <li>blocks unauthorised access</li>
+    <li>maintains logs</li>
+  </ul>
+  <p>Firewalls can also be configured to warn the user of a potentially malicious website and prevent the user from accessing it.</p>
 </section>
