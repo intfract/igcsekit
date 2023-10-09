@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { b as bold, sup } from '$lib/utils/html'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
   let a: [string, string, string][] = [
@@ -26,9 +27,9 @@
     ['SSD', 'NAND & NOR Logic Gates', false, 'Faster', 'Low'],
   ]
 
-  let e: [string, number, string, string][] = [
-    ['IPv4', 32, '4 groups of denary digits separated by a full stop', '2<sup>32</sup> possible addresses'],
-    ['IPv6', 128, '8 groups of 4 hexadecimal digits separated by a colon', '2<sup>128</sup> possible addresses'],
+  let e: [string, number, string, string, string][] = [
+    ['IPv4', 32, 'denary', bold('.'), `2${sup('32')} possible addresses`],
+    ['IPv6', 128, 'hexadecimal', bold(':'), `2${sup('128')} possible addresses`],
   ]
 </script>
 
@@ -172,6 +173,9 @@
     <li>Software produces a digital image and may make use of <strong>optical character recognition (OCR)</strong> to convert the scanned text in the digital image into a text file format</li>
   </ul>
   <h4>3D Scanner</h4>
+  <ul>
+    <li>takes many layers of images</li>
+  </ul>
   <h3>Output Devices</h3>
   <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
   <h3>Sensors</h3>
@@ -266,21 +270,34 @@
     <li>allows the computer to process large amounts of data required for complex software</li>
   </ul>
   <p>Pages of data are transferred between virtual memory and RAM when needed. Inactive RAM resides in virtual memory until it is required for processing again.</p>
+  <ol>
+    <li>Secondary storage is <strong>partitioned</strong> to make space for virtual memory</li>
+    <li>Inactive page is moved from RAM to virtual memory</li>
+    <li>This frees space for a page in virtual memory that is immediately required for processing</li>
+    <li>Required page is moved from virtual memory to RAM</li>
+    <li>Inactive page can be swapped back into RAM when the CPU has finished processing a page</li>
+  </ol>
   <h2>Network Hardware</h2>
-  <h3>IP Addresses</h3>
-  <p>An internet protocol (IP) address is a <strong>unique</strong> identifier assigned to devices connected on the internet. IP addresses:</p>
+  <h3>NIC</h3>
+  <p>A network interface card is a hardware component in a device that enables it to connect to a network.</p>
+  <h3>MAC Address</h3>
+  <p>A media access control address <strong>uniquely identifies</strong> a device.</p>
+  <h3>IP Address</h3>
+  <p>An internet protocol address <strong>uniquely identifies</strong> a device on a network. IP addresses:</p>
   <ul>
     <li>can be public or private</li>
     <li>can be static (fixed) or dynamic (changing)</li>
     <li>are made of 4 bytes (0 to 255) separated by full stops</li>
   </ul>
   <h4>IPv4 and IPv6</h4>
+  <p>IPv6 is a newer version of IPv4. IPv4 is made of 4 denary numbers ranging from <code>0</code> to <code>255</code> separated by dots. IPv6 is made of 8 hexadecimal numbers ranging from <code>0</code> to <code>FF</code> separated by colons.</p>
   <DataTable>
     <Head>
       <Row>
         <Cell>Address</Cell>
         <Cell>Bits</Cell>
-        <Cell>Format</Cell>
+        <Cell>Digits</Cell>
+        <Cell>Separator</Cell>
         <Cell>Possible Addresses</Cell>
       </Row>
     </Head>
@@ -288,7 +305,7 @@
       {#each e as row}
         <Row>
           {#each row as cell,i}
-            {#if i === 3}
+            {#if i > 2}
               <Cell>{@html cell}</Cell>
             {:else}
               <Cell>{cell}</Cell>
