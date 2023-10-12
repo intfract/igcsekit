@@ -81,4 +81,9 @@
   <p>The effectiveness of an expert system relies on the accuracy of facts in the knowledge base provided by human experts.</p>
   <h3>Machine Learning</h3>
   <p>Machine learning is when a program has the ability to automatically adapt its own processes or data.</p>
+  <ul>
+    <li>Expert systems could use it to improve their results</li>
+    <li>Robots may use it to learn from mistakes</li>
+  </ul>
+  <p>No matter the application, machine learning requires big data. For this, programs need to collect extensive amounts of data and analyse patterns within the data.</p>
 </section>
