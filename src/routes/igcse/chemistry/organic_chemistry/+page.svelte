@@ -141,6 +141,12 @@
       <strong>Bitumen</strong>: road surfaces
     </li>
   </ul>
+  <p>Fractions of petroleum are separated according to their boiling points.</p>
+  <ol>
+    <li>Petroleum is heated and vapour rises</li>
+    <li>Vapour cools down as it rises through the furnace</li>
+    <li>Fractions condense when the vapour reaches their boiling points</li>
+  </ol>
   <h2>Polymer</h2>
   <p>A polymer is a <strong>long chain</strong> molecule formed from small repeating units called <strong>monomers</strong>.</p>
   <h3>Addition Polymerisation</h3>
