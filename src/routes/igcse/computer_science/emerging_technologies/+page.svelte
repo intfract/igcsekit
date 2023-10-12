@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Callout from '$lib/components/Callout.svelte'
   import Comparison from '$lib/components/Comparison.svelte'
 
   let positives: string[] = [
@@ -74,6 +75,9 @@
       <strong>Interface</strong>: the method by which a user can interact with the expert system
     </li>
   </ul>
+  <Callout emoji="🤔">
+    The knowledge base is essential because the expert system generates rules based on it.
+  </Callout>
   <p>The effectiveness of an expert system relies on the accuracy of facts in the knowledge base provided by human experts.</p>
   <h3>Machine Learning</h3>
   <p>Machine learning is when a program has the ability to automatically adapt its own processes or data.</p>
