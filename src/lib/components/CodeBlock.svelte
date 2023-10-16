@@ -55,6 +55,7 @@
   }
 
   export let code: string
+  export let runnable: boolean
 </script>
 
 <div class="block">
@@ -91,5 +92,6 @@
   pre {
     margin: 0;
     tab-size: 4;
+    font-family: 'Google Sans Mono';
   }
 </style>

@@ -13,7 +13,7 @@
     ['Emerging Technologies', 'Automated Systems, Robotics, Artificial Intelligence'],
   ]
 
-  let code = 'Count <- 0\nWHILE Count < 10 DO\n\tOUTPUT Count\n\tCount <- Count + 1\nENDWHILE'
+  let code = 'Count ← 0\nWHILE Count < 10 DO\n\tOUTPUT Count\n\tCount ← Count + 1\nENDWHILE'
 
   let page = 'IGCSE Computer Science'
 </script>
@@ -54,6 +54,6 @@
   </DataTable>
   <h2>Pseudocode</h2>
   <p>Pseudocode must be handwritten in the computer programming paper.</p>
-  <CodeBlock {code}></CodeBlock>
+  <CodeBlock {code} runnable={true}></CodeBlock>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>

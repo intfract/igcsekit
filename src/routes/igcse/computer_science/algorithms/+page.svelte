@@ -1,5 +1,9 @@
 <script lang="ts">
-  //
+  import CodeBlock from '$lib/components/CodeBlock.svelte'
+
+  let linearSearch: string = ''
+  let totalling: string = 'Total ← Total + Value'
+  let counting: string = 'Counter ← Counter + 1'
 </script>
 
 <section>
@@ -53,6 +57,12 @@
       </ul>
     </li>
   </ul>
+  <h3>Linear Search</h3>
+  <CodeBlock code={linearSearch} runnable={true}></CodeBlock>
+  <h3>Totalling</h3>
+  <CodeBlock code={totalling} runnable={false}></CodeBlock>
+  <h3>Counting</h3>
+  <CodeBlock code={counting} runnable={false}></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
   <p>Data often needs to be checked if it is valid and reasonable. Data that is outside a range or of the wrong type should be rejected. These checks include:</p>

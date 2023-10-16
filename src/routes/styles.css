@@ -1,5 +1,5 @@
 body {
-	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-family: var(--mdc-typography-font-family), sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -35,7 +35,7 @@ body {
   --mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
   --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
   --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
-	--mdc-typography-font-family: 'Plus Jakarta Sans';
+	--mdc-typography-font-family: 'Google Sans';
 }
 
 :root {
@@ -55,7 +55,7 @@ body {
 }
 
 code {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Google Sans Mono', monospace;
   background-color: var(--mdc-theme-callout);
   padding: 0 4px;
   border-radius: 4px;
@@ -226,7 +226,7 @@ img.emoji {
 a, button, input, textarea {
   outline: none;
   border: 0;
-  font-family: 'Plus Jakarta Sans';
+  font-family: var(--mdc-typography-font-family);
   text-decoration: none;
 }
 

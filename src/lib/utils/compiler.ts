@@ -17,8 +17,8 @@ export class Compiler {
   assignment: string[] = ['declare']
   keywords: string[] = ['input', 'output']
   blocks: string[] = ['while', 'if']
-  symbols: string = ':<=>+-*/&|!^'
-  operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!']
+  symbols: string = ':<=>+-*/&|!^←'
+  operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
   separator: string = ','
   quotes: string = '"'
@@ -27,6 +27,7 @@ export class Compiler {
   maps: Record<string, Record<string, string>> = {
     js: {
       '<-': '=',
+      '←': '=',
       '=': '==',
       '^': '**',
       'do': '){',
