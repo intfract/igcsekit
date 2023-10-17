@@ -62,18 +62,20 @@
   <div class="code">
     <pre>{code}</pre>
   </div>
-  <div class="buttons">
-    <Button variant="raised" on:click={e => run(code)}>
-      <Icon class="material-symbols-rounded">play_arrow</Icon>
-      <Label>Run</Label>
-    </Button>
-  </div>
-  <div class="terminal">
-    <pre>{terminal}</pre>
-  </div>
-  <div class="input">
-    <Textfield label="Input" bind:value on:keydown={e => submit(e)} style="width: 100%;"></Textfield>
-  </div>
+  {#if runnable}
+    <div class="buttons">
+      <Button variant="raised" on:click={e => run(code)}>
+        <Icon class="material-symbols-rounded">play_arrow</Icon>
+        <Label>Run</Label>
+      </Button>
+    </div>
+    <div class="terminal">
+      <pre>{terminal}</pre>
+    </div>
+    <div class="input">
+      <Textfield label="Input" bind:value on:keydown={e => submit(e)} style="width: 100%;"></Textfield>
+    </div>
+  {/if}
 </div>
 
 <style>

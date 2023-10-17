@@ -16,7 +16,7 @@ export class Compiler {
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare']
   keywords: string[] = ['input', 'output']
-  blocks: string[] = ['while', 'if']
+  blocks: string[] = ['while', 'for', 'if']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
@@ -31,6 +31,7 @@ export class Compiler {
       '=': '==',
       '^': '**',
       'do': '){',
+      'to': '-1;',
       'then': '){',
       'next': '}',
     },
@@ -137,6 +138,16 @@ export class Compiler {
           this.js += ' '
         } else if (this.blocks.includes(wordL)) {
           this.js += wordL + '('
+          if (wordL === 'for') {
+            this.move()
+            if (this.isLetter(this.char)) {
+              const x = this.extractWord()
+              const xL = x.toLowerCase()
+              if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error('reserved word used for variable name')
+              this.js += x
+              temp = x
+            }
+          }
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
             this.move()
@@ -152,6 +163,10 @@ export class Compiler {
           }
         } else if (Object.keys(this.maps.js).includes(wordL)) {
           this.js += this.maps.js[wordL]
+          if (wordL === 'to') {
+            this.js += `${temp}++<`
+            temp = ';){'
+          }
         } else if (wordL.startsWith('end')) {
           this.js += '}'
         } else {
