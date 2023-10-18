@@ -1,7 +1,7 @@
 <script lang="ts">
   import CodeBlock from '$lib/components/CodeBlock.svelte'
 
-  let linearSearch: string = 'Array ← ["alpha", "bravo", "charlie"]\nFOR i ← 0 TO 2\n\tOUTPUT Array[i]\nNEXT'
+  let linearSearch: string = 'Items ← ["alpha", "bravo", "charlie"]\nFOR i ← 0 TO 2\n\tOUTPUT Items[i]\nNEXT'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
 </script>
