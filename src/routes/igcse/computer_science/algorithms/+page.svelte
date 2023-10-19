@@ -1,9 +1,18 @@
 <script lang="ts">
+  import Callout from '$lib/components/Callout.svelte'
   import CodeBlock from '$lib/components/CodeBlock.svelte'
+  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
   let linearSearch: string = 'Items ← ["alpha", "bravo", "charlie"]\nFOR i ← 0 TO 2\n\tOUTPUT Items[i]\nNEXT'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
+
+  let a: [string, string, string][] = [
+    ['Normal', 'Data that should be accepted', '10'],
+    ['Abnormal', 'Data that should be rejected', 'ten'],
+    ['Extreme', 'Lowest or highest acceptable values', '1'],
+    ['Boundary', 'Lowest or highest acceptable and unacceptable values', '0, 1'],
+  ]
 </script>
 
 <section>
@@ -65,7 +74,7 @@
   <CodeBlock code={counting} runnable={false}></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
-  <p>Data often needs to be checked if it is valid and reasonable. Data that is outside a range or of the wrong type should be rejected. These checks include:</p>
+  <p>Validation is an automated check carried out by a computer to make sure that data entered is acceptable. These checks include:</p>
   <ul>
     <li>range</li>
     <li>length</li>
@@ -74,4 +83,34 @@
     <li>format</li>
   </ul>
   <p>A check digit is also a form of validation.</p>
+  <h3>Verification</h3>
+  <p>Verification can be an automated or manual check carried out by a computer or a human to make sure that data entered is the same as the data that was intended to be input. These checks include:</p>
+  <ul>
+    <li>double-entry</li>
+    <li>visual</li>
+  </ul>
+  <Callout emoji="🤔">
+    Websites often use double-entry to confirm passwords.
+  </Callout>
+  <h2>Test Data</h2>
+  <p>There are 4 different types of test data. Test data is used to check whether a program is working according to plan.</p>
+  <p>The table below shows the testing data for a program that only accepts positive numbers.</p>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Type</Cell>
+        <Cell>Description</Cell>
+        <Cell>Example</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each a as row}
+        <Row>
+          {#each row as cell,i}
+            <Cell>{cell}</Cell>
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
 </section>
