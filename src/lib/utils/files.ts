@@ -23,7 +23,7 @@ export function listFiles(glob: Record<string, string>): SearchResult[] {
     const parts = path.split('/')
     const content = getContentFrom(value)
     items.push({
-      name: titleCase(['problems', 'questions'].includes(parts.at(-2) ?? '') ? [parts.at(-3), parts.at(-2)].join(': ') : parts.at(-2) ?? 'Home'),
+      name: titleCase(['problems', 'questions', 'practical'].includes(parts.at(-2) ?? '') ? [parts.at(-3), parts.at(-2)].join(': ') : parts.at(-2) ?? 'Home'),
       link: path,
       body: content.length ? content : 'IGCSE Kit',
     })
