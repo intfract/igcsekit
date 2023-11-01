@@ -4,7 +4,9 @@
 
   export let data
 
-  let a: [string, string][] = []
+  let a: [string, string][] = [
+    ['Microeconomics', 'Banking, Households, Workers, Firms'],
+  ]
 
   let page = 'IGCSE Economics'
 </script>
