@@ -21,4 +21,6 @@
     <li>less dense</li>
   </ul>
   <p>Alloys contain atoms of <strong>different sizes</strong> which distorts the regular arrangement of atoms in metals. This makes it harder for layers to <strong>slide</strong> over each other.</p>
+  <h2>Reactivity Series</h2>
+  <p>The reactivity series is a list of metallic elements ranked their reactivity. Elements that are more reactive can <strong>displace</strong> less reactive elements from compounds.</p>
 </section>

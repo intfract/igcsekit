@@ -117,7 +117,7 @@
     <li>Increasing the size of the bulb will increase the sensitivity</li>
   </ul>
   <h3>Thermocouple</h3>
-  <p>A thermocouple is made up of <strong>2 different metals</strong>. The <strong>junction</strong> of these metals is heated. Both metals are connected to a voltmeter by a copper wires.</p>
+  <p>A thermocouple is made up of <strong>2 different metals</strong>. The <strong>junction</strong> of these metals is heated. Both metals are connected to a voltmeter by copper wires.</p>
   <p>Thermocouples are used as thermometers for measuring <strong>high temperatures</strong> and temperatures that <strong>vary rapidly</strong>.</p>
   <h2>Thermal Processes</h2>
   <p>Objects can transfer thermal energy in 3 ways:</p>
@@ -193,4 +193,7 @@
     </Body>
   </DataTable>
   <p>Dark and dull objects will absorb the most heat when it is hot and emit the most heat when it is cold.</p>
+  <Callout emoji="🤔">
+    Food can be cooked through grilling. When a heater is placed above the food, most of the heat transfer occurs through radiation rather can convection.
+  </Callout>
 </section>
