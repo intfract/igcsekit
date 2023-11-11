@@ -164,7 +164,7 @@
           <Title>IGCSE Kit</Title>
         </Section>
         <Section align="end" toolbar>
-          <div>
+          <div class="search">
             <SearchBar {glob} bind:results bind:focused></SearchBar>
             <Menu bind:open={focused} anchorCorner="BOTTOM_LEFT" style="width: 320px;">
               <List twoLine>
@@ -300,5 +300,11 @@
     padding: 16px;
     height: 100vh;
     box-sizing: border-box;
+  }
+
+  @media (max-width: 720px) {
+    .search {
+      display: none;
+    }
   }
 </style>
