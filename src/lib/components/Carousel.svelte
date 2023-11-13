@@ -18,10 +18,14 @@
   let x: number = 0
   export let items: TrackItem[]
 
-  onMount(() => {
+  function configureDimensions() {
     view.width = window.innerWidth
     view.height = window.innerHeight
     max = view.width / 2
+  }
+
+  onMount(() => {
+    configureDimensions()
     window.addEventListener('mouseup', handleOnUp)
     window.addEventListener('touchend', e => handleOnUp(e.touches[0]))
     window.addEventListener('mousemove', handleOnMove)
@@ -38,9 +42,11 @@
   }
 
   function handleOnMove(e: MouseEvent | Touch) {
+    configureDimensions()
     if (start === -1) return
     const delta = e.clientX - start
-    x = Math.max(Math.min(prev + (delta / max) * 100, 0), -100)
+    console.log(track.clientWidth)
+    x = Math.max(Math.min(prev + (delta / max) * 100, 0), (view.width / track.clientWidth) * 100 - 100)
     track.animate(
       {
         transform: `translateX(${x}%)`,
