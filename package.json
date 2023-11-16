@@ -39,6 +39,7 @@
 		"@sveltejs/kit": "^1.5.0",
 		"@tauri-apps/cli": "^1.4.0",
 		"@types/cookie": "^0.5.1",
+		"@types/three": "^0.158.2",
 		"smui-theme": "^7.0.0-beta.3",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
@@ -52,6 +53,7 @@
 		"@types/katex": "^0.16.2",
 		"appwrite": "^11.0.0",
 		"katex": "^0.16.8",
-		"svelte-material-ui": "^7.0.0-beta.3"
+		"svelte-material-ui": "^7.0.0-beta.3",
+		"three": "^0.158.0"
 	}
 }

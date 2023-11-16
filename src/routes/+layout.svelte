@@ -297,7 +297,7 @@
  
   .main-content {
     overflow: auto;
-    padding: 16px;
+    /* padding: 16px; */
     height: 100vh;
     box-sizing: border-box;
   }
