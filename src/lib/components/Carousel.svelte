@@ -45,7 +45,6 @@
     configureDimensions()
     if (start === -1) return
     const delta = e.clientX - start
-    console.log(track.clientWidth)
     x = Math.max(Math.min(prev + (delta / max) * 100, 0), (view.width / track.clientWidth) * 100 - 100)
     track.animate(
       {
