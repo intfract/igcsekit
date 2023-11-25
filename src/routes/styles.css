@@ -223,6 +223,10 @@ img.emoji {
   height: 0;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 a, button, input, textarea {
   outline: none;
   border: 0;
@@ -286,6 +290,10 @@ main section {
 
 .katex-display {
   font-size: 24px;
+}
+
+.katex {
+  font-family: KaTeX_Math;
 }
 
 .katex .katex-html>.newline {

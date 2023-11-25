@@ -14,7 +14,13 @@ export const lambda = '\\lambda'
 export const sin = '\\sin'
 export const cos = '\\cos'
 export const theta = '\\theta'
+export const left = '\\left('
+export const right = '\\right)'
 
 export function frac(numerator: string, denominator: string): string {
   return `\\frac{${numerator}}{${denominator}}`
+}
+
+export function wrap(...terms: string[]) {
+  return left + terms.join('') + right
 }

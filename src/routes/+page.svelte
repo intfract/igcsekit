@@ -129,7 +129,7 @@
   <div id="canvas"></div>
   <h1 class="hero">IGCSE Kit</h1>
 </div>
-<div class="container">
+<div class="padded container">
   <Carousel {items}></Carousel>
 </div>
 
@@ -151,6 +151,11 @@
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+  }
+
+  .padded {
+    padding: 16px;
+    box-sizing: border-box;
   }
 
   .hero {
