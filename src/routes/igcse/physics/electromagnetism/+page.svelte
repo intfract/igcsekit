@@ -118,4 +118,11 @@
     <li>passing direct current through a coil</li>
     <li>hammering in a magnetic field</li>
   </ul>
+  <h2>Electromagnetic Effects</h2>
+  <h3>Magnetic Field Patterns</h3>
+  <p>The right-hand grip (thumbs-up) rule is used to determine the rotation of a magnetic field produced by a current flowing through a wire.</p>
+  <ul>
+    <li>Thumb points in direction of current</li>
+    <li>Fingers curl in direction of magnetic field</li>
+  </ul>
 </section>
