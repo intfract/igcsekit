@@ -172,7 +172,7 @@
                   <Item on:click={e => goto('/' + result.link)} on:keydown={e => handleKeyDown(e, result.link)}>
                     <Text>
                       <PrimaryText>{result.name}</PrimaryText>
-                      <SecondaryText>{result.body}</SecondaryText>
+                      <SecondaryText>{result.link.replaceAll('/', ' ')}</SecondaryText>
                     </Text>
                   </Item>
                 {/each}
