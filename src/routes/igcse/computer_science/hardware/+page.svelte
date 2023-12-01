@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Comparison from '$lib/components/Comparison.svelte'
   import { b as bold, sup } from '$lib/utils/html'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
@@ -31,6 +32,9 @@
     ['IPv4', 32, 'denary', bold('.'), `2${sup('32')} possible addresses`],
     ['IPv6', 128, 'hexadecimal', bold(':'), `2${sup('128')} possible addresses`],
   ]
+
+  let positives: string[] = ['Can be accessed remotely from any device with a network connection', 'No need to maintain physical server']
+  let negatives: string[] = ['Server crash can cause data loss', 'No control over security']
 </script>
 
 <section>
@@ -277,6 +281,9 @@
     <li>Required page is moved from virtual memory to RAM</li>
     <li>Inactive page can be swapped back into RAM when the CPU has finished processing a page</li>
   </ol>
+  <h3>Cloud Storage</h3>
+  <p>Cloud storage stores data in physical servers managed by a third party.</p>
+  <Comparison {positives} {negatives}></Comparison>
   <h2>Network Hardware</h2>
   <h3>NIC</h3>
   <p>A network interface card is a hardware component in a device that enables it to connect to a network.</p>
