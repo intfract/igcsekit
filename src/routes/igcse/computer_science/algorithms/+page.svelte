@@ -113,4 +113,39 @@
       {/each}
     </Body>
   </DataTable>
+  <h2>Trace Table</h2>
+  <p>A trace table shows the state of an algorithm throughout a dry-run. It displays information such as:</p>
+  <ul>
+    <li>variables</li>
+    <li>outputs</li>
+    <li>user prompts</li>
+  </ul>
+  <h2>Error Identification</h2>
+  <p>Algorithms written by other people may have errors present. Common errors include:</p>
+  <ul>
+    <li>
+      syntax errors
+      <ul>
+        <li>spelling mistakes</li>
+        <li>typos that may crash the algorithm</li>
+      </ul>
+    </li>
+    <li>
+      logic errors
+      <ul>
+        <li>endless loops</li>
+        <li>mistakes in boolean expressions</li>
+      </ul>
+    </li>
+  </ul>
+  <h2>Writing Algorithms</h2>
+  <p>Algorithms can be written using:</p>
+  <ul>
+    <li>pseudocode</li>
+    <li>program code</li>
+    <li>flowchart symbols</li>
+  </ul>
+  <Callout emoji="🤔">
+    It is recommended to use python when given the choice to use program code!
+  </Callout>
 </section>
