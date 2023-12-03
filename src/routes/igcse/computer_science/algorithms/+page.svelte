@@ -3,9 +3,10 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
-  let linearSearch: string = 'Items ← ["alpha", "bravo", "charlie"]\nFOR i ← 0 TO 2\n\tOUTPUT Items[i]\nNEXT'
+  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\n\nFOR Index ← 1 TO 3\n\tOUTPUT Items[Index]\nNEXT'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
+  let statistics: string = 'DECLARE Numbers : ARRAY\nNumbers[1] ← 1\nNumbers[2] ← 2\nNumbers[3] ← 3\nNumbers[4] ← 10\nFOR Index ← 1 TO 4\n\tOUTPUT Numbers[Index]\nNEXT'
 
   let a: [string, string, string][] = [
     ['Normal', 'Data that should be accepted', '10'],
@@ -72,6 +73,8 @@
   <CodeBlock code={totalling} runnable={false}></CodeBlock>
   <h3>Counting</h3>
   <CodeBlock code={counting} runnable={false}></CodeBlock>
+  <h3>Statistics</h3>
+  <CodeBlock code={statistics} runnable={true}></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
   <p>Validation is an automated check carried out by a computer to make sure that data entered is acceptable. These checks include:</p>

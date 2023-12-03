@@ -29,11 +29,15 @@ export class Compiler {
       '<-': '=',
       '←': '=',
       '=': '==',
+      ':': '= new ',
       '^': '**',
       'do': '){',
       'to': '-1;',
       'then': '){',
       'next': '}',
+      'TRUE': 'true',
+      'FALSE': 'false',
+      'ARRAY': 'Array',
     },
   }
 
@@ -135,7 +139,7 @@ export class Compiler {
         const word = this.extractWord()
         const wordL = word.toLowerCase()
         if (this.assignment.includes(wordL)) {
-          this.js += ' '
+          this.js += 'let '
         } else if (this.blocks.includes(wordL)) {
           this.js += wordL + '('
           if (wordL === 'for') {
@@ -170,7 +174,7 @@ export class Compiler {
         } else if (wordL.startsWith('end')) {
           this.js += '}'
         } else {
-          this.js += word
+          this.js += Object.keys(this.maps.js).includes(word) ? this.maps.js[word] : word
         }
         continue
       }
@@ -180,6 +184,7 @@ export class Compiler {
         if (Object.keys(this.maps.js).includes(operator)) {
           const op = this.maps.js[operator]
           this.js += op
+          if (operator === ':') temp = '()'
         } else {
           this.js += operator
         }
