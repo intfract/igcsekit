@@ -299,3 +299,8 @@ main section {
 .katex .katex-html>.newline {
   height: 8px;
 }
+
+.keyword {
+  color: var(--mdc-theme-primary);
+  font-weight: bold;
+}

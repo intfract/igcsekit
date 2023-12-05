@@ -11,6 +11,12 @@
 
   const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
 
+  export let code: string
+  export let runnable: boolean
+
+  const compiler = new Compiler(code)  
+  let highlightedCode: string = compiler.style()
+
   function output(...args: string[]) {
     let s = ''
     args.forEach(arg => s += arg)
@@ -31,7 +37,6 @@
       input,
       output,
     }
-    const compiler = new Compiler(code)
     const js = compiler.compile()
     console.log(js)
     const { variables } = compiler
@@ -53,14 +58,11 @@
     terminal += value + '\n'
     inputted = true
   }
-
-  export let code: string
-  export let runnable: boolean
 </script>
 
 <div class="block">
   <div class="code">
-    <pre>{code}</pre>
+    <pre>{@html highlightedCode}</pre>
   </div>
   {#if runnable}
     <div class="buttons">

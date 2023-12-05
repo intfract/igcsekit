@@ -1,9 +1,4 @@
-export function compile(pseudocode: string): Function[] {
-  const tasks: Function[] = []
-  let cursor: number = 0
-  let end: boolean = false
-  return tasks
-}
+import { tag } from './html'
 
 export class Compiler {
   i: number = 0
@@ -38,6 +33,7 @@ export class Compiler {
       'TRUE': 'true',
       'FALSE': 'false',
       'ARRAY': 'Array',
+      'INFINITY': 'Infinity',
     },
   }
 
@@ -212,5 +208,28 @@ export class Compiler {
     }
     this.js += temp
     return `try{${this.js};return false}catch($e){return $e}`
+  }
+
+  style() {
+    const keywords = [...this.assignment, ...this.keywords, ...this.blocks]
+    let html = ''
+    const lines = this.code.split('\n')
+    const styledLines: string[] = []
+    for (const line of lines) {
+      let styledLine = ''
+      const words = line.split(' ')
+      for (const word of words) {
+        styledLine += ' '
+        const trimmed = word.toLocaleLowerCase().trim()
+        if (keywords.includes(trimmed) || trimmed.startsWith('end') || (this.isLetter(trimmed[0]) && Object.keys(this.maps.js).includes(trimmed))) {
+          styledLine += tag('span', word, { class: 'keyword' })
+          continue
+        }
+        styledLine += word
+      }
+      styledLines.push(styledLine.substring(1))
+    }
+    html = styledLines.join('\n')
+    return html
   }
 }
