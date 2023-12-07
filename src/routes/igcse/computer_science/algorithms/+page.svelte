@@ -3,10 +3,11 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
-  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nFOR Index ← 1 TO 3\n\tOUTPUT Items[Index]\nNEXT'
+  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nQuery ← "bravo"\nFound ← FALSE\nIndex ← 1\nREPEAT\n\tIF Items[Index] = Query THEN\n\t\tFound ← TRUE\n\tELSE\n\t\tIndex ← Index + 1\n\tENDIF\nUNTIL Found OR Index > 3\nIF Found THEN\n\tOUTPUT Query, " found at index ", Index\nENDIF'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
   let statistics: string = 'DECLARE Numbers : ARRAY\nNumbers[1] ← 1\nNumbers[2] ← 2\nNumbers[3] ← 3\nNumbers[4] ← 10\nDECLARE Max ← -INFINITY\nDECLARE Min ← INFINITY\nDECLARE Avg\nTotal ← 0\nFOR Index ← 1 TO 4\n\tIF Numbers[Index] > Max THEN\n\t\tMax ← Numbers[Index]\n\tENDIF\n\tIF Numbers[Index] < Min THEN\n\t\tMin ← Numbers[Index]\n\tENDIF\n\tTotal ← Total + Numbers[Index]\nNEXT\nAvg ← Total / 4\nOUTPUT Max\nOUTPUT Min\nOUTPUT Avg'
+  let bubbleSort: string = 'DECLARE Items : ARRAY\nItems[1] ← 6\nItems[2] ← 9\nItems[3] ← 4\nItems[4] ← 2\n'
 
   let a: [string, string, string][] = [
     ['Normal', 'Data that should be accepted', '10'],

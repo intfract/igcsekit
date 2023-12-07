@@ -11,7 +11,7 @@ export class Compiler {
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare']
   keywords: string[] = ['input', 'output']
-  blocks: string[] = ['while', 'for', 'if']
+  blocks: string[] = ['while', 'for', 'until', 'if']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
@@ -26,12 +26,18 @@ export class Compiler {
       '=': '==',
       ':': '= new ',
       '^': '**',
+      'else': '}else{',
       'do': '){',
+      'repeat': 'do{',
+      'until': '}while(!',
       'to': '-1;',
       'then': '){',
       'next': '}',
       'TRUE': 'true',
       'FALSE': 'false',
+      'OR': '||',
+      'AND': '&&',
+      'NOT': '!',
       'ARRAY': 'Array',
       'INFINITY': 'Infinity',
     },
@@ -137,7 +143,8 @@ export class Compiler {
         if (this.assignment.includes(wordL)) {
           this.js += 'let '
         } else if (this.blocks.includes(wordL)) {
-          this.js += wordL + '('
+          this.js += Object.keys(this.maps.js).includes(wordL) ? this.maps.js[wordL] : wordL
+          this.js += '('
           if (wordL === 'for') {
             this.move()
             if (this.isLetter(this.char)) {
@@ -147,6 +154,8 @@ export class Compiler {
               this.js += x
               temp = x
             }
+          } else if (wordL === 'until') {
+            temp = '))'
           }
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
