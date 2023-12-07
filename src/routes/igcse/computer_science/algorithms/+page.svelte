@@ -3,11 +3,11 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
-  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nQuery ← "bravo"\nFound ← FALSE\nIndex ← 1\nREPEAT\n\tIF Items[Index] = Query THEN\n\t\tFound ← TRUE\n\tELSE\n\t\tIndex ← Index + 1\n\tENDIF\nUNTIL Found OR Index > 3\nIF Found THEN\n\tOUTPUT Query, " found at index ", Index\nENDIF'
+  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nQuery ← "bravo"\nFound ← FALSE\nIndex ← 1\nREPEAT\n\tIF Items[Index] = Query THEN\n\t\tFound ← TRUE\n\tELSE\n\t\tIndex  Index + 1\n\tENDIF\nUNTIL Found OR Index > 3\nIF Found THEN\n\tOUTPUT Query, " found at index ", Index\nENDIF'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
   let statistics: string = 'DECLARE Numbers : ARRAY\nNumbers[1] ← 1\nNumbers[2] ← 2\nNumbers[3] ← 3\nNumbers[4] ← 10\nDECLARE Max ← -INFINITY\nDECLARE Min ← INFINITY\nDECLARE Avg\nTotal ← 0\nFOR Index ← 1 TO 4\n\tIF Numbers[Index] > Max THEN\n\t\tMax ← Numbers[Index]\n\tENDIF\n\tIF Numbers[Index] < Min THEN\n\t\tMin ← Numbers[Index]\n\tENDIF\n\tTotal ← Total + Numbers[Index]\nNEXT\nAvg ← Total / 4\nOUTPUT Max\nOUTPUT Min\nOUTPUT Avg'
-  let bubbleSort: string = 'DECLARE Items : ARRAY\nItems[1] ← 6\nItems[2] ← 9\nItems[3] ← 4\nItems[4] ← 2\n'
+  let bubbleSort: string = 'DECLARE Items : ARRAY\nItems[1] ← 6\nItems[2] ← 9\nItems[3] ← 4\nItems[4] ← 2\nSwapped ← FALSE\nN ← 4\nWHILE N > 1 AND NOT Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tTemp ← Items[Index]\n\t\t\tItems[Index] ← Items[Index + 1]\n\t\t\tItems[Index + 1] ← Temp\n\t\tENDIF\n\tNEXT\nENDWHILE\nFOR Index ← 1 TO 4\n\tOUTPUT Items[Index]\nNEXT'
 
   let a: [string, string, string][] = [
     ['Normal', 'Data that should be accepted', '10'],
@@ -76,6 +76,8 @@
   <CodeBlock code={counting} runnable={false}></CodeBlock>
   <h3>Statistics</h3>
   <CodeBlock code={statistics} runnable={true}></CodeBlock>
+  <h3>Bubble Sort</h3>
+  <CodeBlock code={bubbleSort} runnable={true}></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
   <p>Validation is an automated check carried out by a computer to make sure that data entered is acceptable. These checks include:</p>

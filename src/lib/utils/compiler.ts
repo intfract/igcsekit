@@ -229,8 +229,8 @@ export class Compiler {
       const words = line.split(' ')
       for (const word of words) {
         styledLine += ' '
-        const trimmed = word.toLocaleLowerCase().trim()
-        if (keywords.includes(trimmed) || trimmed.startsWith('end') || (this.isLetter(trimmed[0]) && Object.keys(this.maps.js).includes(trimmed))) {
+        const trimmed = word.toLowerCase().trim()
+        if (keywords.includes(trimmed) || trimmed.startsWith('end') || (trimmed && this.isLetter(trimmed[0]) && Object.keys(this.maps.js).includes(trimmed))) {
           styledLine += tag('span', word, { class: 'keyword' })
           continue
         }
