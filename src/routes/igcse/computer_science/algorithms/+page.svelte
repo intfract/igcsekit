@@ -55,10 +55,10 @@
   <h2>Solution Methods</h2>
   <p>There are different methods that can be used to solve a problem such as:</p>
   <ul>
-    <li>linear search</li>
-    <li>bubble sort</li>
     <li>totalling</li>
     <li>counting</li>
+    <li>linear search</li>
+    <li>bubble sort</li>
     <li>
       finding the:
       <ul>
@@ -68,16 +68,22 @@
       </ul>
     </li>
   </ul>
-  <h3>Linear Search</h3>
-  <CodeBlock code={linearSearch} runnable={true}></CodeBlock>
   <h3>Totalling</h3>
+  <p>Totalling is done inside a loop. It is often used to calculate averages.</p>
   <CodeBlock code={totalling} runnable={false}></CodeBlock>
   <h3>Counting</h3>
+  <p>Counting is often done inside while loops and used to iterate through an array.</p>
   <CodeBlock code={counting} runnable={false}></CodeBlock>
+  <h3>Linear Search</h3>
+  <CodeBlock code={linearSearch} runnable={true}></CodeBlock>
+  <h3>Bubble Sort</h3>
+  <p>Bubble sort is used to sort an array in ascending or descending order. However, it can also sort an array of strings alphabetically. Some bubble sort algorithms may differ, but the core idea of swapping items is the same.</p>
+  <CodeBlock code={bubbleSort} runnable={true}></CodeBlock>
+  <Callout emoji="🤔">
+    It is possible to swap items in an <strong>array of numbers</strong> without using a temporary variable.
+  </Callout>
   <h3>Statistics</h3>
   <CodeBlock code={statistics} runnable={true}></CodeBlock>
-  <h3>Bubble Sort</h3>
-  <CodeBlock code={bubbleSort} runnable={true}></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
   <p>Validation is an automated check carried out by a computer to make sure that data entered is acceptable. These checks include:</p>
