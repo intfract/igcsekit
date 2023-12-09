@@ -3,7 +3,7 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
-  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nQuery ← "bravo"\nFound ← FALSE\nIndex ← 1\nREPEAT\n\tIF Items[Index] = Query THEN\n\t\tFound ← TRUE\n\tELSE\n\t\tIndex  Index + 1\n\tENDIF\nUNTIL Found OR Index > 3\nIF Found THEN\n\tOUTPUT Query, " found at index ", Index\nENDIF'
+  let linearSearch: string = 'DECLARE Items : ARRAY\nItems[1] ← "alpha"\nItems[2] ← "bravo"\nItems[3] ← "charlie"\nQuery ← "bravo"\nFound ← FALSE\nIndex ← 1\nREPEAT\n\tIF Items[Index] = Query THEN\n\t\tFound ← TRUE\n\tELSE\n\t\tIndex ← Index + 1\n\tENDIF\nUNTIL Found OR Index > 3\nIF Found THEN\n\tOUTPUT Query, " found at index ", Index\nENDIF'
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
   let statistics: string = 'DECLARE Numbers : ARRAY\nNumbers[1] ← 1\nNumbers[2] ← 2\nNumbers[3] ← 3\nNumbers[4] ← 10\nDECLARE Max ← -INFINITY\nDECLARE Min ← INFINITY\nDECLARE Avg\nTotal ← 0\nFOR Index ← 1 TO 4\n\tIF Numbers[Index] > Max THEN\n\t\tMax ← Numbers[Index]\n\tENDIF\n\tIF Numbers[Index] < Min THEN\n\t\tMin ← Numbers[Index]\n\tENDIF\n\tTotal ← Total + Numbers[Index]\nNEXT\nAvg ← Total / 4\nOUTPUT Max\nOUTPUT Min\nOUTPUT Avg'
@@ -70,20 +70,20 @@
   </ul>
   <h3>Totalling</h3>
   <p>Totalling is done inside a loop. It is often used to calculate averages.</p>
-  <CodeBlock code={totalling} runnable={false}></CodeBlock>
+  <CodeBlock code={totalling}></CodeBlock>
   <h3>Counting</h3>
   <p>Counting is often done inside while loops and used to iterate through an array.</p>
-  <CodeBlock code={counting} runnable={false}></CodeBlock>
+  <CodeBlock code={counting}></CodeBlock>
   <h3>Linear Search</h3>
-  <CodeBlock code={linearSearch} runnable={true}></CodeBlock>
+  <CodeBlock code={linearSearch} runnable></CodeBlock>
   <h3>Bubble Sort</h3>
   <p>Bubble sort is used to sort an array in ascending or descending order. However, it can also sort an array of strings alphabetically. Some bubble sort algorithms may differ, but the core idea of swapping items is the same.</p>
-  <CodeBlock code={bubbleSort} runnable={true}></CodeBlock>
+  <CodeBlock code={bubbleSort} runnable></CodeBlock>
   <Callout emoji="🤔">
     It is possible to swap items in an <strong>array of numbers</strong> without using a temporary variable.
   </Callout>
   <h3>Statistics</h3>
-  <CodeBlock code={statistics} runnable={true}></CodeBlock>
+  <CodeBlock code={statistics} runnable></CodeBlock>
   <h2>Data Checks</h2>
   <h3>Validation</h3>
   <p>Validation is an automated check carried out by a computer to make sure that data entered is acceptable. These checks include:</p>

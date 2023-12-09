@@ -12,6 +12,7 @@
     ['The Internet', 'WWW, Digital Currency, Cyber Security'],
     ['Emerging Technologies', 'Automated Systems, Robotics, Artificial Intelligence'],
     ['Algorithms', 'Algorithm Design, Problem Solving'],
+    ['Programming', 'Concepts, Arrays, File Handling'],
   ]
 
   let code = 'Count ← 0\nWHILE Count < 10 DO\n\tOUTPUT Count\n\tCount ← Count + 1\nENDWHILE'

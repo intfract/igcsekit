@@ -9,7 +9,7 @@ export class Compiler {
 
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
-  assignment: string[] = ['declare']
+  assignment: string[] = ['declare', 'constant']
   keywords: string[] = ['input', 'output']
   blocks: string[] = ['while', 'for', 'until', 'if']
   symbols: string = ':<=>+-*/&|!^←'
@@ -33,11 +33,14 @@ export class Compiler {
       'to': '-1;',
       'then': '){',
       'next': '}',
+      'declare': 'let',
+      'constant': 'const',
       'TRUE': 'true',
       'FALSE': 'false',
       'OR': '||',
       'AND': '&&',
       'NOT': '!',
+      'STRING': 'String',
       'ARRAY': 'Array',
       'INFINITY': 'Infinity',
     },
@@ -141,7 +144,7 @@ export class Compiler {
         const word = this.extractWord()
         const wordL = word.toLowerCase()
         if (this.assignment.includes(wordL)) {
-          this.js += 'let '
+          this.js += this.maps.js[wordL] + ' '
         } else if (this.blocks.includes(wordL)) {
           this.js += Object.keys(this.maps.js).includes(wordL) ? this.maps.js[wordL] : wordL
           this.js += '('

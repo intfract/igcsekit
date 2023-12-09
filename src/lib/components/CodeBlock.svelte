@@ -12,7 +12,7 @@
   const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
 
   export let code: string
-  export let runnable: boolean
+  export let runnable: boolean = false
 
   const compiler = new Compiler(code)  
   let highlightedCode: string = compiler.style()
