@@ -157,6 +157,12 @@
     <li>program code</li>
     <li>flowchart symbols</li>
   </ul>
+  <p>Aside from pseudocode, only 3 programming languages are allowed to be used in the unseen scenario question.</p>
+  <ul>
+    <li>Python</li>
+    <li>Java</li>
+    <li>Visual Basic</li>
+  </ul>
   <Callout emoji="🤔">
     It is recommended to use python when given the choice to use program code!
   </Callout>
