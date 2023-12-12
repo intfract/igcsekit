@@ -6,6 +6,7 @@
   export let data
 
   let a: [string, string][] = [
+    ['Data Representation', 'Number Systems, Files, Compression'],
     ['Data Transmission', 'Types, Error Detection, Encryption'],
     ['Hardware', 'Computer Artchitecture, IO Devices, Data Storage, Network'],
     ['Software', 'Types and Interrupts, Programming Languages and IDEs'],
@@ -15,7 +16,7 @@
     ['Programming', 'Concepts, Arrays, File Handling'],
   ]
 
-  let code = 'Count ← 0\nWHILE Count < 10 DO\n\tOUTPUT Count\n\tCount ← Count + 1\nENDWHILE'
+  let code = 'DECLARE Items : ARRAY\nN ← 0\nItem ← ""\nREPEAT\n\tOUTPUT "Enter an item or leave blank to begin sorting."\n\tINPUT Item\n\tIF Item <> "" THEN\n\t\tN ← N + 1\n\t\tItems[N] ← Item\n\tENDIF\nLength ← N\nUNTIL Item = ""\nSwapped ← FALSE\nWHILE N > 1 AND NOT Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tTemp ← Items[Index]\n\t\t\tItems[Index] ← Items[Index + 1]\n\t\t\tItems[Index + 1] ← Temp\n\t\tENDIF\n\tNEXT\nENDWHILE\nOUTPUT Length, " items have been sorted!"\nFOR Index ← 1 TO Length\n\tOUTPUT Items[Index]\nNEXT'
 
   let page = 'IGCSE Computer Science'
 </script>

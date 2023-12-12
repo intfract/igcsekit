@@ -13,7 +13,7 @@ export class Compiler {
   keywords: string[] = ['input', 'output']
   blocks: string[] = ['while', 'for', 'until', 'if']
   symbols: string = ':<=>+-*/&|!^←'
-  operators: string[] = ['<-', '->', '=', '<', '>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
+  operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
   separator: string = ','
   quotes: string = '"'
@@ -23,7 +23,8 @@ export class Compiler {
     js: {
       '<-': '=',
       '←': '=',
-      '=': '==',
+      '=': '===',
+      '<>': '!==',
       ':': '= new ',
       '^': '**',
       'else': '}else{',
