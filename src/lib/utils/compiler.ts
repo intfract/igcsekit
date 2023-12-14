@@ -13,7 +13,7 @@ export class Compiler {
   keywords: string[] = ['input', 'output']
   blocks: string[] = ['while', 'for', 'until', 'if']
   symbols: string = ':<=>+-*/&|!^←'
-  operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '=>', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
+  operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '>=', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
   separator: string = ','
   quotes: string = '"'
@@ -56,8 +56,8 @@ export class Compiler {
 
   move() {
     this.i++
-    if (this.i < this.code.length) return this.char = this.code[this.i]
-    this.end = true
+    if (this.i < this.code.length) this.char = this.code[this.i]
+    else this.end = true
   }
 
   substitute(term: string, language: string) {
@@ -220,7 +220,7 @@ export class Compiler {
       }
     }
     this.js += temp
-    return `try{${this.js};return false}catch($e){return $e}`
+    return `function LENGTH(string){return string.length}function UPPER(string){return string.toUpperCase()}function LOWER(string){return string.toLowerCase()}function SUBSTRING(string,start,length){return string.substr(start-1,length)}function ROUND(number){return Math.round(number)}function RANDOM(){return Math.random()}try{${this.js};return false}catch($e){return $e}`
   }
 
   style() {

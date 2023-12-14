@@ -3,6 +3,7 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
 
   let declaring: string = 'DECLARE Text : STRING\nCONSTANT DaysPerWeek ← 7'
+  let stringHandling: string = 'OUTPUT LENGTH("penis")\nOUTPUT UPPER("#2c6fef")\nOUTPUT LOWER("X")\nOUTPUT SUBSTRING("sushi", 1, 3)'
 </script>
 
 <section>
@@ -35,4 +36,13 @@
   <Callout emoji="🤔">
     Pre-condition loops can replace all other loops as well as selection statements.
   </Callout>
+  <h4>String Handling</h4>
+  <p>Strings are an important aspect of programming. They are similar to an array of characters (char array).</p>
+  <ul>
+    <li>length</li>
+    <li>substring</li>
+    <li>upper</li>
+    <li>lower</li>
+  </ul>
+  <CodeBlock code={stringHandling} runnable></CodeBlock>
 </section>
