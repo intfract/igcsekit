@@ -45,4 +45,20 @@
     <li>lower</li>
   </ul>
   <CodeBlock code={stringHandling} runnable></CodeBlock>
+  <Callout emoji="⚠">
+    The first character of a string can be at position 0 or 1 when using pseudocode. However, the first character is always at position 0 when using program code.
+  </Callout>
+  <h3>Operations</h3>
+  <p>There are 3 types of operations:</p>
+  <ul>
+    <li>
+      Arithmetic
+    </li>
+    <li>
+      Logical
+    </li>
+    <li>
+      Boolean
+    </li>
+  </ul>
 </section>
