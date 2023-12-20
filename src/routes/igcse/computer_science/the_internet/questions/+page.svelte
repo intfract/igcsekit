@@ -6,7 +6,7 @@
     {
       intro: 'Computers can be infected with malware. Spyware is one example of malware.',
       statements: [],
-      images: ['rbc.png'],
+      images: [],
       table: [],
       question: 'Which option shows the correct definition of spyware?',
       difficulty: 'Hard',
