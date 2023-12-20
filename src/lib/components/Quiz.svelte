@@ -32,7 +32,10 @@
   let selected: number | null
   let open = false
   let iconMap: Record<Difficulty, string> = {
-    'Easy': 'smile'
+    'Easy': 'satisfied',
+    'Medium': 'neutral',
+    'Hard': 'dissatisfied',
+    'Tough': 'very_dissatisfied',
   }
   export let name: string
   export let questions: MultipleChoice[]
@@ -70,16 +73,18 @@
     {#key active}
       <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
         <Paper>
-          <Title>{name}</Title>
-          <Content>
+          <Title>
+            {name}
             <Set chips={[current.difficulty]} let:chip class="inline-flex">
               <Chip {chip} shouldRemoveOnTrailingIconClick={false}>
                 {#if Object.keys(iconMap).includes(chip)}
-                  <LeadingIcon class="material-symbols-rounded">{iconMap[chip]}</LeadingIcon>
+                  <LeadingIcon class="material-symbols-rounded">{'sentiment_' + iconMap[chip]}</LeadingIcon>
                 {/if}
                 <Text tabindex={0}>{chip}</Text>
               </Chip>
             </Set>
+          </Title>
+          <Content>
             {#if 'intro' in current}
               <p class="intro">{current.intro}</p>
             {/if}
