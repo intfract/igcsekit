@@ -24,12 +24,16 @@
   import FormField from '@smui/form-field'
   import Button, { Label as ButtonLabel } from '@smui/button'
   import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
+  import Chip, { Set, LeadingIcon, Text } from '@smui/chips'
 
   const imagePath = '/assets/'
 
   let active: number = 1
   let selected: number | null
   let open = false
+  let iconMap: Record<Difficulty, string> = {
+    'Easy': 'smile'
+  }
   export let name: string
   export let questions: MultipleChoice[]
 
@@ -68,6 +72,14 @@
         <Paper>
           <Title>{name}</Title>
           <Content>
+            <Set chips={[current.difficulty]} let:chip class="inline-flex">
+              <Chip {chip} shouldRemoveOnTrailingIconClick={false}>
+                {#if Object.keys(iconMap).includes(chip)}
+                  <LeadingIcon class="material-symbols-rounded">{iconMap[chip]}</LeadingIcon>
+                {/if}
+                <Text tabindex={0}>{chip}</Text>
+              </Chip>
+            </Set>
             {#if 'intro' in current}
               <p class="intro">{current.intro}</p>
             {/if}
