@@ -53,12 +53,32 @@
   <ul>
     <li>
       Arithmetic
+      <ul>
+        <li>+ (addition)</li>
+        <li>- (subtraction)</li>
+        <li>* (multiplication)</li>
+        <li>/ (division)</li>
+        <li>^ (exponentiation)</li>
+      </ul>
     </li>
     <li>
       Logical
+      <ul>
+        <li>= (equal to)</li>
+        <li>&lt;&gt; (not equal to)</li>
+        <li>&gt; (greater than)</li>
+        <li>&lt; (less than)</li>
+        <li>&gt;= (greater than or equal to)</li>
+        <li>&lt;= (less than or equal to)</li>
+      </ul>
     </li>
     <li>
       Boolean
+      <ul>
+        <li>AND</li>
+        <li>OR</li>
+        <li>NOT</li>
+      </ul>
     </li>
   </ul>
 </section>
