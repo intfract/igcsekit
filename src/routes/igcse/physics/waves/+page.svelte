@@ -1,5 +1,16 @@
 <script lang="ts">
   import { end, frac, lambda, math, sin, theta, times } from '$lib/utils/katex'
+  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+
+  let a: [string, boolean, boolean][] = []
+
+  let b: [string, string, string, string][] = [
+    [math(`d_0 > 2f`), 'Real', 'Inverted', 'Diminished'],
+    [math(`d_o = 2f`), 'Real', 'Inverted', 'Equal'],
+    [math(`2f > d_o > f`), 'Real', 'Inverted', 'Enlarged'],
+    [math(`d_o = f`), '?', '?', 'Infinite'],
+    [math(`f > d_o > 0`), 'Virtual', 'Upright', 'Enlarged'],
+  ]
 </script>
 
 <section>
@@ -60,6 +71,39 @@
     {@html math(`n_r=${frac(`${sin} ${theta}_i`, `${sin} ${theta}_r`)}`)}
   </div>
   <h4>Total Internal Reflection</h4>
+  <p>Total internal reflection requires 2 conditions to happen.</p>
+  <ul>
+    <li>
+      Light must be travelling from a <strong>denser medium</strong>
+    </li>
+    <li>
+      The <strong>angle of incidence</strong> must be greater than the <strong>critical angle</strong>
+    </li>
+  </ul>
+  <p>Refraction will not happen at the <strong>critical angle</strong> of a denser medium because the ray would refract at 90 degrees and stay within the medium.</p>
   <h4>Convex Lens</h4>
   <p>A convex lens bulges outwards. It is also known as a <strong>converging lens</strong> because it bends rays towards the principal axis.</p>
+  <DataTable>
+    <Head>
+      <Row>
+        <Cell>Position</Cell>
+        <Cell>Type</Cell>
+        <Cell>Orientation</Cell>
+        <Cell>Scale</Cell>
+      </Row>
+    </Head>
+    <Body>
+      {#each b as row}
+        <Row>
+          {#each row as cell,i}
+            {#if i}
+              <Cell>{cell}</Cell>
+            {:else}
+              <Cell>{@html cell}</Cell>
+            {/if}
+          {/each}
+        </Row>
+      {/each}
+    </Body>
+  </DataTable>
 </section>
