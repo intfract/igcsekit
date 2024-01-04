@@ -7,6 +7,7 @@
   let rows: [string, boolean, boolean, boolean][] = [
     ['Thermal Physics', true, true, true],
     ['Waves', true, true, true],
+    ['Electromagnetism', true, true, false],
   ]
 
   let page = 'IGCSE Physics'
