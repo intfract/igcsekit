@@ -230,12 +230,26 @@ export class Compiler {
     const styledLines: string[] = []
     for (const line of lines) {
       let styledLine = ''
+      let inQuotes = false
       const words = line.split(' ')
       for (const word of words) {
         styledLine += ' '
+        if (word.includes('"')) {
+          for (let i = 0; i < word.split('"').length - 1; i++) {
+            inQuotes = !inQuotes
+          }
+        }
         const trimmed = word.toLowerCase().trim()
+        if (inQuotes || word.includes('"')) {
+          styledLine += tag('span', word, { class: 'string' })
+          continue
+        }
         if (keywords.includes(trimmed) || trimmed.startsWith('end') || (trimmed && this.isLetter(trimmed[0]) && Object.keys(this.maps.js).includes(trimmed))) {
           styledLine += tag('span', word, { class: 'keyword' })
+          continue
+        }
+        if (this.operators.includes(trimmed)) {
+          styledLine += tag('span', word, { class: 'operator' })
           continue
         }
         styledLine += word

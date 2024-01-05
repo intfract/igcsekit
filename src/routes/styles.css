@@ -304,3 +304,12 @@ main section {
   color: var(--mdc-theme-primary);
   font-weight: bold;
 }
+
+.string {
+  color: #ffbb80;
+  font-style: italic;
+}
+
+.operator {
+  color: #40dddd;
+}
