@@ -10,7 +10,6 @@
 
   let highlightedCode = code
   let terminal = ''
-  let value = ''
 </script>
 
 <div class="block">
