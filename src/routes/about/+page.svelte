@@ -1,10 +1,11 @@
 <script lang="ts">
+  import { tag } from '$lib/utils/html'
   import Paper, { Title, Subtitle, Content } from '@smui/paper'
   import Ripple from '@smui/ripple'
   import Chip, { Set, LeadingIcon, Text } from '@smui/chips'
 
   type Socials = {
-    github: string,
+    github?: string,
     discord?: string,
   }
 
@@ -18,8 +19,8 @@
   let members: Member[] = [
     {
       name: 'u_int',
-      tags: ['Creator', 'Developer'],
-      description: 'The creator of IGCSE Kit and lead developer',
+      tags: ['Founder', 'Developer', 'Author'],
+      description: `Integer is the founder of IGCSE Kit and a discord bot developer at ${tag('a', 'r/IGCSE', { href: 'https://reddit.com/r/igcse' })}. He developed the first pseudocode web compiler and wrote most of the notes on this website.`,
       socials: {
         github: 'intfract',
         discord: 'u_int',
@@ -28,17 +29,27 @@
     {
       name: 'dotVansh',
       tags: ['Developer'],
-      description: 'Another developer committed to providing free IGCSE resources',
+      description: `Vansh is a computer science and mathematics helper at ${tag('a', 'r/IGCSE', { href: 'https://reddit.com/r/igcse' })}.`,
       socials: {
-        github: 'intfract',
+        github: 'dotvansh',
         discord: 'mr.code5197',
+      }
+    },
+    {
+      name: 'PeaceGod',
+      tags: ['Author'],
+      description: `Peace God is an author for IGCSE Computer Science and wrote notes for the ${tag('a', 'Data Representation', { href: '/igcse/computer_science/data_representation' })} chapter.`,
+      socials: {
+        github: '',
+        discord: '_peacegod.',
       }
     },
   ]
 
   let iconMap = {
-    'Creator': 'rocket_launch',
+    'Founder': 'rocket_launch',
     'Developer': 'code',
+    'Author': 'draw',
   }
 </script>
 
@@ -60,7 +71,7 @@
               </Chip>
             </Set>
           </Title>
-          <Content>{member.description}</Content>
+          <Content>{@html member.description}</Content>
         </Paper>
       </a>
     {/each}
