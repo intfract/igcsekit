@@ -69,7 +69,7 @@
   <h4>XNOR</h4>
   <p>Both inputs must be the same to output 1.</p>
   <TruthTable inputs={['A', 'B']} output="X" operation={xnor}></TruthTable>
-  <h2>Logic Circuits</h2>
+  <h2>Logic Circuit</h2>
   <p>A logic circuit is a system of logic gates connected to each other. Logic circuits often have 3 or more inputs and 1 output in IGCSE. Logic circuits must be drawn by using the correct symbol for each logic gate. There are some things to keep in mind while drawing thse diagrams.</p>
   <ul>
     <li>Logic expressions should not be simplified to make it easier to draw the logic circuit</li>

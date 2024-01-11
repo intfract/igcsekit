@@ -313,3 +313,7 @@ main section {
 .operator {
   color: #40dddd;
 }
+
+.bracket {
+  color: #bb40ff;
+}

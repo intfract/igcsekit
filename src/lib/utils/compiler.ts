@@ -54,6 +54,12 @@ export class Compiler {
     this.char = this.code[this.i]
   }
 
+  reset() {
+    this.i = 0
+    this.end = false
+    this.char = this.code[this.i]
+  }
+
   move() {
     this.i++
     if (this.i < this.code.length) this.char = this.code[this.i]
@@ -118,6 +124,8 @@ export class Compiler {
   }
 
   compile(): string {
+    this.reset()
+    this.js = ''
     let temp: string = ''
     let indent: number = 0
     while (!this.end) {
@@ -226,37 +234,30 @@ export class Compiler {
   style() {
     const keywords = [...this.assignment, ...this.keywords, ...this.blocks]
     let html = ''
-    const lines = this.code.split('\n')
-    const styledLines: string[] = []
-    for (const line of lines) {
-      let styledLine = ''
-      let inQuotes = false
-      const words = line.split(' ')
-      for (const word of words) {
-        styledLine += ' '
-        if (word.includes('"')) {
-          for (let i = 0; i < word.split('"').length - 1; i++) {
-            inQuotes = !inQuotes
-          }
-        }
-        const trimmed = word.toLowerCase().trim()
-        if (inQuotes || word.includes('"')) {
-          styledLine += tag('span', word, { class: 'string' })
-          continue
-        }
-        if (keywords.includes(trimmed) || trimmed.startsWith('end') || (trimmed && this.isLetter(trimmed[0]) && Object.keys(this.maps.js).includes(trimmed))) {
-          styledLine += tag('span', word, { class: 'keyword' })
-          continue
-        }
-        if (this.operators.includes(trimmed)) {
-          styledLine += tag('span', word, { class: 'operator' })
-          continue
-        }
-        styledLine += word
+    this.reset()
+    while (!this.end) {
+      if (this.brackets.includes(this.char)) {
+        html += tag('span', this.char, { class: 'bracket' })
+      } else if (this.isLetter(this.char)) {
+        const word = this.extractWord()
+        const wordL = word.toLowerCase()
+        if (keywords.includes(wordL) || wordL.startsWith('end') || Object.keys(this.maps.js).includes(word) || Object.keys(this.maps.js).includes(wordL)) html += tag('span', word, { class: 'keyword' })
+        else html += word
+        this.i--
+      } else if (this.symbols.includes(this.char)) {
+        const operator = this.extractOperator()
+        if (this.operators.includes(operator)) html += tag('span', operator, { class: 'operator' })
+        this.i--
+      } else if (this.quotes.includes(this.char)) {
+        const quote = this.char
+        this.move()
+        const text = this.extractQuote(quote)
+        html += tag('span', quote + text + quote, { class: 'string' })
+      } else {
+        html += this.char
       }
-      styledLines.push(styledLine.substring(1))
+      this.move()
     }
-    html = styledLines.join('\n')
     return html
   }
 }
