@@ -10,8 +10,8 @@ export class Compiler {
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare', 'constant']
-  keywords: string[] = ['input', 'output']
-  blocks: string[] = ['while', 'for', 'until', 'if']
+  keywords: string[] = ['input', 'output', 'call', 'return']
+  blocks: string[] = ['while', 'for', 'until', 'if', 'procedure', 'function']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '>=', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
@@ -44,6 +44,7 @@ export class Compiler {
       'STRING': 'String',
       'ARRAY': 'Array',
       'INFINITY': 'Infinity',
+      'procedure': 'function',
     },
   }
 
@@ -156,7 +157,19 @@ export class Compiler {
           this.js += this.maps.js[wordL] + ' '
         } else if (this.blocks.includes(wordL)) {
           this.js += Object.keys(this.maps.js).includes(wordL) ? this.maps.js[wordL] : wordL
-          this.js += '('
+          if (['procedure', 'function'].includes(wordL)) {
+            this.move()
+            if (this.isLetter(this.char)) {
+              const x = this.extractWord()
+              const xL = x.toLowerCase()
+              if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error('reserved word used for procedure name')
+              this.js += ' ' + x
+              if (wordL === 'procedure') {
+                this.js += '('
+                temp = '){'
+              } else temp = '{'
+            }
+          } else this.js += '('
           if (wordL === 'for') {
             this.move()
             if (this.isLetter(this.char)) {
@@ -181,7 +194,9 @@ export class Compiler {
           } else if (wordL === 'output') {
             this.js += 'output('
             temp = ')'
-          }
+          } else if (wordL === 'call') {
+            temp = '()'
+          } else this.js += wordL + ' '
         } else if (Object.keys(this.maps.js).includes(wordL)) {
           this.js += this.maps.js[wordL]
           if (wordL === 'to') {
