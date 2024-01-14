@@ -7,7 +7,7 @@
   let totalling: string = 'Total ← Total + Value'
   let counting: string = 'Counter ← Counter + 1'
   let statistics: string = 'DECLARE Numbers : ARRAY\nNumbers[1] ← 1\nNumbers[2] ← 2\nNumbers[3] ← 3\nNumbers[4] ← 10\nDECLARE Max ← -INFINITY\nDECLARE Min ← INFINITY\nDECLARE Avg\nTotal ← 0\nFOR Index ← 1 TO 4\n\tIF Numbers[Index] > Max THEN\n\t\tMax ← Numbers[Index]\n\tENDIF\n\tIF Numbers[Index] < Min THEN\n\t\tMin ← Numbers[Index]\n\tENDIF\n\tTotal ← Total + Numbers[Index]\nNEXT\nAvg ← Total / 4\nOUTPUT Max\nOUTPUT Min\nOUTPUT Avg'
-  let bubbleSort: string = 'DECLARE Items : ARRAY\nItems[1] ← 6\nItems[2] ← 9\nItems[3] ← 4\nItems[4] ← 2\nSwapped ← FALSE\nN ← 4\nWHILE N > 1 AND NOT Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tTemp ← Items[Index]\n\t\t\tItems[Index] ← Items[Index + 1]\n\t\t\tItems[Index + 1] ← Temp\n\t\t\tSwapped ← TRUE\n\t\tENDIF\n\tNEXT\nENDWHILE\nFOR Index ← 1 TO 4\n\tOUTPUT Items[Index]\nNEXT'
+  let bubbleSort: string = 'DECLARE Items : ARRAY\nItems[1] ← 6\nItems[2] ← 9\nItems[3] ← 4\nItems[4] ← 2\nSwapped ← TRUE\nN ← 4\nWHILE N > 1 AND Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tTemp ← Items[Index]\n\t\t\tItems[Index] ← Items[Index + 1]\n\t\t\tItems[Index + 1] ← Temp\n\t\t\tSwapped ← TRUE\n\t\tENDIF\n\tNEXT\nENDWHILE\nFOR Index ← 1 TO 4\n\tOUTPUT Items[Index]\nNEXT'
 
   let a: [string, string, string][] = [
     ['Normal', 'Data that should be accepted', '10'],
