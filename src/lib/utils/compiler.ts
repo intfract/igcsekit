@@ -247,6 +247,7 @@ export class Compiler {
   }
 
   style() {
+    if (!this.code.length) return ''
     const keywords = [...this.assignment, ...this.keywords, ...this.blocks]
     let html = ''
     this.reset()
@@ -267,7 +268,7 @@ export class Compiler {
         const quote = this.char
         this.move()
         const text = this.extractQuote(quote)
-        html += tag('span', quote + text + quote, { class: 'string' })
+        html += tag('span', quote + text + (this.char === quote ? quote : ''), { class: 'string' })
       } else {
         html += this.char
       }
