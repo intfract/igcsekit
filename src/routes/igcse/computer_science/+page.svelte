@@ -1,7 +1,7 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
-  import CodeBlock from '$lib/components/CodeBlock.svelte'
+  import Editor from '$lib/components/Editor.svelte'
 
   export let data
 
@@ -59,6 +59,6 @@
   </DataTable>
   <h2>Pseudocode</h2>
   <p>Pseudocode must be handwritten in the computer programming paper.</p>
-  <CodeBlock {code} runnable={true}></CodeBlock>
+  <Editor runnable={true}></Editor>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
