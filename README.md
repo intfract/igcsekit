@@ -10,6 +10,7 @@ You can fork this repository on [GitHub](https://github.com/intfract) or use the
 
 This repository contains some advanced components such as the first IGCSE pseudocode web compiler which is written in TypeScript. Here is a list that breaks down the core features of this website.
 - Single Step Pseudocode Compiler `src/lib/utils/compiler.ts`
+- Psuedocode Editor `src/lib/components/MonacoEditor.svelte`
 - Punnett Square `src/lib/components/Punnet.svelte`
 - Truth Table `src/lib/components/TruthTable.svelte`
 - Multiple Choice Question Engine `src/lib/components/Quiz.svelte`
