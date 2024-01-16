@@ -2,6 +2,7 @@
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
   import Editor from '$lib/components/Editor.svelte'
+  import MonacoEditor from '$lib/components/MonacoEditor.svelte'
 
   export let data
 
@@ -59,6 +60,6 @@
   </DataTable>
   <h2>Pseudocode</h2>
   <p>Pseudocode must be handwritten in the computer programming paper.</p>
-  <Editor runnable={true}></Editor>
+  <MonacoEditor></MonacoEditor>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
