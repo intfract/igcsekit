@@ -241,6 +241,8 @@ export class Compiler {
         this.move()
         continue
       }
+      this.js += this.char
+      this.move()
     }
     this.js += temp
     return `function LENGTH(string){return string.length}function UPPER(string){return string.toUpperCase()}function LOWER(string){return string.toLowerCase()}function SUBSTRING(string,start,length){return string.substr(start-1,length)}function ROUND(number){return Math.round(number)}function RANDOM(){return Math.random()}try{${this.js};return false}catch($e){return $e}`
@@ -268,7 +270,7 @@ export class Compiler {
         const quote = this.char
         this.move()
         const text = this.extractQuote(quote)
-        html += tag('span', quote + text + (this.char === quote ? quote : ''), { class: 'string' })
+        html += tag('span', quote + text + (this.char === quote && !this.end ? quote : ''), { class: 'string' })
       } else {
         html += this.char
       }

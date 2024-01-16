@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Compiler } from '$lib/utils/compiler'
+  import { tag } from '$lib/utils/html'
 
   import Button, { Label, Icon } from '@smui/button'
   import Textfield from '@smui/textfield'
 
   let terminal: string = ''
   let value: string = ''
-  let index: number = 0
   let inputted: boolean = false
 
   const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
@@ -15,23 +15,40 @@
 
   let code: string = 'OUTPUT "Hello, world!"'
   $: code
-  let focused = false
 
   const compiler = new Compiler(code)  
-  let highlightedCode: string = compiler.style() + '|'
+  let highlightedCode: string = compiler.style() + tag('span', '|', { class: 'cursor' })
   $: highlightedCode
 
-  function focus(state: boolean) {
-    focused = state
-  }
-
-  function keydown(e: KeyboardEvent) {
-    if (!focused) return
-    if (e.key.length === 1) code += e.key
-    else if (e.key === 'Enter') code += '\n'
-    else if (e.key === 'Backspace') code = code.substring(0, code.length - 1)
+  async function keydown(e: KeyboardEvent) {
+    if (e.key.length === 1) {
+      if (e.ctrlKey) {
+        if (e.key === 'v') {
+          const text = await navigator.clipboard.readText()
+          code += text
+        }
+      } else {
+        code += e.key
+      }
+    } else if (e.key === 'Enter') {
+      code += '\n'
+    } else if (e.key === 'Backspace') {
+      if (e.ctrlKey) {
+        let index: number = 0
+        for (let i = code.length - 1; i >= 0; i--) {
+          const char = code[i]
+          if (char === ' ') {
+            index = i
+            break
+          }
+        }
+        code = code.slice(0, index)
+      } else {
+        code = code.slice(0, -1)
+      }
+    }
     compiler.code = code
-    highlightedCode = compiler.style() + '|'
+    highlightedCode = compiler.style() + tag('span', '|', { class: 'cursor' })
   }
 
   function output(...args: string[]) {
@@ -49,7 +66,6 @@
 
   async function run(code: string) {
     terminal = ''
-    index = 0
     const lib = {
       input,
       output,
@@ -78,7 +94,7 @@
 </script>
 
 <div class="block">
-  <div class="code" on:focusin={e => focus(true)} on:focusout={e => focus(false)} on:keydown={keydown} tabindex="0">
+  <div class="code" on:keydown={keydown} tabindex="0">
     <pre>{@html highlightedCode}</pre>
   </div>
   {#if runnable}
