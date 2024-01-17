@@ -1,7 +1,6 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
-  import Editor from '$lib/components/Editor.svelte'
   import MonacoEditor from '$lib/components/MonacoEditor.svelte'
 
   export let data

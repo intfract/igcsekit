@@ -45,6 +45,8 @@ export class Compiler {
       'ARRAY': 'Array',
       'INFINITY': 'Infinity',
       'procedure': 'function',
+      'INTEGER': 'Number',
+      'REAL': 'Number',
     },
   }
 

@@ -36,11 +36,12 @@
   const compiler = new Compiler(code)
 
   onMount(async () => {
+    const keywords = [...compiler.keywords, ...compiler.blocks, ...compiler.blocks.map(x => 'end' + x), ...compiler.assignment, ...Object.keys(compiler.maps.js)]
     monaco = (await import('$lib/monaco/monaco')).default
     monaco.languages.register({ id: 'pseudocode' })
     monaco.languages.setMonarchTokensProvider('pseudocode', {
       ignoreCase: true,
-      keywords: [...compiler.keywords, ...compiler.blocks, ...compiler.blocks.map(x => 'end' + x), ...compiler.assignment, ...Object.keys(compiler.maps.js)],
+      keywords,
       operators: compiler.operators,
       tokenizer: {
         root: [
@@ -89,6 +90,28 @@
       code,
       'pseudocode'
     )
+    monaco.languages.registerCompletionItemProvider('pseudocode', {
+      provideCompletionItems: (model, position, context, token) => {
+        const word = model.getWordUntilPosition(position)
+        return {
+          suggestions: [
+            ...keywords.map(keyword => {
+              return {
+                label: keyword,
+                kind: monaco.languages.CompletionItemKind.Keyword,
+                insertText: keyword,
+                range: {
+                  startLineNumber: position.lineNumber,
+                  endLineNumber: position.lineNumber,
+                  startColumn: word.startColumn,
+                  endColumn: word.endColumn,
+                }
+              }
+            })
+          ]
+        }
+      },
+    })
     editor.setModel(model)
     reactiveEditor = editor
   })
@@ -152,6 +175,8 @@
   .container {
     width: 100%;
     height: 600px;
+    border-radius: 4px;
+    overflow: hidden;
   }
 
   .terminal {
