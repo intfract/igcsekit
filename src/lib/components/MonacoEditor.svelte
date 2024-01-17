@@ -97,9 +97,9 @@
           suggestions: [
             ...keywords.map(keyword => {
               return {
-                label: keyword,
+                label: keyword.toUpperCase(),
                 kind: monaco.languages.CompletionItemKind.Keyword,
-                insertText: keyword,
+                insertText: keyword.toUpperCase(),
                 range: {
                   startLineNumber: position.lineNumber,
                   endLineNumber: position.lineNumber,
