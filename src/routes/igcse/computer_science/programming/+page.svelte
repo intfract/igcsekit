@@ -88,4 +88,44 @@
   <CodeBlock code={procedures} runnable></CodeBlock>
   <p>A function is similar to a procedure but it returns a value back to the main program. This makes functions very handy for calculations or recursion.</p>
   <CodeBlock code={functions} runnable></CodeBlock>
+  <h3>Library Routines</h3>
+  <p>Library routines are pre-written functions in pseudocode that are used to perform common tasks. Programming languages tend to collectively call this a standard library.</p>
+  <ul>
+    <li>
+      <code>MOD</code>
+      <ul>
+        <li>returns the remainder after a division operation</li>
+      </ul>
+    </li>
+    <li>
+      <code>DIV</code>
+      <ul>
+        <li>returns the floor of a division operation (performs integer division and rounds the result down)</li>
+      </ul>
+    </li>
+    <li>
+      <code>ROUND</code>
+      <ul>
+        <li>rounds a number to the nearest integer</li>
+      </ul>
+    </li>
+    <li>
+      <code>RANDOM</code>
+      <ul>
+        <li>returns a random decimal number between 0 and 1</li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Maintainable Program Standards</h3>
+  <p>Good programmers create maintainable programs. A maintanable program includes the appropriate use of:</p>
+  <ul>
+    <li>meaningful identifiers (for clarity)</li>
+    <li>the commenting feature provided by the programming language (for improving readability)</li>
+    <li>procedures and functions (for efficiency and readability)</li>
+    <li>relevant appropriate commenting of syntax</li>
+  </ul>
+  <p>A meaningful identifier exlpains the purpose of a variable. For example, a variable used to store a running total should have a name like <code>Total</code> or <code>Sum</code>.</p>
+  <Callout emoji="🤔">
+    It is usually a good idea to use verbs as identifiers for functions and procedures.
+  </Callout>
 </section>
