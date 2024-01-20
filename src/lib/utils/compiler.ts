@@ -10,7 +10,7 @@ export class Compiler {
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare', 'constant']
-  keywords: string[] = ['input', 'output', 'call', 'return']
+  keywords: string[] = ['input', 'output', 'call', 'return', 'openfile', 'readfile', 'writefile', 'closefile', 'read', 'write']
   blocks: string[] = ['while', 'for', 'until', 'if', 'procedure', 'function']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '>=', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
@@ -42,9 +42,13 @@ export class Compiler {
       'AND': '&&',
       'NOT': '!',
       'STRING': 'String',
+      'CHAR': 'String',
       'ARRAY': 'Array',
       'INFINITY': 'Infinity',
       'procedure': 'function',
+      'INTEGER': 'Number',
+      'REAL': 'Number',
+      'OF': '',
     },
   }
 

@@ -1,7 +1,6 @@
 <script lang="ts">
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
-  import Editor from '$lib/components/Editor.svelte'
   import MonacoEditor from '$lib/components/MonacoEditor.svelte'
 
   export let data
@@ -59,7 +58,68 @@
     </Body>
   </DataTable>
   <h2>Pseudocode</h2>
-  <p>Pseudocode must be handwritten in the computer programming paper.</p>
+  <p>Pseudocode must be handwritten in the computer programming paper. The pseudocode editor below allows you to compiler CIE psueodocode into JavaScript and run it.</p>
+  <p>The editor supports:</p>
+  <ul>
+    <li>declaration of <code>ARRAY</code> type without fixed lengths or types</li>
+    <li>
+      declaration of:
+      <ul>
+        <li>
+          <code>STRING</code>
+        </li>
+        <li>
+          <code>INTEGER</code>
+        </li>
+        <li>
+          <code>REAL</code>
+        </li>
+      </ul>
+    </li>
+    <li>all 3 forms of loops</li>
+    <li>procedures without any arguments</li>
+    <li>functions without types for arguments or return values</li>
+    <li>
+      library routines limited to:
+      <ul>
+        <li>
+          <code>RANDOM</code>
+        </li>
+        <li>
+          <code>ROUND</code>
+        </li>
+        <li>
+          <code>LENGTH</code>
+        </li>
+        <li>
+          <code>SUBSTRING</code>
+        </li>
+        <li>
+          <code>UPPER</code>
+        </li>
+        <li>
+          <code>LOWER</code>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>The editor does <strong>not</strong> support:</p>
+  <ul>
+    <li><code>CHAR</code> data type</li>
+    <li>declaring an <code>ARRAY</code> with a specified length and type like <code>DECLARE TicTacToe: ARRAY[1:3, 1:3] OF INTEGER</code></li>
+    <li><code>CASE OF</code> statements</li>
+    <li>
+      some library routines such as:
+      <ul>
+        <li>
+          <code>MOD</code>
+        </li>
+        <li>
+          <code>DIV</code>
+        </li>
+      </ul>
+    </li>
+  </ul>
   <MonacoEditor></MonacoEditor>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
