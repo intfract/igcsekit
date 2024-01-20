@@ -6,6 +6,8 @@
   let stringHandling = 'OUTPUT LENGTH("penis")\nOUTPUT UPPER("#2c6fef")\nOUTPUT LOWER("X")\nOUTPUT SUBSTRING("sushi", 1, 3)'
   let procedures = 'DECLARE Items : ARRAY\nPROCEDURE Swap\n\tTemp ← Items[Index]\n\tItems[Index] ← Items[Index + 1]\n\tItems[Index + 1] ← Temp\n\tSwapped ← TRUE\nENDPROCEDURE\nN ← 0\nItem ← ""\nREPEAT\n\tOUTPUT "Enter an item or leave blank to begin sorting."\n\tINPUT Item\n\tIF Item <> "" THEN\n\t\tN ← N + 1\n\t\tItems[N] ← Item\n\tENDIF\n\tLength ← N\nUNTIL Item = ""\nSwapped ← TRUE\nWHILE N > 1 AND Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tCALL Swap\n\t\tENDIF\n\tNEXT\nENDWHILE\nOUTPUT Length, " items have been sorted!"\nFOR Index ← 1 TO Length\n\tOUTPUT Items[Index]\nNEXT'
   let functions = 'FUNCTION SumUpTo(Value)\n\tRETURN Value / 2 * (Value + 1)\nENDFUNCTION\nOUTPUT SumUpTo(4)'
+  let arrays = 'DECLARE TicTacToe : ARRAY[1:3, 1:3] OF CHAR'
+  let fileHandling = 'DECLARE LineOfText : STRING\nOPENFILE FileA.txt FOR READ\nOPENFILE FileB.txt FOR WRITE\nREADFILE FileA.txt, LineOfText\nWRITEFILE FileB.txt, LineOfText\nCLOSEFILE FileA.txt\nCLOSEFILE FileB.txt'
 </script>
 
 <section>
@@ -119,13 +121,20 @@
   <h3>Maintainable Program Standards</h3>
   <p>Good programmers create maintainable programs. A maintanable program includes the appropriate use of:</p>
   <ul>
-    <li>meaningful identifiers (for clarity)</li>
-    <li>the commenting feature provided by the programming language (for improving readability)</li>
-    <li>procedures and functions (for efficiency and readability)</li>
+    <li>meaningful identifiers (to allow programmers to easily understand the purpose of a variable)</li>
+    <li>the commenting feature provided by the programming language (to help programmers know the purpose of a section of code)</li>
+    <li>procedures and functions (to make programs modular and easy to update)</li>
     <li>relevant appropriate commenting of syntax</li>
   </ul>
   <p>A meaningful identifier exlpains the purpose of a variable. For example, a variable used to store a running total should have a name like <code>Total</code> or <code>Sum</code>.</p>
   <Callout emoji="🤔">
     It is usually a good idea to use verbs as identifiers for functions and procedures.
   </Callout>
+  <h2>Arrays</h2>
+  <p>Arrays are fixed-length structures containing elements with the same data type which are accessible by consecutive index numbers. It is good practice to explicitly state what the lower bound of the array (the index of the first element) because this defaults to either 0 or 1 in different systems. Generally, a lower bound of 1 will be used in pseudocode.</p>
+  <CodeBlock code={arrays}></CodeBlock>
+  <h2>File Handling</h2>
+  <p>Storing data in files permanently allows data to be resued by a program even after it has been closed and reopened. Files also allow data to be transferred between machines.</p>
+  <p>The pseudocode below shows the process of writing the text stored in <code>FileA.txt</code> to <code>FileB.txt</code>. This will replace the existing contents of <code>FileB.txt</code> but leave <code>FileA.txt</code> unmodified.</p>
+  <CodeBlock code={fileHandling}></CodeBlock>
 </section>
