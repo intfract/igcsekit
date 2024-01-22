@@ -112,4 +112,12 @@
     <li>food containers because of its resistance to corrosion</li>
   </ul>
   <p>Aluminium has an apparent unreactivity and resistance to corrision because an oxide layer that adheres to the surface of aluminium. This layer prevents further oxidation.</p>
+  <h3>Steel</h3>
+  <p>Mild steel is used in car bodies and machinery while stainless steel is used in cutlery. Steel is an alloy that is strogner and has a higher melting point than its constituents.</p>
+  <h3>Zinc</h3>
+  <p>Zinc is used for:</p>
+  <ul>
+    <li>galvanising steel to prevent corrosion</li>
+    <li>making brass by mixing it with copper</li>
+  </ul>
 </section>
