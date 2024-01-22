@@ -300,6 +300,12 @@ main section {
   height: 8px;
 }
 
+.equation {
+  margin-block: 16px;
+  text-align: center;
+  font-size: 24px;
+}
+
 .keyword {
   color: var(--mdc-theme-primary);
   font-weight: bold;

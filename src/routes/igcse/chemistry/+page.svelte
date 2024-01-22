@@ -6,6 +6,7 @@
 
   let rows: [string, boolean, boolean, boolean][] = [
     ['Electrolysis', true, true, true],
+    ['Metals', true, true, true],
     ['Organic Chemistry', true, true, true],
   ]
 

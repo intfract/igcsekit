@@ -46,8 +46,8 @@
   </ul>
   <h3>Ionic Half Equations</h3>
   <p>Half equations are used to represent the reactions that take place at each electrode. Half equations only involve ions and electrons. Electrons are represented by {@html math(`e^{-}`)} in half equations due to their negative charge.</p>
-  <div class="katex-display">
-    {@html math(`Al^{3+} + 3e^{-} → Al`)}
+  <div class="equation">
+    Al<sup>3+</sup> + 3e<sup>-</sup> → Al
   </div>
   <h2>Examples</h2>
   <h3>Molten Lead Bromide</h3>
