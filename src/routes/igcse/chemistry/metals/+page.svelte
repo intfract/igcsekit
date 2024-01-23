@@ -101,7 +101,7 @@
     CaO + SiO<sub>2</sub> → CaSiO<sub>3</sub>
   </div>
   <h3>Electrolysis</h3>
-  <p>Metals more reactive than carbon are extracted using electrolysis. For example, aluminium is extracted from bauxite by electrolysis. Aluminium has a <strong>high melting point</strong> that needs to be lowered by mixing it with <strong>cryolite</strong>.</p>
+  <p>Metals more reactive than carbon are extracted using electrolysis. For example, aluminium is extracted from bauxite by electrolysis. Aluminium oxide has a <strong>high melting point</strong> that needs to be lowered by mixing it with <strong>cryolite</strong>.</p>
   <h3>Recycling</h3>
   <p>It is important to recycle metals because metal ores are a finite resource.</p>
   <h2>Uses of Metals</h2>
