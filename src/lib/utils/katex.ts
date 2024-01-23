@@ -16,6 +16,7 @@ export const cos = '\\cos'
 export const theta = '\\theta'
 export const left = '\\left('
 export const right = '\\right)'
+export const textrm = '\\textrm'
 
 export function frac(numerator: string, denominator: string): string {
   return `\\frac{${numerator}}{${denominator}}`
@@ -23,4 +24,8 @@ export function frac(numerator: string, denominator: string): string {
 
 export function wrap(...terms: string[]) {
   return left + terms.join('') + right
+}
+
+export function sum(expression: string, start?: string, limit?: string) {
+  return `\\displaystyle\\sum_{${start ?? ''}}^{${limit ?? ''}}{${expression}}`
 }

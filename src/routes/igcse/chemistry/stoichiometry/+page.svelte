@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { math, times, div } from '$lib/utils/katex'
+  import Callout from '$lib/components/Callout.svelte'
+  import { math, times, div, textrm, frac, sum } from '$lib/utils/katex'
 </script>
 
 <section>
@@ -45,8 +46,68 @@
     <li>1 mole of <sup>1</sup>H = 1 gram of <sup>1</sup>H</li>
     <li>1 mole of <sup>A</sup>X = A grams of <sup>A</sup>X (hypothetical example)</li>
   </ul>
-  <p>The units for relative atomic mass is grams per mole.</p>
+  <p>The relative molecular mass is the sum of the relative atomic masses.</p>
   <div class="katex-display">
-    {@html math(`m=M_r${times}n`)}
+    {@html math(`M_r=${sum('A_r', '', '')}`)}
   </div>
+  <p>The units for relative molecular mass is grams per mole.</p>
+  <div class="katex-display">
+    {@html math(`m=M_r${times} n`)}
+  </div>
+  <p>The mass (g) is equal to the relative atomic mass (g mol<sup>-1</sup>) times the number of moles (mol).</p>
+  <Callout emoji="🤔">
+    The relative atomic mass of an atom can be approximated by doubling its atomic number. However, it is better to consult the periodic table before making any assumptions.
+  </Callout>
+  <h3>Molar Ratios</h3>
+  <p>Balanced chemical equations have molar ratios. These ratios show how many reactant molecules are required per product molecule.</p>
+  <Callout emoji="🤔">
+    The law of conservation of mass states that the <strong>mass of reactants = mass of products</strong> in any chemical reaction.
+  </Callout>
+  <p>The total number of reactant moles is equal to the total number of product moles.</p>
+  <div class="katex-display">
+    {@html math(`n_${textrm}{products}=n_${textrm}{reactants}`)}
+  </div>
+  <p>It takes 2 carbon monoxide molecules and 1 oxygen molecule to produce 2 carbon dioxide molecules.</p>
+  <div class="hidden equation">
+    2CO + O<sub>2</sub> → 2CO<sub>2</sub>
+  </div>
+  <p>How many grams of oxygen is required to produce 88 grams of carbon dioxide?</p>
+  <ol>
+    <li>Calculate the relative atomic mass of the known chemical in grams per mole as {@html math(`44 ${textrm}{ g} ${textrm}{ mol}^{-1}`)}</li>
+    <li>Divide the known mass by the relative atomic mass to get the number of moles as {@html math(`2 ${textrm}{ mol}`)}</li>
+    <li>Divide the number of moles by the number of CO<sub>2</sub> molecules to get the moles per molecule as {@html math(`1 ${textrm}{ mol}`)}</li>
+    <li>Multiply by the relative atomic mass of the unknown chemical to get the mass per molecule as {@html math(`32 ${textrm}{ g}`)}</li>
+    <li>Multiply by the number of O<sub>2</sub> molecules to get the total unknown mass as {@html math(`32 ${textrm}{ g}`)}</li>
+  </ol>
+  <p>The function {@html math('n')} represents the total number of moles of an element while the function {@html math('N')} represents the molar ration found in a chemcial equation.</p>
+  <div class="katex-display">
+    {@html math(`${frac('n(X_0)', 'n(X_1)')}=${frac('N(X_0)', 'N(X_1)')}`)}
+  </div>
+  <p>The mass ratio is equal to the molecular mass ratio times the molar ratio. The molecules {@html math('X_0')} and {@html math('X_1')} are hypothetical molecules.</p>
+  <div class="katex-display">
+    {@html math(`${frac('m(X_0)', 'm(X_1)')}=${frac('M_r(X_0)', 'M_r(X_1)')}${times}${frac('N(X_0)', 'N(X_1)')}`)}
+  </div>
+  <p>5 parameters are required to solve molar ratio and mass questions.</p>
+  <ul>
+    <li>
+      <strong>2 Relative Atomic Masses</strong>: found in the periodic table
+    </li>
+    <li>
+      <strong>2 Molecular Coefficients</strong>: given in the <em>balanced</em> equation beside the molecular formulas
+    </li>
+    <li>
+      <strong>1 Known Mass</strong>: given in the question
+    </li>
+  </ul>
+  <h3>Molar Volume</h3>
+  <p>The volume of 1 mole of any gas is 24 dm<sup>3</sup> at room temperature and pressure.</p>
+  <Callout emoji="🤔">
+    The molar volume of any gas at (r.t.p.) is usually given in the exam along with a periodic table. The unit for this constant is decimetres cubed per mole.
+  </Callout>
+  <h3>Concentration</h3>
+  <p>The concentration of a solution is measured in moles per decimetre cubed.</p>
+  <div class="katex-display">
+    {@html math(`c=${frac('n', 'V')}`)}
+  </div>
+  <p>Concentration is directly proportional to the number of moles but inversely proportional to the volume of the solution.</p>
 </section>
