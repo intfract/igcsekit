@@ -3,7 +3,7 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
 
   let declaring = 'DECLARE Text : STRING\nCONSTANT DaysPerWeek ← 7'
-  let stringHandling = 'OUTPUT LENGTH("penis")\nOUTPUT UPPER("#2c6fef")\nOUTPUT LOWER("X")\nOUTPUT SUBSTRING("sushi", 1, 3)'
+  let stringHandling = 'OUTPUT LENGTH("penis")\nOUTPUT UCASE("#2c6fef")\nOUTPUT LCASE("X")\nOUTPUT SUBSTRING("sushi", 1, 3)'
   let procedures = 'DECLARE Items : ARRAY\nPROCEDURE Swap\n\tTemp ← Items[Index]\n\tItems[Index] ← Items[Index + 1]\n\tItems[Index + 1] ← Temp\n\tSwapped ← TRUE\nENDPROCEDURE\nN ← 0\nItem ← ""\nREPEAT\n\tOUTPUT "Enter an item or leave blank to begin sorting."\n\tINPUT Item\n\tIF Item <> "" THEN\n\t\tN ← N + 1\n\t\tItems[N] ← Item\n\tENDIF\n\tLength ← N\nUNTIL Item = ""\nSwapped ← TRUE\nWHILE N > 1 AND Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tCALL Swap\n\t\tENDIF\n\tNEXT\nENDWHILE\nOUTPUT Length, " items have been sorted!"\nFOR Index ← 1 TO Length\n\tOUTPUT Items[Index]\nNEXT'
   let functions = 'FUNCTION SumUpTo(Value)\n\tRETURN Value / 2 * (Value + 1)\nENDFUNCTION\nOUTPUT SumUpTo(4)'
   let arrays = 'DECLARE TicTacToe : ARRAY[1:3, 1:3] OF CHAR'

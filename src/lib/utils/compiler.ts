@@ -249,7 +249,7 @@ export class Compiler {
       this.move()
     }
     this.js += temp
-    return `function LENGTH(string){return string.length}function UPPER(string){return string.toUpperCase()}function LOWER(string){return string.toLowerCase()}function SUBSTRING(string,start,length){return string.substr(start-1,length)}function ROUND(number){return Math.round(number)}function RANDOM(){return Math.random()}try{${this.js};return false}catch($e){return $e}`
+    return `function LENGTH(string){return string.length}function UCASE(string){return string.toUpperCase()}function LCASE(string){return string.toLowerCase()}function SUBSTRING(string,start,length){return string.substr(start-1,length)}function ROUND(number){return Math.round(number)}function RANDOM(){return Math.random()}try{${this.js};return false}catch($e){return $e}`
   }
 
   style() {
