@@ -245,7 +245,6 @@ export class Compiler {
         this.move()
         continue
       }
-      this.js += this.char
       this.move()
     }
     this.js += temp
