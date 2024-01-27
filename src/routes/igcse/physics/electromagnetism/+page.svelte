@@ -1,6 +1,10 @@
 <script lang="ts">
   import Callout from '$lib/components/Callout.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import Image from '$lib/components/Image.svelte'
+  import fleming from '$lib/images/diagrams/fleming.png'
+  import dc_motor from '$lib/images/diagrams/dc_motor.png'
+  import commutators from '$lib/images/diagrams/commutators.png'
 
   let a: [string, boolean, boolean][] = [
     ['Magnetised', true, true],
@@ -125,4 +129,29 @@
     <li>Thumb points in direction of current</li>
     <li>Fingers curl in direction of magnetic field</li>
   </ul>
+  <h3>Lorentz Force</h3>
+  <p>A force will act on a current-carrying conductor when it is in a magnetic field. Placing a wire carrying current between opposite poles of a magnet will cause a force to act on the wire.</p>
+  <p>The direction of this force is relative to the direction of the current and the magnetic field. Fleming's left hand rule or the right hand slap rule can be used to determine the direction of the force.</p>
+  <h4>Left Hand Rule</h4>
+  <p>The direction of each finger should be in <strong>right</strong> angles to each other, producing a 3D shape.</p>
+  <ul>
+    <li>thumb: force</li>
+    <li>index finger: magnetic field</li>
+    <li>middle finger: current</li>
+  </ul>
+  <Image src={fleming}></Image>
+  <h3>DC Motor</h3>
+  <p>A current-carrying coil in a magnetic field experiences a turning effect and that the effect is increased by increasing the:</p>
+  <ul>
+    <li>number of turns in the coil</li>
+    <li>current</li>
+    <li>strength of the magnetic field</li>
+  </ul>
+  <p>The turning effect is a result of a Lorentz force acting on both sides of the coil. One side experiences an upward force while the other experiences a downward force due to the current travelling in opposite directions on each side. Fleming's left hand rule can be applied to predict the rotation of the coil.</p>
+  <Image src={dc_motor}></Image>
+  <h4>Commutator</h4>
+  <p>A split-ring commutator <strong>reverses the direction of the current every half turn</strong>. This keeps the current leaving the motor in the same direction and prevents the motor from alternating between clockwise and anti-clockwise motion.</p>
+  <Image src={commutators}></Image>
+  <h3>AC Generator</h3>
+  <p>Generators work through electromagnetic induction.</p>
 </section>
