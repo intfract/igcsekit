@@ -5,6 +5,8 @@
   export let data
 
   let rows: [string, boolean, boolean, boolean][] = [
+    ['Experimental Techniques', true, true, true],
+    ['Stoichiometry', true, true, true],
     ['Electrolysis', true, true, true],
     ['Metals', true, true, true],
     ['Organic Chemistry', true, true, true],
