@@ -3,6 +3,7 @@
 
   import Comparison from '$lib/components/Comparison.svelte'
   import Callout from '$lib/components/Callout.svelte'
+  import ParityBlock from '$lib/components/ParityBlock.svelte'
 
   let positives = [
     'Devices plugged into the computer are automatically detected and device drivers are automatically loaded up',
@@ -39,6 +40,16 @@
     row[3] = parityBit + data
     a.push(row)
   }
+
+  let block: number[][] = [
+    [1, 0, 0, 0, 0, 0, 1],
+    [0, 1, 0, 0, 0, 1, 0],
+    [0, 0, 1, 0, 1, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
+    [0, 0, 1, 0, 1, 0, 0],
+    [0, 1, 0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 0, 0, 1],
+  ]
 </script>
 
 <svelte:head>
@@ -163,6 +174,16 @@
       {/each}
     </Body>
   </DataTable>
+  <p>A parity block is of a block of data containing a parity byte.</p>
+  <ul>
+    <li>Each byte (row) has a parity bit</li>
+    <li>Parity byte has a parity bit for each bit (column)</li>
+    <li>Parity byte is sent with the data</li>
+  </ul>
+  <p>The resulting parity block can be displayed as a table of bits with each row representing a byte and each column representing a specific bit form each byte.</p>
+  <ParityBlock {block}></ParityBlock>
+  <p>Unlike parity bits, parity blocks can locate the erroneous bit.</p>
+  <ParityBlock {block} error={[3, 3]}></ParityBlock>
   <h3>Checksum</h3>
   <p>A checksum can determine whether data has been corrupted but it does not reveal where the error has been made. A checksum is calculated once by the sender and once by the receiver.</p>
   <ol>
@@ -174,7 +195,12 @@
     <li>Receiver requests for the data to be resent</li>
   </ol>
   <h3>Check Digit</h3>
-  <p>Validates data on data entry.</p>
+  <p>A check digit validates data on data entry. Check digits are used in:</p>
+  <ul>
+    <li>bar codes</li>
+    <li>international standard book numbers</li>
+  </ul>
+  <p>Check digits work by calculating a value based on digits in the data. This value is often a digit or a letter which is appended to the end of the data.</p>
   <h3>ARQ</h3>
   <p>An automatic repeat request sends data in a loop until the sender receives a confirmation message. It does not <em>check</em> for errors and relies on other error checking methods to function effectively.</p>
   <ol>
@@ -185,4 +211,7 @@
     <li>Receiver requests resend if an error is found</li>
     <li>Sender resends data until receiver sends an acknowledgement</li>
   </ol>
+  <p>This method notably involves the use of positive or negative <strong>acknowledgements</strong> and <strong>timeouts</strong>.</p>
+  <h3>Echo Check</h3>
+  <p>An echo check is when the receiver transmits a copy of the data back to the sender. The sender checks whether the data received is the same as the data that was sent before. Echo checks are often regarded as ineffici</p>
 </section>

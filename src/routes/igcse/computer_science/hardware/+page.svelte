@@ -103,8 +103,8 @@
     <li>Memory is <strong>fetched</strong> from <strong>RAM</strong> into CPU</li>
     <li>CPU reads instructions and data from <strong>MDR</strong></li>
     <li><strong>CIR</strong> stores current instruction</li>
-    <li><strong>CU</strong> decodes instruction</li>
-    <li><strong>ALU</strong> executes instruction</li>
+    <li><strong>CU</strong> decodes instruction and executes it by sending control signals to other components</li>
+    <li><strong>ALU</strong> executes instruction by performing arithemetic and logic operations</li>
     <li>Data is written to RAM</li>
   </ol>
   <h3>CPU Performance</h3>
