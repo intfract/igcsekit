@@ -134,6 +134,7 @@ export class Compiler {
     let temp: string = ''
     let indent: number = 0
     while (!this.end) {
+      console.log(this.char)
       if (this.brackets.includes(this.char)) {
         if ('()[]'.includes(this.char)) {
           this.js += this.char
@@ -186,6 +187,7 @@ export class Compiler {
           } else if (wordL === 'until') {
             temp = '))'
           }
+          continue
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
             this.move()
@@ -245,7 +247,7 @@ export class Compiler {
         this.move()
         continue
       }
-      this.move()
+      console.log(this.char)
     }
     this.js += temp
     return `function LENGTH(string){return string.length}function UCASE(string){return string.toUpperCase()}function LCASE(string){return string.toLowerCase()}function SUBSTRING(string,start,length){return string.substr(start-1,length)}function ROUND(number){return Math.round(number)}function RANDOM(){return Math.random()}try{${this.js};return false}catch($e){return $e}`
