@@ -5,6 +5,7 @@
   import { createRenderer, cube } from '$lib/three/three'
 
   onMount(() => {
+    const main = document.querySelector('main')
     let tick = 0
     let width = window.innerWidth
     let height = window.innerHeight - 64
@@ -62,9 +63,9 @@
     const lights: THREE.DirectionalLight[] = []
     lights[0] = new THREE.DirectionalLight(0xffffff, 2)
     lights[0].position.set(1, 0, 0)
-    lights[1] = new THREE.DirectionalLight(0x11e8bb, 2)
+    lights[1] = new THREE.DirectionalLight(0xff8000, 4)
     lights[1].position.set(0.75, 1, 0.5)
-    lights[2] = new THREE.DirectionalLight(0x2c6fef, 2)
+    lights[2] = new THREE.DirectionalLight(0xff0000, 4)
     lights[2].position.set(-0.75, -1, 0.5)
 
     for (const light of lights) {
@@ -91,32 +92,13 @@
     }
 
     animate()
+
+    main?.addEventListener('scroll', e => {
+      const height: number = document.querySelector('.story')?.clientHeight ?? window.innerHeight
+      const fraction = main.scrollTop / height
+      planet.scale.x = planet.scale.y = planet.scale.z = 16 * (1 - fraction)
+    })
   })
-
-  import Carousel, { type TrackItem } from '$lib/components/Carousel.svelte'
-
-  let items: TrackItem[] = [
-    {
-      image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      caption: 'Free Notes',
-      link: '/igcse',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80',
-      caption: 'Flashcards',
-      link: '/flashcards',
-    },
-    {
-      image: 'https://images.unsplash.com/flagged/photo-1584036561584-b03c19da874c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80',
-      caption: 'Quality Questions',
-      link: '/igcse',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      caption: 'Open Source Code',
-      link: 'https://github.com/intfract/igcsekit',
-    },
-  ]
 </script>
 
 <svelte:head>
@@ -129,33 +111,75 @@
   <div id="canvas"></div>
   <h1 class="hero">IGCSE Kit</h1>
 </div>
-<div class="padded container">
-  <Carousel {items}></Carousel>
+<div class="story">
+  <div class="chunk">
+    <div class="text">
+      <h1 class="heading">Study</h1>
+      <p class="description">Read high quality notes made by A* students and strengthen your understanding with various interactive tools.</p>
+    </div>
+  </div>
+  <div class="chunk">
+    <div class="text">
+      <h1 class="heading">Practice</h1>
+      <p class="description">Put your knowledge to the test with questions hand-picked from past papers.</p>
+    </div>
+  </div>
 </div>
 
 <style>
+  .story {
+    box-sizing: border-box;
+    width: 100%;
+    color: var(--mdc-theme-on-primary);
+  }
+
+  .chunk {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 64px 32px;
+    width: min(1200px, 100%);
+    height: 100vh;
+    color: var(--mdc-theme-on-primary);
+  }
+
+  .text {
+    width: calc(50% - 16px);
+  }
+
+  h1 {
+    color: inherit;
+  }
+
+  .heading {
+    font-size: 64px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
   .banner {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 32px;
   }
 
   #canvas {
-    position: absolute;
-    background-image: linear-gradient(180deg, var(--mdc-theme-primary), #11e8bb);
+    position: fixed;
+    /* background-image: linear-gradient(180deg, var(--mdc-theme-primary), #11e8bb); */
+    background-color: var(--mdc-theme-primary);
+    z-index: -1;
   }
 
   .container {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-  }
-
-  .padded {
-    padding: 16px;
-    box-sizing: border-box;
   }
 
   .hero {
