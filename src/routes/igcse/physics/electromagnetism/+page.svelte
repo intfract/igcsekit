@@ -2,6 +2,7 @@
   import Callout from '$lib/components/Callout.svelte'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import Image from '$lib/components/Image.svelte'
+  import { math, frac, times, end } from '$lib/utils/katex'
   import fleming from '$lib/images/diagrams/fleming.png'
   import dc_motor from '$lib/images/diagrams/dc_motor.png'
   import commutators from '$lib/images/diagrams/commutators.png'
@@ -154,4 +155,25 @@
   <Image src={commutators}></Image>
   <h3>AC Generator</h3>
   <p>Generators work through electromagnetic induction.</p>
+  <h3>Transformers</h3>
+  <p>Transformers are made of a soft iron core. This allows them to change the voltage of alternating current.</p>
+  <ul>
+    <li><strong>Step-up</strong> transformers increase the voltage (higher secondary coil voltage)</li>
+    <li><strong>Step-down</strong> transformers decrease the voltage (lower secondary coil voltage)</li>
+  </ul>
+  <p>The ratio of turns is equal to the ratio of voltages in each coil. More turns means more volts.</p>
+  <div class="katex-display">
+    {@html math(`${frac('N_p', 'N_s')}=${frac('V_p', 'V_s')}`)}
+  </div>
+  <p>Transformers that are 100% efficient conserve power. This means that the power from the primary coil must equal to the power in the secondary coil.</p>
+  <div class="katex-display">
+    {@html math(`I_p${times} V_p=I_s${times} V_s`)}
+  </div>
+  <Callout emoji="⚠">
+    Rarely, a transformer question may require a combination of both equations. This can happen when the current and number of turns is given but no voltages are given.
+  </Callout>
+  <p>It is possible to form a new equation through substiution.</p>
+  <div class="katex-display">
+    {@html math(`I_p${times}${frac('V_p', 'V_s')}=I_s${end}I_p${times}${frac('N_p', 'N_s')}=I_s${end}I_p${times} N_p=I_s${times} N_s`)}
+  </div>
 </section>
