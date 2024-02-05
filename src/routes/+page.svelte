@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
 
   import * as THREE from 'three'
-  import { createRenderer, cube } from '$lib/three/three'
+  import { createRenderer } from '$lib/three/three'
 
   onMount(() => {
     const main = document.querySelector('main')
