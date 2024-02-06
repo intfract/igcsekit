@@ -18,7 +18,7 @@
 
   let members: Member[] = [
     {
-      name: 'u_int',
+      name: 'intfract',
       tags: ['Founder', 'Developer', 'Author'],
       description: `Integer is the founder of IGCSE Kit and a discord bot developer at ${tag('a', 'r/IGCSE', { href: 'https://reddit.com/r/igcse' })}. He developed the first pseudocode web compiler and wrote most of the notes on this website.`,
       socials: {
