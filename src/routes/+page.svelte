@@ -125,6 +125,12 @@
       <p class="description">Put your knowledge to the test with questions hand-picked from past papers.</p>
     </div>
   </div>
+  <div class="chunk">
+    <div class="text">
+      <h1 class="heading">Memorise</h1>
+      <p class="description">Reinforce your learning with expertly crafted flashcards.</p>
+    </div>
+  </div>
 </div>
 
 <style>
