@@ -9,6 +9,7 @@
 <script lang="ts">
   import IconButton from '@smui/icon-button'
 
+  export let title: string
   export let flashcards: Flashcard[]
   export let flipped: boolean
 
@@ -20,17 +21,21 @@
   }
 
   function skip(n: number) {
+    flipped = false
     transition = true
     setTimeout(() => {
       index += n
       index = Math.max(0, Math.min(flashcards.length - 1, index))
-    }, 250)
+    }, 150)
     setTimeout(() => {
       transition = false
-    }, 250)
+    }, 150)
   }
 </script>
 
+<h2>{title}</h2>
+<p>This deck contains {flashcards.length} card{flashcards.length === 1 ? '' : 's'}.</p>
+<h3 class="counter">{index + 1}</h3>
 <div class="flashcard" class:flipped class:transition on:click={e => flipCard(e)} on:keypress={e => flipCard(e)}>
   <div class="front">
     {@html flashcards[index].front}
@@ -41,6 +46,7 @@
 </div>
 <div class="buttons">
   <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(-1)}>arrow_left_alt</IconButton>
+  <IconButton class="material-symbols-rounded" title="next" on:click={e => flipCard(e)}>flip</IconButton>
   <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(1)}>arrow_right_alt</IconButton>
 </div>
 
@@ -98,5 +104,9 @@
   .buttons {
     display: flex;
     justify-content: center;
+  }
+
+  .counter {
+    text-align: center;
   }
 </style>

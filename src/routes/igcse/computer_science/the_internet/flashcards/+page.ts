@@ -18,10 +18,6 @@ const flashcards: Flashcard[] = [
     back: 'a scam where an email pretends to be legitimate but contains links which redirect the user to a fake website',
   },
   {
-    front: 'Cookie',
-    back: 'a packet of information sent by a web server to a web browser used to track and maintain user preferences',
-  },
-  {
     front: 'Firewall',
     back: 'hardware or software that examines network traffic, blocks unauthorised access, and maintains logs to maximise security',
   },

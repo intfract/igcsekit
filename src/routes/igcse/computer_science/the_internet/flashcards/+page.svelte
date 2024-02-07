@@ -13,5 +13,5 @@
 
 <section>
   <h1>Flashcards</h1>
-  <Flashcard {flashcards} {flipped}></Flashcard>
+  <Flashcard title="Cyber Security" {flashcards} {flipped}></Flashcard>
 </section>
