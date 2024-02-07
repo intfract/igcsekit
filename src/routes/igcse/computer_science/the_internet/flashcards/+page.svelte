@@ -5,7 +5,6 @@
   const { flashcards } = data
 
   let flipped = false
-  let index = 0
 </script>
 
 <svelte:head>
@@ -13,6 +12,6 @@
 </svelte:head>
 
 <section>
-  <h1>IGCSE</h1>
-  <Flashcard front={flashcards[index].front} back={flashcards[index].back} {flipped}></Flashcard>
+  <h1>Flashcards</h1>
+  <Flashcard title="Cyber Security" {flashcards} {flipped}></Flashcard>
 </section>

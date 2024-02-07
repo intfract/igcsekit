@@ -5,6 +5,7 @@
   import { createRenderer } from '$lib/three/three'
 
   onMount(() => {
+    const PLANET_SIZE = 20
     const main = document.querySelector('main')
     let tick = 0
     let width = window.innerWidth
@@ -50,11 +51,11 @@
     }
 
     const planet = new THREE.Mesh(icosas[0], flat)
-    planet.scale.x = planet.scale.y = planet.scale.z = 16
+    planet.scale.x = planet.scale.y = planet.scale.z = PLANET_SIZE
     sphere.add(planet)
 
     const frame = new THREE.Mesh(icosas[1], wired)
-    frame.scale.x = frame.scale.y = frame.scale.z = 10
+    frame.scale.x = frame.scale.y = frame.scale.z = 12
     skeleton.add(frame)
 
     const ambientLight = new THREE.AmbientLight(0x999999)
@@ -96,7 +97,7 @@
     main?.addEventListener('scroll', e => {
       const height: number = document.querySelector('.story')?.clientHeight ?? window.innerHeight
       const fraction = main.scrollTop / height
-      planet.scale.x = planet.scale.y = planet.scale.z = 16 * (1 - fraction)
+      planet.scale.x = planet.scale.y = planet.scale.z = PLANET_SIZE * (1 - fraction)
     })
   })
 </script>

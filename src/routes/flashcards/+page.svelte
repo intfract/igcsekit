@@ -3,8 +3,13 @@
   import { h } from '$lib/utils/html'
 
   let flipped = false
-  let front = h(3, 'Click to flip!')
-  let back = 'This is the answer!'
+
+  let flashcards = [
+    {
+      front: h(3, 'Click to flip!'),
+      back: 'This is the answer!',
+    },
+  ]
 </script>
 
 <svelte:head>
@@ -14,8 +19,8 @@
 
 <section>
   <h1>Flashcards</h1>
-  <p>Share your flashcards with the public or explore existing flashcards!</p>
-  <Flashcard {front} {back} {flipped}></Flashcard>
+  <p>Share your flashcards with the public or explore existing flashcards by adding <code>/flashcards</code> to the URL of any notes page!</p>
+  <Flashcard title="Example" {flashcards} {flipped}></Flashcard>
 </section>
 
 <style>
