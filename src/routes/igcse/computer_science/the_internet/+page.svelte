@@ -121,6 +121,12 @@
     <li>Server is overwhelmed and shuts down</li>
     <li>Legitimate users are no longer able to connect to the unresponsive web server</li>
   </ul>
+  <h4>Pharming</h4>
+  <p>Pharming happens when malware downloaded on a user's hard drive or a web server redirects the user to a fake website which usually serves a malicious purpose.</p>
+  <ol>
+    <li>User clicks malicious link and downloads malware</li>
+    <li>User types in a web address or clicks a link but gets redirected to a fake website</li>
+  </ol>
   <h3>Solutions</h3>
   <h4>Access Levels</h4>
   <p>Access levels provide users with different permissions for data. They notably limit access to:</p>
