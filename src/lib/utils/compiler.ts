@@ -189,8 +189,6 @@ export class Compiler {
           } else if (wordL === 'case') {
             next = 'case '
             temp = '){'
-          } else {
-            temp = '){'
           }
           continue
         } else if (this.keywords.includes(wordL)) {

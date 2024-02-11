@@ -19,11 +19,11 @@ This repository contains some advanced components such as the first IGCSE pseudo
 ## Goals
 
 - [x] Write notes for computer science
-- [ ] Complete the pseudocode compiler
+- [x] Complete the pseudocode compiler
   - [x] Code the basic compiler
   - [x] Compile loops
   - [x] Compile boolean expressions
-  - [ ] Add `CASE OF` statements
+  - [x] Add `CASE OF` statements
 - [ ] Write notes for all 3 sciences
 - [ ] Write notes for other subjects
 - [ ] Get partnered with [r/IGCSE](https://reddit.com/r/igcse)
