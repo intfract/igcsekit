@@ -3,6 +3,7 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte'
 
   let declaring = 'DECLARE Text : STRING\nCONSTANT DaysPerWeek ← 7'
+  let caseStatement = 'X ← 0\nY ← 0\nINPUT Move\nCASE OF Move\n\t"w" : Y ← Y + 1\n\t"s" : Y ← Y - 1\n\t"d" : X ← X + 1\n\t"a" : X ← X - 1\n\tOTHERWISE OUTPUT "?"\nENDCASE\nOUTPUT X\nOUTPUT Y'
   let stringHandling = 'OUTPUT LENGTH("penis")\nOUTPUT UCASE("#2c6fef")\nOUTPUT LCASE("X")\nOUTPUT SUBSTRING("sushi", 1, 3)'
   let procedures = 'DECLARE Items : ARRAY\nPROCEDURE Swap\n\tTemp ← Items[Index]\n\tItems[Index] ← Items[Index + 1]\n\tItems[Index + 1] ← Temp\n\tSwapped ← TRUE\nENDPROCEDURE\nN ← 0\nItem ← ""\nREPEAT\n\tOUTPUT "Enter an item or leave blank to begin sorting."\n\tINPUT Item\n\tIF Item <> "" THEN\n\t\tN ← N + 1\n\t\tItems[N] ← Item\n\tENDIF\n\tLength ← N\nUNTIL Item = ""\nSwapped ← TRUE\nWHILE N > 1 AND Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tCALL Swap\n\t\tENDIF\n\tNEXT\nENDWHILE\nOUTPUT Length, " items have been sorted!"\nFOR Index ← 1 TO Length\n\tOUTPUT Items[Index]\nNEXT'
   let functions = 'FUNCTION SumUpTo(Value)\n\tRETURN Value / 2 * (Value + 1)\nENDFUNCTION\nOUTPUT SumUpTo(4)'
@@ -30,6 +31,7 @@
   <p>Some section of a program may require a decision to be made. These decision are often controlled by booleans. Selection allows parts of a program to be ignored depending on the value of a variable.</p>
   <p>Most selection statements are done using an <code>IF</code> statement which runs a block of code if the <strong>condition is true</strong>.</p>
   <p>On the other hand, a <code>CASE</code> statement runs a block of code when a <strong>variable is equal to value</strong>.</p>
+  <CodeBlock code={caseStatement} runnable></CodeBlock>
   <h4>Iteration</h4>
   <p>Repeating a process is called iteration. In programming, loops are used to perform tasks repeatedly. There are 3 types of loops.</p>
   <ul>

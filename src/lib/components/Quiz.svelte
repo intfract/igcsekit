@@ -99,7 +99,7 @@
                 <FormField>
                   <Radio bind:group={selected} value={i}/>
                   <span slot="label">
-                    {choice}
+                    {@html choice}
                   </span>
                 </FormField>
               {/each}
