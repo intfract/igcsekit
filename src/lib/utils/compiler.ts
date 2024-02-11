@@ -10,8 +10,8 @@ export class Compiler {
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare', 'constant']
-  keywords: string[] = ['input', 'output', 'call', 'return', 'openfile', 'readfile', 'writefile', 'closefile', 'read', 'write']
-  blocks: string[] = ['while', 'for', 'until', 'if', 'procedure', 'function']
+  keywords: string[] = ['input', 'output', 'call', 'return', 'openfile', 'readfile', 'writefile', 'closefile', 'read', 'write', 'otherwise']
+  blocks: string[] = ['while', 'for', 'until', 'if', 'procedure', 'function', 'case']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '>=', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
   formatting: string = ' \t'
@@ -29,6 +29,8 @@ export class Compiler {
       '^': '**',
       'else': '}else{',
       'do': '){',
+      'case': 'switch',
+      'otherwise': 'default:',
       'repeat': 'do{',
       'until': '}while(!',
       'to': '-1;',
@@ -131,18 +133,15 @@ export class Compiler {
   compile(): string {
     this.reset()
     this.js = ''
-    let temp: string = ''
-    let indent: number = 0
+    let temp = ''
+    let next = ''
+    let indent = 0
     while (!this.end) {
-      console.log(this.char)
       if (this.brackets.includes(this.char)) {
         if ('()[]'.includes(this.char)) {
           this.js += this.char
         } else {
           this.js += this.char
-          if (this.char === '{') {
-            indent++
-          }
         }
         this.move()
         continue
@@ -161,6 +160,7 @@ export class Compiler {
         if (this.assignment.includes(wordL)) {
           this.js += this.maps.js[wordL] + ' '
         } else if (this.blocks.includes(wordL)) {
+          indent++
           this.js += Object.keys(this.maps.js).includes(wordL) ? this.maps.js[wordL] : wordL
           if (['procedure', 'function'].includes(wordL)) {
             this.move()
@@ -186,6 +186,11 @@ export class Compiler {
             }
           } else if (wordL === 'until') {
             temp = '))'
+          } else if (wordL === 'case') {
+            next = 'case'
+            temp = '){'
+          } else {
+            temp = '){'
           }
           continue
         } else if (this.keywords.includes(wordL)) {
@@ -202,6 +207,10 @@ export class Compiler {
             temp = ')'
           } else if (wordL === 'call') {
             temp = '()'
+          } else if (wordL === 'otherwise') {
+            this.js = this.js.substring(0, this.js.length - 4)
+            this.js += this.maps.js[wordL]
+            next = ''
           } else this.js += wordL + ' '
         } else if (Object.keys(this.maps.js).includes(wordL)) {
           this.js += this.maps.js[wordL]
@@ -211,6 +220,7 @@ export class Compiler {
           }
         } else if (wordL.startsWith('end')) {
           this.js += '}'
+          indent--
         } else {
           this.js += Object.keys(this.maps.js).includes(word) ? this.maps.js[word] : word
         }
@@ -219,10 +229,19 @@ export class Compiler {
       if (this.symbols.includes(this.char)) {
         const operator = this.extractOperator()
         if (!this.operators.includes(operator)) throw new Error(`"${operator}" is an invalid operator`)
+        if (operator === ':') {
+          if (indent) {
+            this.js += operator
+            temp = ';break'
+          } else {
+            this.js += this.maps.js[operator]
+            temp = '()'
+          }
+          continue
+        }
         if (Object.keys(this.maps.js).includes(operator)) {
           const op = this.maps.js[operator]
           this.js += op
-          if (operator === ':') temp = '()'
         } else {
           this.js += operator
         }
@@ -242,9 +261,12 @@ export class Compiler {
         continue
       }
       if (this.char === '\n') {
-        this.js += temp + ';'
+        this.js += temp
         temp = ''
+        if (this.js.at(-1) !== '{') this.js += ';'
         this.move()
+        this.js += next
+        next = next === 'case' ? 'case' : ''
         continue
       }
       console.log(this.char)
