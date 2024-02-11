@@ -187,7 +187,7 @@ export class Compiler {
           } else if (wordL === 'until') {
             temp = '))'
           } else if (wordL === 'case') {
-            next = 'case'
+            next = 'case '
             temp = '){'
           } else {
             temp = '){'
@@ -204,11 +204,11 @@ export class Compiler {
             }
           } else if (wordL === 'output') {
             this.js += 'output('
-            temp = ')'
+            temp = ')' + temp
           } else if (wordL === 'call') {
             temp = '()'
           } else if (wordL === 'otherwise') {
-            this.js = this.js.substring(0, this.js.length - 4)
+            this.js = this.js.substring(0, this.js.length - 5)
             this.js += this.maps.js[wordL]
             next = ''
           } else this.js += wordL + ' '
@@ -233,6 +233,7 @@ export class Compiler {
           if (indent) {
             this.js += operator
             temp = ';break'
+            console.log(temp)
           } else {
             this.js += this.maps.js[operator]
             temp = '()'
@@ -261,12 +262,13 @@ export class Compiler {
         continue
       }
       if (this.char === '\n') {
+        console.log(temp)
         this.js += temp
         temp = ''
         if (this.js.at(-1) !== '{') this.js += ';'
         this.move()
         this.js += next
-        next = next === 'case' ? 'case' : ''
+        next = next === 'case ' ? 'case ' : ''
         continue
       }
       console.log(this.char)
