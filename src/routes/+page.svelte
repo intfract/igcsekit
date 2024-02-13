@@ -128,12 +128,22 @@
   <div class="chunk">
     <div class="text">
       <h1 class="heading">Memorise</h1>
-      <p class="description">Reinforce your learning with expertly crafted flashcards.</p>
+      <p class="description">Reinforce your learning with expertly crafted flashcards for each chapter.</p>
+    </div>
+  </div>
+  <div class="chunk">
+    <div class="text">
+      <h1 class="heading">Contribute</h1>
+      <p class="description">IGCSE Kit is an <a href="https://github.com/intfract/igcsekit">open-source project</a> that will remain free forever. Make this website better by sending feedback, donating resources, or writing code.</p>
     </div>
   </div>
 </div>
 
 <style>
+  a {
+    color: black;
+  }
+
   .story {
     box-sizing: border-box;
     width: 100%;

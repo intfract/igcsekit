@@ -107,7 +107,7 @@
   <ul>
     <li><code>CHAR</code> data type</li>
     <li>declaring an <code>ARRAY</code> with a specified length and type like <code>DECLARE TicTacToe: ARRAY[1:3, 1:3] OF INTEGER</code></li>
-    <li><code>CASE OF</code> statements</li>
+    <li>using <strong>spaces</strong> for indentation</li>
     <li>
       some library routines such as:
       <ul>
