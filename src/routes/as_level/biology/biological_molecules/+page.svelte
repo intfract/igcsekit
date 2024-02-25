@@ -71,6 +71,10 @@
   </DataTable>
   <p>A <strong>hydrolysis</strong> reaction is the opposite of a condensation reaction. Water is required to breaak glycosidic bonds.</p>
   <h2>Lipids</h2>
+  <h3>Phospholipid</h3>
+  <p>A phospholipid has 1 hydrophilic phosphate head and 2 hydrophobic fatty acid tails. The phosphate group and the fatty acids are attached to a glycerol molecule.</p>
+  <p>A fatty acid tail can be saturated or unsaturated. An unsaturated fatty acid will have double bonds between carbon atoms which increase the fluidity of membranes.</p>
   <h2>Proteins</h2>
+  <p>A protein is made up of many amino acids.</p>
   <h2>Water</h2>
 </section>
