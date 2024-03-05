@@ -2,6 +2,7 @@
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   import LinkTree from '$lib/components/LinkTree.svelte'
   import MonacoEditor from '$lib/components/MonacoEditor.svelte'
+  import Callout from '$lib/components/Callout.svelte'
 
   export let data
 
@@ -58,7 +59,7 @@
     </Body>
   </DataTable>
   <h2>Pseudocode</h2>
-  <p>Pseudocode must be handwritten in the computer programming paper. The pseudocode editor below allows you to compiler CIE psueodocode into JavaScript and run it.</p>
+  <p>Pseudocode must be handwritten in the computer programming paper. The pseudocode editor below allows you to transpile CIE psueodocode into JavaScript and run it.</p>
   <p>The editor supports:</p>
   <ul>
     <li>declaration of <code>ARRAY</code> type without fixed lengths or types</li>
@@ -120,6 +121,9 @@
       </ul>
     </li>
   </ul>
+  <Callout emoji="🤔">
+    Please use tabs instead of spaces!
+  </Callout>
   <MonacoEditor></MonacoEditor>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
