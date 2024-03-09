@@ -12,5 +12,6 @@
 
 <section>
   <h1>IGCSE</h1>
+  <p>IGCSE past papers are available at the <a href="https://rigcse.vercel.app">unofficial r/IGCSE website</a>.</p>
   <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
