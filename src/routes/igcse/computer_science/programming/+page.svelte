@@ -140,5 +140,5 @@
   <h2>File Handling</h2>
   <p>Storing data in files permanently allows data to be resued by a program even after it has been closed and reopened. Files also allow data to be transferred between machines.</p>
   <p>The pseudocode below shows the process of writing the text stored in <code>FileA.txt</code> to <code>FileB.txt</code>. This will replace the existing contents of <code>FileB.txt</code> but leave <code>FileA.txt</code> unmodified.</p>
-  <CodeBlock code={fileHandling}></CodeBlock>
+  <CodeBlock code={fileHandling} runnable files={{ 'FileA.txt': 'Deez Nuts!', 'FileB.txt': null }}></CodeBlock>
 </section>

@@ -3,6 +3,9 @@
 
   import Button, { Label, Icon } from '@smui/button'
   import Textfield from '@smui/textfield'
+  import Tab, { Label as TabLabel } from '@smui/tab'
+  import TabBar from '@smui/tab-bar'
+  import Paper, { Content } from '@smui/paper'
 
   let terminal: string = ''
   let value: string = ''
@@ -13,14 +16,24 @@
 
   export let code: string
   export let runnable: boolean = false
+  export let files: Record<string, string | null> = {}
 
   const compiler = new Compiler(code)  
   let highlightedCode: string = compiler.style()
+  let active: string = Object.keys(files)[0]
 
   function output(...args: string[]) {
     let s = ''
     args.forEach(arg => s += arg)
     terminal += s + '\n'
+  }
+
+  function read(fileName: string) {
+    return files[fileName]
+  }
+
+  function write(fileName: string, content: string) {
+    files[fileName] = content
   }
 
   const timeout = async (ms: number) => new Promise(res => setTimeout(res, ms))
@@ -30,12 +43,14 @@
     return value
   }
 
-  async function run(code: string) {
+  async function run() {
     terminal = ''
     index = 0
     const lib = {
       input,
       output,
+      read,
+      write,
     }
     const js = compiler.compile()
     console.log(js)
@@ -66,7 +81,7 @@
   </div>
   {#if runnable}
     <div class="buttons">
-      <Button variant="raised" on:click={e => run(code)}>
+      <Button variant="raised" on:click={run}>
         <Icon class="material-symbols-rounded">play_arrow</Icon>
         <Label>Run</Label>
       </Button>
@@ -77,6 +92,20 @@
     <div class="input">
       <Textfield label="Input" bind:value on:keydown={e => submit(e)} style="width: 100%;"></Textfield>
     </div>
+    {#if Object.keys(files).length > 0}
+      <div class="files">
+        <TabBar tabs={Object.keys(files)} let:tab bind:active>
+          <Tab {tab}>
+            <Label>{tab}</Label>
+          </Tab>
+        </TabBar>
+        <Paper variant="raised">
+          <Content>
+            <pre class={files[active] ? '' : 'error'}>{files[active] ?? 'EMPTY'}</pre>
+          </Content>
+        </Paper>
+      </div>
+    {/if}
   {/if}
 </div>
 
@@ -97,5 +126,9 @@
     margin: 0;
     tab-size: 4;
     font-family: 'Google Sans Mono';
+  }
+
+  .error {
+    color: var(--mdc-theme-error);
   }
 </style>

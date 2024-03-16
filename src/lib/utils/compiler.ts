@@ -10,7 +10,7 @@ export class Compiler {
   digits: string = '.0123456789'
   letters: string = 'qwertyuiopasdfghjklzxcvbnm'
   assignment: string[] = ['declare', 'constant']
-  keywords: string[] = ['input', 'output', 'call', 'return', 'openfile', 'readfile', 'writefile', 'closefile', 'read', 'write', 'otherwise']
+  keywords: string[] = ['input', 'output', 'call', 'return', 'openfile', 'readfile', 'writefile', 'closefile', 'otherwise']
   blocks: string[] = ['while', 'for', 'until', 'if', 'procedure', 'function', 'case']
   symbols: string = ':<=>+-*/&|!^←'
   operators: string[] = ['<-', '->', '=', '<', '>', '<>', '<=', '>=', ':', '+', '-', '*', '/', '&&', '||', '!', '←']
@@ -99,7 +99,7 @@ export class Compiler {
 
   extractWord(): string {
     let s = ''
-    while (!this.end && this.isLetter(this.char)) {
+    while (!this.end && (this.isLetter(this.char) || this.char === '.')) {
       s += this.char
       this.move()
     }
@@ -127,6 +127,16 @@ export class Compiler {
   skipBlanks() {
     while (!this.end && this.formatting.includes(this.char)) {
       this.move()
+    }
+  }
+
+  getNextWord(errorMessage: string) {
+    this.move()
+    if (this.isLetter(this.char)) {
+      const x = this.extractWord()
+      const xL = x.toLowerCase()
+      if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error(errorMessage)
+      return x
     }
   }
 
@@ -193,13 +203,7 @@ export class Compiler {
           continue
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
-            this.move()
-            if (this.isLetter(this.char)) {
-              const x = this.extractWord()
-              const xL = x.toLowerCase()
-              if (this.assignment.includes(xL) || this.blocks.includes(xL) || this.keywords.includes(xL)) throw new Error('reserved word used for variable name')
-              this.js += `${x} = await input()`
-            }
+            this.js += `${this.getNextWord('reserved word used for variable name')} = await input()`
           } else if (wordL === 'output') {
             this.js += 'output('
             temp = ')' + temp
@@ -209,6 +213,20 @@ export class Compiler {
             this.js = this.js.substring(0, this.js.length - 5)
             this.js += this.maps.js[wordL]
             next = ''
+          } else if (wordL.endsWith('file')) {
+            const action = wordL.substring(0, wordL.length - 'file'.length)
+            const args: (string | undefined)[] = []
+            args.push(this.getNextWord('reserved word used for file name'))
+            this.move()
+            args.push(this.getNextWord('reserved word used for variable name'))
+            if (action === 'read') {
+              this.js += `${args[1]}=read("${args[0]}")`
+            } else if (action === 'write') {
+              this.js += `write("${args[0]}", ${args[1]})`
+            }
+            while (!this.end && this.char != '\n') {
+              this.move()
+            }
           } else this.js += wordL + ' '
         } else if (Object.keys(this.maps.js).includes(wordL)) {
           this.js += this.maps.js[wordL]
