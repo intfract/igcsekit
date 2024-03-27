@@ -61,6 +61,10 @@ code {
   border-radius: 4px;
 }
 
+.mdc-ripple-surface::after, .mdc-ripple-surface::before {
+  transition: 0.2s;
+}
+
 .mdc-top-app-bar__row {
   height: var(--top-app-bar-height);
 }
