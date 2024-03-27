@@ -176,14 +176,31 @@
     <li>Each pixel generates an electric charge when light falls on it</li>
     <li>Software produces a digital image and may make use of <strong>optical character recognition (OCR)</strong> to convert the scanned text in the digital image into a text file format</li>
   </ul>
-  <h4>3D Scanner</h4>
-  <ul>
-    <li>takes many layers of images</li>
-  </ul>
   <h3>Output Devices</h3>
-  <p>Output devices are used to display or emit processed data usually in the form light and sound.</p>
+  <p>Output devices are used to display or emit processed data usually in the form light and sound. The current syllabus no longer candidates to know the working of these devices.</p>
   <h3>Sensors</h3>
   <p>Multiple sensors can be used to perform the same task. Sensors convert real-world data into electrical signals that can be processed by a microprocessor.</p>
+  <p>Sensors usually have a dedicated purpose. Common sensors include:</p>
+  <ul>
+    <li>
+      <strong>pressure</strong>: measures pressure, weight, or mass
+    </li>
+    <li>
+      <strong>infra-red</strong>: detects movement
+    </li>
+    <li>
+      <strong>temperature</strong>: measures temperature
+    </li>
+    <li>
+      <strong>light</strong>: measures brightness
+    </li>
+    <li>
+      <strong>proximity</strong>: detects nearby objects without touching them
+    </li>
+    <li>
+      <strong>level</strong>: determines whether a container is empty or contains liquid
+    </li>
+  </ul>
   <h2>Storage Devices</h2>
   <h3>Primary Storage</h3>
   <ul>
