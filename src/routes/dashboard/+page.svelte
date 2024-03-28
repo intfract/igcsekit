@@ -1,6 +1,14 @@
 <script lang="ts">
+  import LinearProgress from '@smui/linear-progress'
+  import Paper, { Title, Subtitle, Content } from '@smui/paper'
+  import Button, { Label, Icon } from '@smui/button'
   import IconButton from '@smui/icon-button'
   import Ripple from '@smui/ripple'
+  import { getLastCommit } from '$lib/utils/github'
+  import RelativeTime from '@yaireo/relative-time'
+
+  const relativeTime = new RelativeTime()
+
   let igcse: {
     title: string,
     icon: string,
@@ -68,28 +76,74 @@
   <meta name="description" content="IGCSE Kit Dashboard" />
 </svelte:head>
 
-<section>
-  <h1>Dashboard</h1>
-  <h2>Courses</h2>
-  <h3>IGCSE</h3>
-  <div class="carousel">
-    <div class="cards">
-      {#each igcse as item,i}
-        <a class="card" use:Ripple={{ surface: true }} href={item.link} class:active={i === index} class:left={i === (index - 1 + igcse.length) % igcse.length} class:right={i === (index + 1 + igcse.length) % igcse.length}>
-          <span class="material-symbols-rounded">{item.icon}</span>
-          <span class="name">{item.title}</span>
-          <span class="more">{item.description}</span>
-        </a>
-      {/each}
-    </div>
-    <div class="buttons">
-      <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(-1)}>arrow_left_alt</IconButton>
-      <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(1)}>arrow_right_alt</IconButton>
-    </div>
-  </div>
-</section>
+<div class="container">
+  <Paper variant="raised" style="grid-row-end: span 2;">
+    <Title>IGCSE</Title>
+    <Content>
+      <div class="carousel">
+        <div class="cards">
+          {#each igcse as item,i}
+            <a class="card" use:Ripple={{ surface: true }} href={item.link} class:active={i === index} class:left={i === (index - 1 + igcse.length) % igcse.length} class:right={i === (index + 1 + igcse.length) % igcse.length}>
+              <span class="material-symbols-rounded">{item.icon}</span>
+              <span class="name">{item.title}</span>
+              <span class="more">{item.description}</span>
+            </a>
+          {/each}
+        </div>
+        <div class="buttons">
+          <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(-1)}>arrow_left_alt</IconButton>
+          <IconButton class="material-symbols-rounded" title="next" on:click={e => skip(1)}>arrow_right_alt</IconButton>
+        </div>
+      </div>
+    </Content>
+  </Paper>
+  <Paper variant="raised">
+    <Title>Patch Notes</Title>
+    <Content>
+      <div class="patch-notes">
+        {#await getLastCommit()}
+          <LinearProgress indeterminate></LinearProgress>
+        {:then json}
+          <div class="commit-info">
+            <a href={json.author.url}>{json.commit.author.name}</a>
+            {json.commit.message}
+            {relativeTime.from(new Date(json.commit.author.date))}
+          </div>
+          <div class="actions">
+            <Button variant="raised" on:click={e => window.open(json.html_url, '_blank')}>
+              <Icon class="material-symbols-rounded">code</Icon>
+              <Label>View Code</Label>
+            </Button>
+          </div>
+        {/await}
+      </div>
+    </Content>
+  </Paper>
+  <Paper>
+    <Title>Resources</Title>
+    <Content>
+      <ul>
+        <li>
+          <a href="https://rigcse.vercel.app" target="_blank">r/IGCSE Unofficial</a>
+        </li>
+        <li>
+          <a href="https://pseudocode.pro" target="_blank">Pseudocode Pro</a>
+        </li>
+      </ul>
+    </Content>
+  </Paper>
+</div>
 
 <style>
+  .container {
+    box-sizing: border-box;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 256px);
+    gap: 32px;
+  }
+
   .carousel {
     display: flex;
     flex-direction: column;
@@ -130,17 +184,17 @@
 
   .card.active {
     transform: scale(1);
-    z-index: 69;
+    z-index: 1;
     pointer-events: all;
   }
 
   .card.right {
-    transform: scale(0.5) translate(100%, 0);
+    transform: scale(0.5) translate(150%, 0);
     opacity: 0.5;
   }
 
   .card.left {
-    transform: scale(0.5) translate(-100%, 0);
+    transform: scale(0.5) translate(-150%, 0);
     opacity: 0.5;
   }
 
@@ -160,5 +214,9 @@
 
   .buttons {
     margin-top: 4px;
+  }
+
+  .actions {
+    margin-top: 16px;
   }
 </style>

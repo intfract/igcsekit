@@ -51,6 +51,7 @@
 	"dependencies": {
 		"@tauri-apps/api": "^1.4.0",
 		"@types/katex": "^0.16.2",
+		"@yaireo/relative-time": "^1.0.4",
 		"appwrite": "^11.0.0",
 		"katex": "^0.16.8",
 		"monaco-editor": "^0.45.0",

@@ -238,7 +238,7 @@ a, button, input, textarea {
   text-decoration: none;
 }
 
-p a, li a, section a {
+p a, li a, section a, .smui-paper a {
   color: var(--mdc-theme-primary);
   text-decoration: none;
   opacity: 1;
