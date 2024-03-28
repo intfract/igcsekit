@@ -69,6 +69,13 @@
       transition = false
     }, 150)
   }
+
+  let banner: HTMLDivElement
+
+  function setMousePosition(e: MouseEvent) {
+    banner.style.setProperty('--mouse-x', `${e.x}px`)
+    banner.style.setProperty('--mouse-y', `${e.y}px`)
+  }
 </script>
 
 <svelte:head>
@@ -76,7 +83,7 @@
   <meta name="description" content="IGCSE Kit Dashboard" />
 </svelte:head>
 
-<div class="container">
+<div class="container" on:mousemove={e => setMousePosition(e)}>
   <Paper variant="raised" style="grid-row-end: span 2;">
     <Title>IGCSE</Title>
     <Content>
@@ -132,6 +139,9 @@
       </ul>
     </Content>
   </Paper>
+  <div class="banner" bind:this={banner}>
+    <h1 class="headline">More <span class="gradient">AI content</span> coming soon!</h1>
+  </div>
 </div>
 
 <style>
@@ -140,8 +150,32 @@
     padding: 32px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(2, 256px);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 32px;
+  }
+
+  .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-column-end: span 2;
+    background-image: radial-gradient(circle at 4px 4px, var(--mdc-theme-callout) 4px, transparent 0);
+    background-size: 40px 40px;
+    background-position: 50% 50%;
+    background-position: calc(var(--mouse-x) * 0.25) calc(var(--mouse-y) * 0.25);
+  }
+
+  .headline {
+    margin-block: 0;
+  }
+
+  .gradient {
+    color: var(--mdc-theme-primary);
+    background: -webkit-linear-gradient(0, var(--mdc-theme-primary), #c5667f);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .carousel {
