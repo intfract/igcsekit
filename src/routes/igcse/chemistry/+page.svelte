@@ -9,6 +9,7 @@
     ['Stoichiometry', true, true, true],
     ['Reactions', true, true, true],
     ['Electrolysis', true, true, true],
+    ['Periodic Table', true, true, true],
     ['Metals', true, true, true],
     ['Organic Chemistry', true, true, true],
   ]
