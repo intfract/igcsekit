@@ -9,7 +9,6 @@
 
   let terminal: string = ''
   let value: string = ''
-  let index: number = 0
   let inputted: boolean = false
 
   const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
@@ -45,7 +44,6 @@
 
   async function run() {
     terminal = ''
-    index = 0
     const lib = {
       input,
       output,
@@ -96,7 +94,7 @@
       <div class="files">
         <TabBar tabs={Object.keys(files)} let:tab bind:active>
           <Tab {tab}>
-            <Label>{tab}</Label>
+            <TabLabel>{tab}</TabLabel>
           </Tab>
         </TabBar>
         <Paper variant="raised">

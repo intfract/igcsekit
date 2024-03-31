@@ -4,6 +4,9 @@
   import { Compiler } from '$lib/utils/compiler'
   import Button, { Label, Icon } from '@smui/button'
   import Textfield from '@smui/textfield'
+  import Tab, { Label as TabLabel } from '@smui/tab'
+  import TabBar from '@smui/tab-bar'
+  import Paper, { Content } from '@smui/paper'
 
   let terminal: string = ''
   let value: string = ''
@@ -15,6 +18,14 @@
     let s = ''
     args.forEach(arg => s += arg)
     terminal += s + '\n'
+  }
+
+  function read(fileName: string) {
+    return files[fileName]
+  }
+
+  function write(fileName: string, content: string) {
+    files[fileName] = content
   }
 
   const timeout = async (ms: number) => new Promise(res => setTimeout(res, ms))
@@ -32,6 +43,8 @@
   $: reactiveEditor
 
   let code = 'DECLARE Items : ARRAY\nPROCEDURE Swap\n\tTemp ← Items[Index]\n\tItems[Index] ← Items[Index + 1]\n\tItems[Index + 1] ← Temp\n\tSwapped ← TRUE\nENDPROCEDURE\nN ← 0\nItem ← ""\nREPEAT\n\tOUTPUT "Enter an item or leave blank to begin sorting."\n\tINPUT Item\n\tIF Item <> "" THEN\n\t\tN ← N + 1\n\t\tItems[N] ← Item\n\tENDIF\n\tLength ← N\nUNTIL Item = ""\nSwapped ← TRUE\nWHILE N > 1 AND Swapped DO\n\tSwapped ← FALSE\n\tN ← N - 1\n\tFOR Index ← 1 TO N\n\t\tIF Items[Index] > Items[Index + 1] THEN\n\t\t\tCALL Swap\n\t\tENDIF\n\tNEXT\nENDWHILE\nOUTPUT Length, " items have been sorted!"\nFOR Index ← 1 TO Length\n\tOUTPUT Items[Index]\nNEXT'
+  export let files: Record<string, string | null> = {}
+  let active: string = Object.keys(files)[0]
 
   const compiler = new Compiler(code)
 
@@ -126,6 +139,10 @@
     const lib = {
       input,
       output,
+      read,
+      write,
+      eval: null,
+      Function: null,
     }
     compiler.code = reactiveEditor.getValue()
     const js = compiler.compile()
@@ -165,6 +182,20 @@
   <div class="input">
     <Textfield label="Input" bind:value on:keydown={e => submit(e)} style="width: 100%;"></Textfield>
   </div>
+  {#if Object.keys(files).length > 0}
+    <div class="files">
+      <TabBar tabs={Object.keys(files)} let:tab bind:active>
+        <Tab {tab}>
+          <TabLabel>{tab}</TabLabel>
+        </Tab>
+      </TabBar>
+      <Paper variant="raised">
+        <Content>
+          <pre class={files[active] ? '' : 'error'}>{files[active] ?? 'EMPTY'}</pre>
+        </Content>
+      </Paper>
+    </div>
+  {/if}
 </div>
 
 <style>
