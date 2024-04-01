@@ -283,6 +283,11 @@
       {/each}
     </Body>
   </DataTable>
+  <h3>Offline Storage</h3>
+  <p>Some storage devices can be located outside of the computer and transported to other machines easily.</p>
+  <h4>Optical</h4>
+  <p>An optical storage device uses a laser to read and write memory from a disc. The disc contains pits and lands that can be converted into binary by shining a laser and analysing the reflection. Lasers can also burn new pits to modify the data.</p>
+  <p>The colour of the laser affects the amount of data that can be stored in the disc. Blu-ray uses blue lasers and can store more data than a CD or DVD which use red lasers because blue light has a higher frequency.</p>
   <h3>Virtual Memory</h3>
   <p>Virtual memory is used when there is not enough RAM to run complex software. Virtual memory:</p>
   <ul>
