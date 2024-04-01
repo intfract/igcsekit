@@ -26,6 +26,8 @@
   let d: [string, string, boolean, string, string][] = [
     ['HDD', 'Electromagnets', true, 'Slower', 'High'],
     ['SSD', 'NAND & NOR Logic Gates', false, 'Faster', 'Low'],
+    ['Blu-ray', 'Blue Lasers', true, 'Slower', 'High'],
+    ['DVD', 'Red Lasers', true, 'Slower', 'High'],
   ]
 
   let e: [string, number, string, string, string][] = [
@@ -254,6 +256,8 @@
       <ul>
         <li>hard disk drive (HDD)</li>
         <li>solid state drive (SSD)</li>
+        <li>compact disc (CD)</li>
+        <li>digital versatile disc (DVD)</li>
       </ul>
     </li>
   </ul>
@@ -283,10 +287,13 @@
       {/each}
     </Body>
   </DataTable>
-  <h3>Offline Storage</h3>
-  <p>Some storage devices can be located outside of the computer and transported to other machines easily.</p>
+  <h4>Solid State</h4>
+  <p>A solid state storage device does not have moving parts. Instead, it is made of transistors arranged in a grid layout. It uses NAND and NOR gates in electrical circuits to persistently control the flow of electrons.</p>
+  <h4>Magnetic</h4>
+  <p>A magnetic hard disc is made up of many magnetic discs called platters. Each platter is divided into sectors and concentric tracks.</p>
+  <p>The hard disc spins the platters at a high speed and the read-write arm moves the read-write heads over the surface of the disc to the location of the data. The read-write heads have electromagnets which are used to read or write data. The iron particles on each platter can be magnetised to represent a binary value (0 or 1).</p>
   <h4>Optical</h4>
-  <p>An optical storage device uses a laser to read and write memory from a disc. The disc contains pits and lands that can be converted into binary by shining a laser and analysing the reflection. Lasers can also burn new pits to modify the data.</p>
+  <p>An optical storage device uses a laser to read and write memory from a disc. The disc contains pits and lands that can be converted into binary by shining a laser and analysing the reflection. An arm moves the laser across the surface of the disc to perform read and write operations. In some optical drives, lasers can burn new pits to overwrite the data.</p>
   <p>The colour of the laser affects the amount of data that can be stored in the disc. Blu-ray uses blue lasers and can store more data than a CD or DVD which use red lasers because blue light has a higher frequency.</p>
   <h3>Virtual Memory</h3>
   <p>Virtual memory is used when there is not enough RAM to run complex software. Virtual memory:</p>
