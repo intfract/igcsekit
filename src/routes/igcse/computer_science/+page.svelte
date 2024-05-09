@@ -59,7 +59,7 @@
     </Body>
   </DataTable>
   <h2>Pseudocode</h2>
-  <p>Pseudocode must be handwritten in the computer programming paper. The pseudocode editor below allows you to transpile CIE psueodocode into JavaScript and run it.</p>
+  <p>Pseudocode must be handwritten in the computer programming paper. The pseudocode editor below allows you to transpile CIE pseudocode into JavaScript and run it.</p>
   <p>The editor supports:</p>
   <ul>
     <li>declaration of <code>ARRAY</code> type without fixed lengths or types</li>
