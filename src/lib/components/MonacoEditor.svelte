@@ -112,6 +112,10 @@
               return {
                 label: keyword.toUpperCase(),
                 kind: monaco.languages.CompletionItemKind.Keyword,
+                documentation: {
+                  value: keyword,
+                  isTrusted: true,
+                },
                 insertText: keyword.toUpperCase(),
                 range: {
                   startLineNumber: position.lineNumber,
@@ -122,6 +126,16 @@
               }
             })
           ]
+        }
+      },
+    })
+    monaco.languages.registerHoverProvider('pseudocode', {
+      provideHover: (model, position, token) => {
+        const word = model.getWordAtPosition(position)
+        return {
+          contents: [
+            { value: word?.word ?? '' },
+          ],
         }
       },
     })
