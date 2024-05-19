@@ -32,7 +32,7 @@
       <strong>Coding</strong>: writing program code and iterative testing
     </li>
     <li>
-      <strong>Testing</strong>: decomposition, structure diagrams, flowcharts, pseudocode
+      <strong>Testing</strong>: testing program code with the use of test data
     </li>
   </ul>
   <h2>Problem Solving</h2>
