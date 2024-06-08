@@ -19,7 +19,7 @@ function createMap(dir) {
   const urls = indexFolder(dir)
   let urlset = ''
   for (const url of urls) {
-    const relative = url.replace(/views(\/)?/g, '')
+    const relative = url.replace(dir + '/', '')
     const date = new Date()
     urlset += `\n\t<url>\n\t\t<loc>${host + relative}</loc>\n\t\t<lastmod>${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}</lastmod>\n\t</url>`
   }
