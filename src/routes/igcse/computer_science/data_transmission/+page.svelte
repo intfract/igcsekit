@@ -214,4 +214,36 @@
   <p>This method notably involves the use of positive or negative <strong>acknowledgements</strong> and <strong>timeouts</strong>.</p>
   <h3>Echo Check</h3>
   <p>An echo check is when the receiver transmits a copy of the data back to the sender. The sender checks whether the data received is the same as the data that was sent before. Echo checks are often regarded as ineffici</p>
+  <h2>Encryption</h2>
+  <p>This is the process of <strong>scrambling data</strong> before it is sent across a network. The purpose of encryption is to prevent malicious actors (like hackers) that have intercepted the data from being able to understand it. The encrypted data is <strong>meaningless</strong> to anyone other than the sender and receiver.</p>
+  <p>A <strong>key</strong> is a binary string with a specific length that is used by an encryption algorithm to encrypt <strong>plaintext</strong> or decrypt <strong>ciphertext</strong>.</p>
+  <ul>
+    <li>
+      <strong>Plaintext</strong>: data that is going to be encrypted
+    </li>
+    <li>
+      <strong>Ciphertext</strong>: data that has been encrypted
+    </li>
+  </ul>
+  <h3>Symmetric</h3>
+  <p>Symmetric encryption is when both the sender and reciever are given the same <em>key</em>. This key can be used to <strong>both encrypt and decrypt</strong> data.</p>
+  <p>If a hacker gains access to the key, they can decrypt the information. Usually, the sender and receiver agree on a key before hand.</p>
+  <h3>Asymmetric</h3>
+  <p>Asymmetric encryption uses 2 keys:</p>
+  <ul>
+    <li>
+      <strong>Public Key</strong>: visible to everyone
+    </li>
+    <li>
+      <strong>Private Key</strong>: only known to the receiver
+    </li>
+  </ul>
+  <p>Alice sends Bob a message using asymmetric encryption:</p>
+  <ol>
+    <li>Alice uses the <strong>public key</strong> to encrypt the <strong>plaintext</strong></li>
+    <li>Alice sends the <strong>ciphertext</strong> to Bob</li>
+    <li>Bob uses the <strong>private key</strong> to decrypt the <strong>ciphertext</strong></li>
+    <li>Bob can now read the <strong>plaintext</strong></li>
+  </ol>
+  <p>Only 1 private key can be used and it is not sent over a network like a public key. Encryption keys are often quite large to prevent hackers from guessing them.</p>
 </section>
