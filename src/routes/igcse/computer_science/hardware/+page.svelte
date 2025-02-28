@@ -360,7 +360,7 @@
   </ul>
   <p>A dynamic IP address can change every time a device connects to a network. Dynamic IPs:</p>
   <ul>
-    <li>are automatically addigned by the <strong>Dynamic Host Configuration Protocol (DHCP)</strong></li>
+    <li>are automatically assigned by the <strong>Dynamic Host Configuration Protocol (DHCP)</strong></li>
     <li>have greater privacy and security</li>
   </ul>
   <h3>Router</h3>
