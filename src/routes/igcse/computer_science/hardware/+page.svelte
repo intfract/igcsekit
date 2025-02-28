@@ -363,4 +363,6 @@
     <li>are automatically addigned by the <strong>Dynamic Host Configuration Protocol (DHCP)</strong></li>
     <li>have greater privacy and security</li>
   </ul>
+  <h3>Router</h3>
+  <p>A router sends data to a specific destination on a network. It also assigns IP addresses and can connect a local network to the internet.</p>
 </section>
