@@ -13,4 +13,8 @@
     align-items: center;
     margin-block: 16px;
   }
+
+  img {
+    width: 100%;
+  }
 </style>

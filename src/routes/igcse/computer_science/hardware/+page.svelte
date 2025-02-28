@@ -2,6 +2,8 @@
   import Comparison from '$lib/components/Comparison.svelte'
   import { b as bold, sup } from '$lib/utils/html'
   import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import Image from '$lib/components/Image.svelte'
+  import router_role from '$lib/images/diagrams/router_role.png'
 
   let a: [string, string, string][] = [
     ['Current Instruction Register', 'CIR', 'Stores the current instruction being decoded and executed'],
@@ -365,4 +367,5 @@
   </ul>
   <h3>Router</h3>
   <p>A router sends data to a specific destination on a network. It also assigns IP addresses and can connect a local network to the internet.</p>
+  <Image src={router_role}></Image>
 </section>
