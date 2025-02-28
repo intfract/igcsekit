@@ -1,5 +1,5 @@
 body {
-	font-family: var(--mdc-typography-font-family), sans-serif;
+  font-family: var(--mdc-typography-font-family), sans-serif;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -35,7 +35,7 @@ body {
   --mdc-theme-text-hint-on-dark: rgba(255, 255, 255, 0.5);
   --mdc-theme-text-disabled-on-dark: rgba(255, 255, 255, 0.5);
   --mdc-theme-text-icon-on-dark: rgba(255, 255, 255, 0.5);
-	--mdc-typography-font-family: 'Google Sans';
+  --mdc-typography-font-family: 'Google Sans';
 }
 
 :root {
@@ -61,7 +61,8 @@ code {
   border-radius: 4px;
 }
 
-.mdc-ripple-surface::after, .mdc-ripple-surface::before {
+.mdc-ripple-surface::after,
+.mdc-ripple-surface::before {
   transition: 0.2s;
 }
 
@@ -86,7 +87,8 @@ main.main-content {
   overflow: hidden !important;
 }
 
-.mdc-drawer .mdc-deprecated-list-item--activated, .mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
+.mdc-drawer .mdc-deprecated-list-item--activated,
+.mdc-drawer .mdc-deprecated-list-item--activated .mdc-deprecated-list-item__graphic {
   color: var(--mdc-theme-primary);
 }
 
@@ -144,7 +146,8 @@ main.main-content {
   transition: height 0.3s ease-out;
 }
 
-.mdc-top-app-bar .search .mdc-text-field--focused + .mdc-list-group, .mdc-top-app-bar .search .mdc-list-group:hover {
+.mdc-top-app-bar .search .mdc-text-field--focused+.mdc-list-group,
+.mdc-top-app-bar .search .mdc-list-group:hover {
   height: fit-content;
 }
 
@@ -231,31 +234,47 @@ img.emoji {
   display: inline-flex;
 }
 
-a, button, input, textarea {
+a,
+button,
+input,
+textarea {
   outline: none;
   border: 0;
   font-family: var(--mdc-typography-font-family);
   text-decoration: none;
 }
 
-p a, li a, section a, .smui-paper a {
+p a,
+li a,
+section a,
+.smui-paper a {
   color: var(--mdc-theme-primary);
   text-decoration: none;
   opacity: 1;
   transition: 0.3s;
 }
 
-p a:hover, li a:hover, section a:hover {
+p a:hover,
+li a:hover,
+section a:hover {
   opacity: 0.75;
 }
 
-h1, h2, h3, h4, p, ul {
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
   opacity: 1;
   transform: translate(0);
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin-block: 1em 0.5em;
 }
 
@@ -334,6 +353,18 @@ main section {
   height: 100%;
   color: white;
   animation: 0.5s blink alternate infinite;
+}
+
+main::-webkit-scrollbar {
+  width: 16px;
+  background-color: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 4px solid transparent;
+  border-radius: 8px;
+  background-clip: content-box;
 }
 
 @keyframes blink {

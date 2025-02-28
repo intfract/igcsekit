@@ -194,7 +194,7 @@
   }
 
   .container {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     overflow-x: hidden;
   }
