@@ -41,6 +41,7 @@
   import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
   import Textfield from '@smui/textfield'
   import CharacterCounter from '@smui/textfield/character-counter'
+  import { fly } from 'svelte/transition'
 
   const imagePath = '/assets/'
 
@@ -60,9 +61,10 @@
     }
   }
 
-  function getAnswer(): string {
+  function getAnswer() {
     let s: string = ''
     const n: number = active - 1
+    console.log(n)
     for (let i = 0; i < questions[n].parts.length; i++) {
       const part = questions[n].parts[i]
       s += p(b(part.instruction))
@@ -84,25 +86,26 @@
         s += tag('ul', temp)
       }
     }
-    return s
+    answer = s
   }
 
-  let value: string = ''
+  let value: string = '' // TODO: create separate bindings for each paragraph
   let binds: (string | string[])[] = []
   let active: number = 1
   let open = false
+  let answer: string
   export let questions: Question[]
 
   setBinds()
 
   $: current = questions[active - 1]
-  $: active, setBinds()
+  $: active, setBinds(), getAnswer()
 </script>
 
 <Dialog bind:open>
   <DialogTitle>Answer</DialogTitle>
   <DialogContent>
-    {@html getAnswer()}
+    {@html answer}
   </DialogContent>
   <Actions>
     <Button on:click={() => (false)}>
@@ -117,48 +120,56 @@
     </Button>
   </Actions>
 </Dialog>
-<TabBar tabs={questions.map((value, index) => index + 1)} let:tab bind:active>
-  <Tab {tab}>
-    <Label>{tab}</Label>
-  </Tab>
-</TabBar>
-<Paper>
-  <Title>{active}</Title>
-  <Content>
-    <p>{current.intro}</p>
-    {#if 'images' in current}
-      {#each current.images as image}
-        <img src={imagePath + image} alt="Diagram">
-      {/each}
-    {/if}
-    {#each current.parts as part,i}
-      <p>{part.instruction}</p>
-      {#if 'points' in part.task}
-        <Textfield
-          style="width: 100%;"
-          input$maxlength={100}
-          textarea
-          bind:value
-          label="Paragraph"
-        >
-          <CharacterCounter slot="internalCounter"></CharacterCounter>
-        </Textfield>
-      {:else if 'items' in part.task && 'marks' in part.task}
-        <ol>
-          {#each new Array(part.task.marks) as x,j}
-            <li>
-              <Textfield label={`Item ${j + 1}`} bind:value={binds[i][j]}></Textfield>
-            </li>
-          {/each}
-        </ol>
-      {:else if 'labels' in part.task}
-        Naming
-      {:else}
-        <Textfield label="Answer" bind:value></Textfield>
-      {/if}
-    {/each}
-    <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
-      <ButtonLabel>Submit</ButtonLabel>
-    </Button>
-  </Content>
-</Paper>
+<div class="quiz">
+  <TabBar tabs={questions.map((value, index) => index + 1)} let:tab bind:active>
+    <Tab {tab}>
+      <Label>{tab}</Label>
+    </Tab>
+  </TabBar>
+  <div class="column">
+    {#key active}
+      <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
+        <Paper>
+          <Title>{active}</Title>
+          <Content>
+            <p>{current.intro}</p>
+            {#if 'images' in current}
+              {#each current.images as image}
+                <img src={imagePath + image} alt="Diagram">
+              {/each}
+            {/if}
+            {#each current.parts as part,i}
+              <p>{part.instruction}</p>
+              {#if 'points' in part.task}
+                <Textfield
+                  style="width: 100%;"
+                  input$maxlength={100}
+                  textarea
+                  bind:value
+                  label="Paragraph"
+                >
+                  <CharacterCounter slot="internalCounter"></CharacterCounter>
+                </Textfield>
+              {:else if 'items' in part.task && 'marks' in part.task}
+                <ol>
+                  {#each new Array(part.task.marks) as x,j}
+                    <li>
+                      <Textfield label={`Item ${j + 1}`} bind:value={binds[i][j]}></Textfield>
+                    </li>
+                  {/each}
+                </ol>
+              {:else if 'labels' in part.task}
+                <!-- TODO: add Naming component -->
+              {:else}
+                <Textfield label="Answer" bind:value></Textfield>
+              {/if}
+            {/each}
+            <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
+              <ButtonLabel>Submit</ButtonLabel>
+            </Button>
+          </Content>
+        </Paper>
+      </div>
+    {/key}
+  </div>
+</div>

@@ -86,7 +86,7 @@
           </Title>
           <Content>
             {#if 'intro' in current}
-              <p class="intro">{current.intro}</p>
+              {@html current.intro}
             {/if}
             {#if 'images' in current}
               {#each current.images as image}

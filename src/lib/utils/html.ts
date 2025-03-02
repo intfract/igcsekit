@@ -24,6 +24,8 @@ export function h(level: number, innerHTML: string, attributes?: Record<string, 
   return tag(`h${level}`, innerHTML, attributes)
 }
 
+export const br = '<br>'
+
 export function style(declarations: Record<string, string>): string {
   let s: string = ''
   for (const [key, value] of Object.entries(declarations)) {

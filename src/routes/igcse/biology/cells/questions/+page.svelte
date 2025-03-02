@@ -4,7 +4,7 @@
   import Quiz, { type MultipleChoice } from '$lib/components/Quiz.svelte'
   let questions: MultipleChoice[] = [
     {
-      intro: 'The diagram shows a red blood cell.',
+      intro: p('The diagram shows a red blood cell.'),
       statements: [],
       images: ['rbc.png'],
       table: [],
@@ -24,7 +24,7 @@
       ),
     },
     {
-      intro: 'The salivary glands contain cells which are responsible for producing salivary amylase, a digestive enzyme.',
+      intro: p('The salivary glands contain cells which are responsible for producing salivary amylase, a digestive enzyme.'),
       statements: [],
       images: [],
       table: [],

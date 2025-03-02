@@ -4,7 +4,7 @@
   import Quiz, { type MultipleChoice } from '$lib/components/Quiz.svelte'
   let questions: MultipleChoice[] = [
     {
-      intro: 'A section of a polymer made from two different monomers is shown.',
+      intro: p('A section of a polymer made from two different monomers is shown.'),
       statements: [],
       images: ['0654_s22_qp_21_27.png'],
       table: [],

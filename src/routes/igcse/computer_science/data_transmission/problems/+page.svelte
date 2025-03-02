@@ -1,7 +1,6 @@
 <script lang="ts">
   import Problems, { type Question } from '$lib/components/Problems.svelte'
 
-  let progress: number = 0
   let questions: Question[] = [
     {
       intro: 'A company has a website that is stored on a web server.',
@@ -28,5 +27,6 @@
 </script>
 
 <section>
+  <h1>Problems</h1>
   <Problems {questions}></Problems>
 </section>

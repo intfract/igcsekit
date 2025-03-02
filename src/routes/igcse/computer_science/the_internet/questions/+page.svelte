@@ -4,7 +4,7 @@
   import Quiz, { type MultipleChoice } from '$lib/components/Quiz.svelte'
   let questions: MultipleChoice[] = [
     {
-      intro: 'Computers can be infected with malware. Spyware is one example of malware.',
+      intro: p('Computers can be infected with malware. Spyware is one example of malware.'),
       statements: [],
       images: [],
       table: [],
@@ -20,6 +20,7 @@
       explanation: join(
         p(`The correct answer is: Software that records all key presses and transmits these to a third party.`),
         p(`Keyloggers are an example of spyware. They log keystrokes and usually send these logs to another computer or web server.`),
+        p(`The other options are too specific to be considered the definition of spyware. All spyware records some form of user action and transmits the data to a third party.`),
       ),
     },
   ]

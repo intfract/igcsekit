@@ -4,7 +4,7 @@
   import Quiz, { type MultipleChoice } from '$lib/components/Quiz.svelte'
   let questions: MultipleChoice[] = [
     {
-      intro: 'Light undergoes total internal reflection in an optical fibre.',
+      intro: p('Light undergoes total internal reflection in an optical fibre.'),
       statements: [],
       images: [],
       table: [],
@@ -23,7 +23,7 @@
       ),
     },
     {
-      intro: 'Light is travelling in a glass block. The light reaches the edge of the block. The angle of incidence at the edge is much less than the critical angle.',
+      intro: p('Light is travelling in a glass block. The light reaches the edge of the block. The angle of incidence at the edge is much less than the critical angle.'),
       statements: [],
       images: [],
       table: [],
@@ -42,7 +42,7 @@
       ),
     },
     {
-      intro: 'Four loudspeakers vibrate at different frequencies.',
+      intro: p('Four loudspeakers vibrate at different frequencies.'),
       statements: [],
       images: [],
       table: [],

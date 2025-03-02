@@ -4,7 +4,7 @@
   import Quiz, { type MultipleChoice } from '$lib/components/Quiz.svelte'
   let questions: MultipleChoice[] = [
     {
-      intro: 'Zinc is mixed with molten element X. A new material, Y, is made. Y conducts electricity.',
+      intro: p('Zinc is mixed with molten element X. A new material, Y, is made. Y conducts electricity.'),
       statements: [],
       images: [],
       table: [],
