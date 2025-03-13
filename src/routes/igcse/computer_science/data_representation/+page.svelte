@@ -58,8 +58,8 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
     An overflow error occurs when a value outside
     this limit should be returned</p>
   <h3>Logical Shifts</h3>
-  <p>When a logical <strong>left shift</strong> is done on an 8-bit binary integer the denary value of tdat is <strong>multiplied by 2</strong> each time.</p>
-  <p>When a logical <strong>right shift</strong> is done on an 8-bit binary integer the denary value of tdat is <strong>divided by 2</strong> each time.</p>
+  <p>When a logical <strong>left shift</strong> is done on an 8-bit binary integer the denary value of that is <strong>multiplied by 2</strong> each time.</p>
+  <p>When a logical <strong>right shift</strong> is done on an 8-bit binary integer the denary value of that is <strong>divided by 2</strong> each time.</p>
   <ul>
     <li>Bits shifted from the end of the register are lost
       and zeros are shifted in at the opposite end of the
