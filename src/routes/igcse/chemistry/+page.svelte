@@ -11,7 +11,7 @@
     ['Electrolysis', true, true, true],
     ['Periodic Table', true, true, true],
     ['Metals', true, true, true],
-    ['Organic Chemistry', true, true, true],
+    ['Organic Chemistry', true, true, true]
   ]
 
   let page = 'IGCSE Chemistry'
@@ -19,14 +19,27 @@
 
 <svelte:head>
   <title>{page}</title>
-  <meta property="og:title" content={page}>
-  <meta property="og:description" content={`Read ${page} notes and answer topic questions for free!`}>
+  <meta property="og:title" content={page} />
+  <meta
+    property="og:description"
+    content={`Read ${page} notes and answer topic questions for free!`}
+  />
 </svelte:head>
 
 <section>
   <h1>Chemistry</h1>
   <h2>Syllabus</h2>
-  <p>The double and combined column refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
+  <p>
+    The double and combined column refer to <a
+      href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf"
+      target="_blank">co-ordinated sciences</a
+    >
+    and
+    <a
+      href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf"
+      target="_blank">combined sciences</a
+    > respectively.
+  </p>
   <DataTable>
     <Head>
       <Row>
@@ -39,12 +52,16 @@
     <Body>
       {#each rows as row}
         <Row>
-          {#each row as cell,i}
+          {#each row as cell, i}
             <Cell>
               {#if i === 0 && typeof cell === 'string'}
-                <a href={[data.pathname, cell.replaceAll(' ', '_').toLowerCase()].join('/')}>{cell}</a>
+                <a href={[data.pathname, cell.replaceAll(' ', '_').toLowerCase()].join('/')}
+                  >{cell}</a
+                >
               {:else}
-                <span class="material-symbols-rounded" style="text-align: center; width: 100%;">{cell ? 'check' : 'close'}</span>
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;"
+                  >{cell ? 'check' : 'close'}</span
+                >
               {/if}
             </Cell>
           {/each}
@@ -53,15 +70,20 @@
     </Body>
   </DataTable>
   <h2>Practical</h2>
-  <p>The <strong>alternative to practical</strong> paper assesses practical skills and includes writing about experiments.</p>
+  <p>
+    The <strong>alternative to practical</strong> paper assesses practical skills and includes writing
+    about experiments.
+  </p>
   <h3>Apparatus</h3>
   <ul>
-    <li>Beaker</li>
-    <li>Conical Flask</li>
     <li>Test Tube</li>
+    <li>Conical Flask</li>
+    <li>Beaker</li>
+    <li>Gas Syringe</li>
     <li>Measuring Cylinder</li>
-    <li>Syringe</li>
-    <li>Pipette</li>
+    <li>Volumetric Pipette</li>
+    <li>Dropping/teat Pipette</li>
+    <li>Burette</li>
     <li>Glass Rod</li>
     <li>Delivery Tube</li>
   </ul>
