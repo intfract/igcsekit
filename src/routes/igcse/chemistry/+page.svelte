@@ -1,20 +1,20 @@
 <script lang="ts">
-  import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
-  import LinkTree from "$lib/components/LinkTree.svelte";
+  import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
+  import LinkTree from '$lib/components/LinkTree.svelte'
 
-  export let data;
+  export let data
 
   let rows: [string, boolean, boolean, boolean][] = [
-    ["Experimental Techniques", true, true, true],
-    ["Stoichiometry", true, true, true],
-    ["Reactions", true, true, true],
-    ["Electrolysis", true, true, true],
-    ["Periodic Table", true, true, true],
-    ["Metals", true, true, true],
-    ["Organic Chemistry", true, true, true],
-  ];
+    ['Experimental Techniques', true, true, true],
+    ['Stoichiometry', true, true, true],
+    ['Reactions', true, true, true],
+    ['Electrolysis', true, true, true],
+    ['Periodic Table', true, true, true],
+    ['Metals', true, true, true],
+    ['Organic Chemistry', true, true, true]
+  ]
 
-  let page = "IGCSE Chemistry";
+  let page = 'IGCSE Chemistry'
 </script>
 
 <svelte:head>
@@ -54,18 +54,13 @@
         <Row>
           {#each row as cell, i}
             <Cell>
-              {#if i === 0 && typeof cell === "string"}
-                <a
-                  href={[
-                    data.pathname,
-                    cell.replaceAll(" ", "_").toLowerCase(),
-                  ].join("/")}>{cell}</a
+              {#if i === 0 && typeof cell === 'string'}
+                <a href={[data.pathname, cell.replaceAll(' ', '_').toLowerCase()].join('/')}
+                  >{cell}</a
                 >
               {:else}
-                <span
-                  class="material-symbols-rounded"
-                  style="text-align: center; width: 100%;"
-                  >{cell ? "check" : "close"}</span
+                <span class="material-symbols-rounded" style="text-align: center; width: 100%;"
+                  >{cell ? 'check' : 'close'}</span
                 >
               {/if}
             </Cell>
@@ -76,8 +71,8 @@
   </DataTable>
   <h2>Practical</h2>
   <p>
-    The <strong>alternative to practical</strong> paper assesses practical skills
-    and includes writing about experiments.
+    The <strong>alternative to practical</strong> paper assesses practical skills and includes writing
+    about experiments.
   </p>
   <h3>Apparatus</h3>
   <ul>
@@ -92,6 +87,5 @@
     <li>Glass Rod</li>
     <li>Delivery Tube</li>
   </ul>
-  <LinkTree url={data.pathname} glob={import.meta.glob("./**/+page.svelte")}
-  ></LinkTree>
+  <LinkTree url={data.pathname} glob={import.meta.glob('./**/+page.svelte')}></LinkTree>
 </section>
