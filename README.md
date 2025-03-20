@@ -6,6 +6,9 @@ IGCSE Kit is a free web app. It will remain free forever.
 
 You can fork this repository on [GitHub](https://github.com/intfract) or use the `git clone` command if you want to contribute code. Please contact `u_int` on discord if you want to write notes or donate study material to this website. All types of contributions are welcome.
 
+> [!WARNING]
+> The user `u_int` is no longer active on discord. Please contact the other contributors.
+
 ## Features
 
 This repository contains some advanced components such as the first IGCSE pseudocode web compiler which is written in TypeScript. Here is a list that breaks down the core features of this website.
