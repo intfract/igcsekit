@@ -124,6 +124,15 @@ export class Compiler {
     return s
   }
 
+  extractLine(): string {
+    let s = ''
+    while (!this.end && this.char !== '\n') {
+      s += this.char
+      this.move()
+    }
+    return s
+  }
+
   skipBlanks() {
     while (!this.end && this.formatting.includes(this.char)) {
       this.move()
@@ -203,7 +212,7 @@ export class Compiler {
           continue
         } else if (this.keywords.includes(wordL)) {
           if (wordL === 'input') {
-            this.js += `${this.getNextWord('reserved word used for variable name')} = await input()`
+            this.js += `${this.extractLine()} = await input()`
           } else if (wordL === 'output') {
             this.js += 'output('
             temp = ')' + temp
