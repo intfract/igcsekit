@@ -131,6 +131,9 @@
     <Content>
       <ul>
         <li>
+          <a href="https://igcse.pages.dev" target="_blank">IGCSE Pages</a>
+        </li>
+        <li>
           <a href="https://rigcse.vercel.app" target="_blank">r/IGCSE Unofficial</a>
         </li>
         <li>
