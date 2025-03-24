@@ -27,6 +27,15 @@
       }
     },
     {
+      name: 'pihedron',
+      tags: ['Developer'],
+      description: `Pihedron is a mathematics and computer science content creator on ${tag('a', 'YouTube', { href: 'https://youtube.com/@pihedron' })}.`,
+      socials: {
+        github: 'pihedron',
+        discord: 'pihedral',
+      }
+    },
+    {
       name: 'dotVansh',
       tags: ['Developer'],
       description: `Vansh is a computer science and mathematics helper at ${tag('a', 'r/IGCSE', { href: 'https://reddit.com/r/igcse' })}.`,

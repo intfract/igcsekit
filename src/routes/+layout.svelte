@@ -125,6 +125,11 @@
       label: 'Flashcards',
       url: '/flashcards',
     },
+    {
+      icon: 'groups',
+      label: 'About',
+      url: '/about',
+    },
   ]
 
   function toggleDialog() {
