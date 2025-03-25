@@ -10,6 +10,7 @@
 
   let terminal: string = ''
   let value: string = ''
+  let line: string = ''
   let inputted: boolean = false
 
   const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor // declare AsyncFunction constructor
@@ -32,7 +33,7 @@
   async function input() {
     while (!inputted) await timeout(1)
     inputted = false
-    return value
+    return line
   }
 
   let editor: Monaco.editor.IStandaloneCodeEditor
@@ -179,6 +180,8 @@
     if (e.key !== 'Enter') return
     terminal += value + '\n'
     inputted = true
+    line = value
+    value = ''
   }
 </script>
 

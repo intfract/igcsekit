@@ -247,7 +247,7 @@ export class Compiler {
           this.js += '}'
           indent--
         } else {
-          this.js += Object.keys(this.maps.js).includes(word) ? this.maps.js[word] : word
+          this.js += word in this.maps.js ? this.maps.js[word] : word
         }
         continue
       }
