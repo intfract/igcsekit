@@ -1,4 +1,4 @@
-import { titleCase } from "./text"
+import { titleCase } from './text'
 
 export type SearchResult = {
   name: string,
