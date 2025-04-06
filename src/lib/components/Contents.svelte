@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { afterNavigate } from '$app/navigation'
 
   type Link = {
     text: string
     scroll: number
+    level: number
   }
 
   let headings: HTMLElement[]
@@ -11,13 +13,14 @@
   $: headings, console.log(headings)
   $: outline, console.log(outline)
 
-  onMount(() => {
+  afterNavigate(() => {
     headings = Array.from(document.querySelectorAll('section > :is(h2, h3, h4)'))
     const list: Link[] = []
     for (const heading of headings) {
       list.push({
         text: heading.textContent ?? '',
-        scroll: heading.offsetTop
+        scroll: heading.offsetTop,
+        level: parseInt(heading.tagName.substring(1))
       })
     }
     outline = list
