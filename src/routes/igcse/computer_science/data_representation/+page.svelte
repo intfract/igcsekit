@@ -11,9 +11,9 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
 
 <section>
   <h1>Data Representation</h1>
-  <h3>Binary</h3>
+  <h2>Binary</h2>
   <p>Data is processed using <strong>logic gates</strong> and stored in registers. Any form of data needs to be converted to <strong>binary</strong> (0 or 1) to be processed by a computer.</p>
-  <h3>Number Systems</h3>
+  <h2>Number Systems</h2>
   <DataTable>
     <Head>
       <Row>
@@ -31,7 +31,7 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
       {/each}
     </Body>
   </DataTable>
-  <h3>Hexadecimal</h3>
+  <h2>Hexadecimal</h2>
   <p>Hexadecimal is used in areas like:</p>
   <ul>
     <li>MAC adresses</li>
@@ -40,7 +40,7 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
     <li>HTML colour codes</li>
   </ul>
   <p>Hexadecimal is easier for humans to understand than binary, as it is a shorter representation of binary</p>
-  <h3>Binary Addition</h3>
+  <h2>Binary Addition</h2>
   <p>While adding 2 positive binary integers, there are some rules to follow. They are:</p>
   <ul>
     <li>0 + 0 = 0</li>
@@ -50,14 +50,14 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
   </ul>
   <p>For example, 10010100 + 00011110 = 10110010.</p>
   <Grid first="10010100" second="00011110" result="10110010" working="   11   "></Grid>
-  <h3>Overflow Error</h3>
+  <h2>Overflow Error</h2>
   <p>An overflow error will occur if the value is greater
     than 255 in an 8-bit register.
     A computer or a device has a predefined limit
     that it can represent or store, for example 16-bit.
     An overflow error occurs when a value outside
     this limit should be returned</p>
-  <h3>Logical Shifts</h3>
+  <h2>Logical Shifts</h2>
   <p>When a logical <strong>left shift</strong> is done on an 8-bit binary integer the denary value of that is <strong>multiplied by 2</strong> each time.</p>
   <p>When a logical <strong>right shift</strong> is done on an 8-bit binary integer the denary value of that is <strong>divided by 2</strong> each time.</p>
   <ul>
@@ -67,10 +67,10 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
     <li>The most significant bit(s) or least significant
       bit(s) are lost</li>
   </ul>
-  <h3>Two's Complement</h3>
+  <h2>Two's Complement</h2>
   <p>-35</p>
   <ol>
-    <li>Convert to binary</li>
+    <li>Convert the positive version to binary</li>
     <div class="row">
       <div class="cell">0</div>
       <div class="cell">0</div>
@@ -104,7 +104,7 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
       <div class="cell">1</div>
     </div>
   </ol>
-  <h3>Character Sets</h3>
+  <h2>Character Sets</h2>
   <p>A character set contains symbols that are each assigned a unique binary value.</p>
   <p>Character sets help convert text into binary for computers to process.</p>
   <p>There are 2 types of character sets:</p>
@@ -116,21 +116,21 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
       <strong>Unicode</strong>: represents characaters using 16-bit binary numbers
     </li>
   </ul>
-  <h3>Sound</h3>
+  <h2>Sound</h2>
   <p>A sound wave is sampled for sound to be converted to binary, which is processed by a computer.</p>
   <ul>
     <li>Sample rate is the number of samples taken in a second</li>
     <li>Sample resolution is the number of bits per sample</li>
     <li>Accuracy of the recording and the file size increases as the sample rate and resolution increase</li>
   </ul>
-  <h3>Images</h3>
+  <h2>Images</h2>
   <p>An image is series of pixels that are converted to binary, which is processed by a computer.</p>
   <ul>
     <li>The resolution is the number of pixels in the image.</li>
     <li>The colour depth is the number of bits used to represent each colour.</li>
     <li>The file size and quality of the image increases as the resolution and colour depth increase.</li>
   </ul>
-  <h3>Measurement of Data Storage</h3>
+  <h2>Measurement of Data Storage</h2>
   <p>Bits are the smallest unit of data. Bytes are commonly used to measure the size of data. Unlike denary units (kilobyte) which are multiplied by 1000, binary units (kibibyte) are multiplied by 1024.</p>
   <ul>
     <li>Bits: the smallest unit</li>
@@ -143,13 +143,13 @@ import DataTable, { Head, Body, Row, Cell } from '@smui/data-table'
     <li>Pebibyte (PiB): 1024 TiB</li>
     <li>Exbibyte (EiB): 1024 PiB</li>
   </ul>
-  <h4>Calculating File Size</h4>
+  <h3>Calculating File Size</h3>
   <p>The dimensions of images are measured in pixels.</p>
   <ul>
     <li>Images: width &times; height &times; colour depth</li>
     <li>Audio: sample rate &times; length &times; sample resolution</li>
   </ul>
-  <h3>Data compression</h3>
+  <h2>Data Compression</h2>
   <p>It exists to reduce the the size of the file.</p>
   <p>The impact of this is, eg:</p>
   <ul>

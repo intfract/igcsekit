@@ -20,7 +20,7 @@
       list.push({
         text: heading.textContent ?? '',
         scroll: heading.offsetTop,
-        level: parseInt(heading.tagName.substring(1))
+        level: parseInt(heading.tagName.substring(1)) - 2
       })
     }
     outline = list
@@ -36,7 +36,12 @@
   <div class="toc">
     <div class="wrapper">
       {#each outline as item}
-        <span class="heading" on:click={(e) => jump(item.scroll)}>{item.text}</span>
+        <div class="line">
+          {#each { length: item.level } as level}
+            <div class="space"></div>
+          {/each}
+          <span class="heading" on:click={(e) => jump(item.scroll)}>{item.text}</span>
+        </div>
       {/each}
     </div>
   </div>
@@ -70,5 +75,13 @@
     box-sizing: border-box;
     padding: 8px;
     cursor: pointer;
+  }
+
+  .line {
+    display: flex;
+  }
+
+  .space {
+    width: 2em;
   }
 </style>
