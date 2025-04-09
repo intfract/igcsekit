@@ -13,7 +13,7 @@
   $: headings, console.log(headings)
   $: outline, console.log(outline)
 
-  afterNavigate(() => {
+  onMount(() => {
     headings = Array.from(document.querySelectorAll('section > :is(h2, h3, h4)'))
     const list: Link[] = []
     for (const heading of headings) {
