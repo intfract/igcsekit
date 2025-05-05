@@ -49,7 +49,7 @@
     const n = active - 1
     for (let i = 0; i < questions[n].parts.length; i++) {
       const part = questions[n].parts[i]
-      if ('answer' in part.task) {
+      if ('answer' in part.task || 'points' in part.task) {
         binds[i] = ''
       } else if ('items' in part.task && 'marks' in part.task) {
         const temp: string[] = []
@@ -145,7 +145,7 @@
                   style="width: 100%;"
                   input$maxlength={100}
                   textarea
-                  bind:value
+                  bind:value={binds[i]}
                   label="Paragraph"
                 >
                   <CharacterCounter slot="internalCounter"></CharacterCounter>
@@ -161,7 +161,7 @@
               {:else if 'labels' in part.task}
                 <!-- TODO: add Naming component -->
               {:else}
-                <Textfield label="Answer" bind:value></Textfield>
+                <Textfield label="Answer" bind:value={binds[i]}></Textfield>
               {/if}
             {/each}
             <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
