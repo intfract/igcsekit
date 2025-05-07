@@ -3,7 +3,8 @@
 
   let questions: Question[] = [
     {
-      intro: 'A computer programmer uses assembly language to create a computer program for an embedded system in a washing machine.',
+      intro:
+        'A computer programmer uses assembly language to create a computer program for an embedded system in a washing machine.',
       images: [],
       table: [],
       parts: [
@@ -16,31 +17,50 @@
               'Computer system that contains a microprocessor (and)/dedicated hardware',
               'Computer system that is built into a larger system'
             ]
-          },
+          }
         },
         {
           instruction: 'Give the name of the translator that will be used for the program.',
           task: {
             answer: 'Assembler'
-          },
+          }
         },
         {
-          instruction: `The washing machine needs to display error codes on a small screen if there is a problem
-with the washing machine.
-The error codes are stored as binary. The binary numbers are too long to be displayed on the
-washing machine.
-State how the error codes could be reduced in length to be displayed on the screen.`,
+          instruction: `Give one benefit to the programmer of using assembly language to write the program.`,
           task: {
             marks: 1,
             points: [
-              'Convert to hexadecimal',
-              'Convert to denary',
-              'A character set can be used'
+              'More control over manipulating the hardware',
+              'Faster execution for testing than a high-level language',
+              'They can use machine specific instructions'
             ]
-          },
+          }
         },
-      ],
-    },
+        {
+          instruction: `The programmer uses an integrated development environment (IDE) to write the program.
+ A built-in translator to convert the program into machine code is one way that the IDE helps
+the computer programmer.
+ Describe three other ways the IDE can help the programmer.`,
+          task: {
+            marks: 6,
+            points: [
+              'Code editor …',
+              '… that allows the user to enter and amend code in their program',
+              'Run-time environment',
+              '… that allows a program to be run and see the outputs of their program',
+              'Error-diagnostic',
+              '… to show the programmer where there are errors in the program',
+              'Auto-completion',
+              '… to give the user options/suggestions of key commands to select',
+              'Auto-correction',
+              '… to correct a command that has a minor misspelling',
+              'Prettyprint',
+              '… changes the colour of key commands do they are easy to identify'
+            ]
+          }
+        }
+      ]
+    }
   ]
 </script>
 

@@ -1,33 +1,33 @@
 <script context="module" lang="ts">
   export type ShortAnswer = {
-    answer: string,
+    answer: string
   }
 
   export type Paragraph = {
-    marks: number,
-    points: string[], // correct ideas
+    marks: number
+    points: string[] // correct ideas
   }
 
   export type List = {
-    marks: number,
-    items: string[], // correct items
+    marks: number
+    items: string[] // correct items
   }
 
   export type Naming = {
-    letters: string[],
-    labels: string[], // correct labels
+    letters: string[]
+    labels: string[] // correct labels
   }
 
   export type Part = {
-    instruction: string,
-    task: ShortAnswer | Paragraph | List | Naming,
+    instruction: string
+    task: ShortAnswer | Paragraph | List | Naming
   }
 
   export type Question = {
-    intro: string,
-    images: string[],
-    table: string[][],
-    parts: Part[],
+    intro: string
+    images: string[]
+    table: string[][]
+    parts: Part[]
   }
 </script>
 
@@ -38,9 +38,15 @@
   import Tab, { Label } from '@smui/tab'
   import TabBar from '@smui/tab-bar'
   import Button, { Label as ButtonLabel } from '@smui/button'
-  import Dialog, { Content as DialogContent, Actions, InitialFocus, Title as DialogTitle } from '@smui/dialog'
+  import Dialog, {
+    Content as DialogContent,
+    Actions,
+    InitialFocus,
+    Title as DialogTitle
+  } from '@smui/dialog'
   import Textfield from '@smui/textfield'
   import CharacterCounter from '@smui/textfield/character-counter'
+  import Chip, { Set, LeadingIcon, TrailingIcon, Text } from '@smui/chips'
   import { fly } from 'svelte/transition'
 
   const imagePath = '/assets/'
@@ -108,14 +114,10 @@
     {@html answer}
   </DialogContent>
   <Actions>
-    <Button on:click={() => (false)}>
+    <Button on:click={() => false}>
       <Label>Report Mistake</Label>
     </Button>
-    <Button
-      defaultAction
-      variant="raised"
-      use={[InitialFocus]}
-    >
+    <Button defaultAction variant="raised" use={[InitialFocus]}>
       <Label>Close</Label>
     </Button>
   </Actions>
@@ -128,17 +130,21 @@
   </TabBar>
   <div class="column">
     {#key active}
-      <div in:fly={{ y: 64, duration: 250, delay: 250 }} out:fly={{ y: 64, duration: 250 }} class="zero">
+      <div
+        in:fly={{ y: 64, duration: 250, delay: 250 }}
+        out:fly={{ y: 64, duration: 250 }}
+        class="zero"
+      >
         <Paper>
           <Title>{active}</Title>
           <Content>
             <p>{current.intro}</p>
             {#if 'images' in current}
               {#each current.images as image}
-                <img src={imagePath + image} alt="Diagram">
+                <img src={imagePath + image} alt="Diagram" />
               {/each}
             {/if}
-            {#each current.parts as part,i}
+            {#each current.parts as part, i}
               <p>{part.instruction}</p>
               {#if 'points' in part.task}
                 <Textfield
@@ -152,7 +158,7 @@
                 </Textfield>
               {:else if 'items' in part.task && 'marks' in part.task}
                 <ol>
-                  {#each new Array(part.task.marks) as x,j}
+                  {#each new Array(part.task.marks) as x, j}
                     <li>
                       <Textfield label={`Item ${j + 1}`} bind:value={binds[i][j]}></Textfield>
                     </li>
@@ -161,10 +167,30 @@
               {:else if 'labels' in part.task}
                 <!-- TODO: add Naming component -->
               {:else}
-                <Textfield label="Answer" bind:value={binds[i]}></Textfield>
+                <div class="answer">
+                  <Textfield label="Answer" bind:value={binds[i]} style="width: 100%"></Textfield>
+                  <Set chips={[1]} let:chip>
+                    <Chip {chip} shouldRemoveOnTrailingIconClick={false}>
+                      <LeadingIcon class="material-symbols-rounded">counter_{chip}</LeadingIcon>
+                      <Text tabindex={0}>mark{chip === 1 ? '' : 's'}</Text>
+                    </Chip>
+                  </Set>
+                </div>
+              {/if}
+              {#if 'marks' in part.task}
+                <Set chips={[part.task.marks]} let:chip>
+                  <Chip {chip} shouldRemoveOnTrailingIconClick={false}>
+                    <LeadingIcon class="material-symbols-rounded">counter_{chip}</LeadingIcon>
+                    <Text tabindex={0}>mark{chip === 1 ? '' : 's'}</Text>
+                  </Chip>
+                </Set>
               {/if}
             {/each}
-            <Button style="display: block; margin-top: 16px;" variant="raised" on:click={() => open = true}>
+            <Button
+              style="display: block; margin-top: 16px;"
+              variant="raised"
+              on:click={() => (open = true)}
+            >
               <ButtonLabel>Submit</ButtonLabel>
             </Button>
           </Content>
@@ -173,3 +199,10 @@
     {/key}
   </div>
 </div>
+
+<style>
+  .answer {
+    display: flex;
+    align-items: center;
+  }
+</style>
