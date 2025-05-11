@@ -60,6 +60,45 @@ the computer programmer.
           }
         }
       ]
+    },
+    {
+      intro: 'The operating system provides several functions.',
+      images: [],
+      table: [],
+      parts: [
+        {
+          instruction: 'Identify one other function of an operating system. Describe the purpose of this function.',
+          task: {
+            marks: 2,
+            points: [
+              'Memory management',
+              '… managing what gets allocated where in memory',
+              'Managing peripherals and drivers',
+              '… managing the communication between any input and output devices that are connected to the computer',
+              'Multitasking',
+              '… managing the process of switching between tasks that are being carrying out',
+              'Platform for running applications',
+              '… allowing communication between the applications software and the hardware',
+              'System security',
+              '… proving features such as username and password',
+              'User accounts',
+              '… allowing multiple user accounts to be created on a computer',
+            ]
+          },
+        },
+        {
+          instruction: 'Identify one other function of an operating system. Describe the purpose of this function.',
+          task: {
+            marks: 1,
+            points: [
+              'Firmware',
+              'Bootloader',
+              'BIOS',
+              'Bootstrap',
+            ]
+          },
+        },
+      ]
     }
   ]
 </script>
