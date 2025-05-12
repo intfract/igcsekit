@@ -64,7 +64,7 @@
   ]
 </script>
 
-<section>
+<section class="problems">
   <h1>Problems</h1>
   <Problems {questions}></Problems>
 </section>

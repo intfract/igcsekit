@@ -30,6 +30,7 @@
   ]
 </script>
 
-<section>
+<section class="problems">
+  <h1>Cells</h1>
   <Problems {questions}></Problems>
 </section>

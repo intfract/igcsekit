@@ -34,6 +34,7 @@
 
 <div class="container">
   <div class="toc">
+    <span class="title">Contents</span>
     <div class="wrapper">
       {#each outline as item}
         <div class="line">
@@ -67,7 +68,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 50%;
+    height: 400px;
+    max-height: 100%;
     overflow: auto;
   }
 
@@ -83,5 +85,10 @@
 
   .space {
     width: 2em;
+  }
+
+  .title {
+    padding: 8px;
+    font-size: 32px;
   }
 </style>
