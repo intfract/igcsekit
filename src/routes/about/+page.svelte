@@ -28,7 +28,7 @@
     },
     {
       name: 'pihedron',
-      tags: ['Developer'],
+      tags: ['Developer', 'Author'],
       description: `Pihedron is a mathematics and computer science content creator on ${tag('a', 'YouTube', { href: 'https://youtube.com/@pihedron' })}.`,
       socials: {
         github: 'pihedron',
