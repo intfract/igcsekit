@@ -1,7 +1,7 @@
 <script lang="ts">
   import Callout from '$lib/components/Callout.svelte'
 
-  let href = 'https://igcse.cyclic.app/sitemap.xml'
+  let href = 'https://igcsekit.vercel.app/sitemap.xml'
 </script>
 
 <section>
