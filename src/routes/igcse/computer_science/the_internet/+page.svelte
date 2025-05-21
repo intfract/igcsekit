@@ -12,9 +12,9 @@
   <p>A URL is a text-based address for a web page. It can contain the protocol, the domain name, and the name of the web page or file.</p>
   <p>For example, <a {href} target="_blank">{href}</a> is a URL where:</p>
   <ul>
-    <li><code>https</code> is the protocol</li>
-    <li><code>igcse.cyclic.app</code> is the domain name</li>
-    <li><code>sitemap.xml</code> is the file name</li>
+    <li><code>{href.split(':')[0]}</code> is the protocol</li>
+    <li><code>{(href.match(/\/\/(.*?)\//) ?? [])[1]}</code> is the domain name</li>
+    <li><code>{href.split('/').pop()}</code> is the file name</li>
   </ul>
   <Callout emoji="🤔">
     Sitemaps allow web crawlers like Googlebot to index web pages and display them in search engine results.
