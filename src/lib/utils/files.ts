@@ -32,5 +32,11 @@ export function listFiles(glob: Record<string, string>): SearchResult[] {
 }
 
 export function matches(item: SearchResult, query: string): boolean {
+  if (query.startsWith(':')) {
+    const expression = query.slice(1)
+    const regex = new RegExp(expression)
+    console.log(regex)
+    return regex.test(item.name) || regex.test(item.body)
+  }
   return item.body.toLowerCase().includes(query.toLowerCase()) || item.name.toLowerCase().includes(query.toLowerCase())
 }
