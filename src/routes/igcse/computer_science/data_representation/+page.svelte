@@ -20,8 +20,8 @@
   <DataTable>
     <Head>
       <Row>
-        <Cell>Topic</Cell>
-        <Cell>Description</Cell>
+        <Cell>Name</Cell>
+        <Cell>Base</Cell>
       </Row>
     </Head>
     <Body>
