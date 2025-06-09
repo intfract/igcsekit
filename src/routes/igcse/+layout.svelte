@@ -4,7 +4,9 @@
 </script>
 
 {#key $page.url.pathname}
-  <Contents></Contents>
+  {#if $page.url.pathname.substring(1).split('/').length === 3}
+    <Contents glob={import.meta.glob('./**/+page.svelte', { eager: true })}></Contents>
+  {/if}
 {/key}
 
 <slot></slot>

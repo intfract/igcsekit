@@ -40,3 +40,21 @@ export function matches(item: SearchResult, query: string): boolean {
   }
   return item.body.toLowerCase().includes(query.toLowerCase()) || item.name.toLowerCase().includes(query.toLowerCase())
 }
+
+export function seek(glob: Record<string, string>, url: string) {
+  const items = {}
+  const subcats = ['problems', 'questions', 'flashcards']
+
+  for (const subcat of subcats) {
+    items[subcat] = false
+  }
+
+  for (const [key, value] of Object.entries(glob)) {
+    const path = key.replace('./', '').replace('+page.svelte', '')
+    if (!('/igcse/' + path).startsWith(url)) continue
+    const parts = path.split('/')
+    if (subcats.includes(parts.at(-2) ?? '')) items[parts.at(-2) ?? ''] = path
+  }
+
+  return items
+}

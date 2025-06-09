@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { afterNavigate } from '$app/navigation'
+  import { seek } from '$lib/utils/files'
+  import { page } from '$app/stores'
 
   type Link = {
     text: string
@@ -10,8 +11,6 @@
 
   let headings: HTMLElement[]
   let outline: Link[] = []
-  $: headings, console.log(headings)
-  $: outline, console.log(outline)
 
   onMount(() => {
     headings = Array.from(document.querySelectorAll('section > :is(h2, h3, h4)'))
@@ -30,6 +29,10 @@
     document.querySelector('main')?.scrollTo({ top, left: 0, behavior: 'smooth' })
     console.log(top)
   }
+
+  export let glob: Record<string, string>
+
+  const sublinks = seek(glob, $page.url.pathname)
 </script>
 
 <div class="container">
@@ -45,6 +48,17 @@
         </div>
       {/each}
     </div>
+    <ul>
+      {#if sublinks['questions']}
+        <li><a href={$page.url.pathname + '/questions'}>Questions</a></li>
+      {/if}
+      {#if sublinks['problems']}
+        <li><a href={$page.url.pathname + '/problems'}>Problems</a></li>
+      {/if}
+      {#if sublinks['flashcards']}
+        <li><a href={$page.url.pathname + '/flashcards'}>Flashcards</a></li>
+      {/if}
+    </ul>
   </div>
 </div>
 
