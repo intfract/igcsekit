@@ -113,7 +113,7 @@
   <div class="equation">
     4OH<sup>-</sup> - 4e<sup>-</sup> → 2H<sub>2</sub>O + O<sub>2</sub>
   </div>
-  <h2>Electropating</h2>
+  <h2>Electroplating</h2>
   <p>Electroplating with copper can be done through the electrolysis of copper(II) sulphate using custom anodes and cathodes.</p>
   <ul>
     <li>Object to be electroplated should be the cathode</li>
