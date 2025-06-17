@@ -4,10 +4,7 @@ IGCSE Kit is a free web app. It will remain free forever.
 
 ## Contributing
 
-You can fork this repository on [GitHub](https://github.com/intfract) or use the `git clone` command if you want to contribute code. Please contact `u_int` on discord if you want to write notes or donate study material to this website. All types of contributions are welcome.
-
-> [!WARNING]
-> The user `u_int` is no longer active on discord. Please contact the other contributors.
+You can fork this repository on [GitHub](https://github.com/intfract) or use the `git clone` command if you want to contribute code. Please contact authors on discord if you want to write notes or donate study material to this website. All types of contributions are welcome.
 
 ## Features
 
@@ -28,5 +25,4 @@ This repository contains some advanced components such as the first IGCSE pseudo
   - [x] Compile boolean expressions
   - [x] Add `CASE OF` statements
 - [ ] Write notes for all 3 sciences
-- [ ] Write notes for other subjects
-- [ ] Get partnered with [r/IGCSE](https://reddit.com/r/igcse)
+- [ ] Write notes for other subject
