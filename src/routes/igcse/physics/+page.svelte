@@ -22,7 +22,7 @@
 <section>
   <h1>Physics</h1>
   <h2>Syllabus</h2>
-  <p>The double and combined column refer to <a href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
+  <p>The double and combined column refer to <a href="https://www.cambridgeinternational.org/Images/664572-2025-2027-syllabus.pdf" target="_blank">co-ordinated sciences</a> and <a href="https://www.cambridgeinternational.org/images/557017-2022-syllabus-.pdf" target="_blank">combined sciences</a> respectively.</p>
   <DataTable>
     <Head>
       <Row>

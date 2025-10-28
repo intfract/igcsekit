@@ -31,7 +31,7 @@
   <h2>Syllabus</h2>
   <p>
     The double and combined column refer to <a
-      href="https://www.cambridgeinternational.org/Images/597069-2023-2024-syllabus.pdf"
+      href="https://www.cambridgeinternational.org/Images/664572-2025-2027-syllabus.pdf"
       target="_blank">co-ordinated sciences</a
     >
     and
