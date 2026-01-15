@@ -203,46 +203,77 @@
     > while addition polymerisation only produces a polymer.
   </p>
   <p>
-    Nylon is made from a dicarboxylic acid (a carboxylic acid with two carboxyl -COOH groups) and a
-    diamine (an amine with two amine -NH2 groups).
+    Nylon is made from a dicarboxylic acid (a carboxylic acid with two carboxyl <span class="ce"
+      >-COOH</span
+    >
+    groups) and a diamine (an amine with two amine <span class="ce">-NH2</span> groups).
   </p>
   <ol>
-    <li>the dicarboxylic acid loses a hydroxyl group (-OH) from each carboxyl group (-C(=O)OH)</li>
-    <li>the diamine loses one hydrogen (-H) from each amine group (-NH2)</li>
+    <li>
+      the dicarboxylic acid loses a hydroxyl group <span class="ce">(-OH)</span> from each carboxyl
+      group <span class="ce">(-C(=O)OH)</span>
+    </li>
+    <li>
+      the diamine loses one hydrogen <span class="ce">(-H)</span> from each amine group
+      <span class="ce">(-NH2)</span>
+    </li>
     <li>the hydrogen and hydroxyl combine to form water</li>
     <li>
-      the remainder of the dicarboxylic acid, now -(O=)C-<strong>R</strong>-C(=O)- and the remainder
-      of the diamine, now -(H)N-<strong>R</strong>-N(H)- combine to form a condensation polymer
-      [-(O=)C-<strong>R</strong>-C(=O)N(H)-<strong>R</strong>-N(H)-]<sub>n</sub>
+      the remainder of the dicarboxylic acid, now <span class="ce"
+        >-(O=)C-<strong>R</strong>-C(=O)-</span
+      >
+      and the remainder of the diamine, now <span class="ce">-(H)N-<strong>R'</strong>-N(H)-</span>
+      combine to form a condensation polymer
+      <span class="ce"
+        >[-(O=)C-<strong>R</strong>-C(=O)N(H)-<strong>R'</strong>-N(H)-]<sub>n</sub></span
+      >
     </li>
   </ol>
   Nylon is a polyamide, whereas PET, a polyester, is made from a dicarboxylic acid and a diol (an alcohol
-  with two hydroxyl -OH groups).
+  with two hydroxyl<span class="ce">-OH</span> groups).
   <ol>
-    <li>the dicarboxylic acid loses a hydroxyl group (-OH) from each carboxyl group (-C(=O)OH)</li>
-    <li>the diol loses one hydrogen (-H) from each hydroxyl group (-OH)</li>
+    <li>
+      the dicarboxylic acid loses a hydroxyl group <span class="ce">(-OH)</span> from each carboxyl
+      group <span class="ce">(-C(=O)OH)</span>
+    </li>
+    <li>
+      the diol loses one hydrogen <span class="ce">(-H)</span> from each hydroxyl group
+      <span class="ce">(-OH)</span>
+    </li>
     <li>the hydrogen and hydroxyl combine to form water</li>
     <li>
-      the remainder of the dicarboxylic acid, now -(O=)C-<strong>R</strong>-C(=O)- and the remainder
-      of the diol, now -O-<strong>R</strong>-O- combine to form a condensation polymer [-(O=)C-<strong
-        >R</strong
-      >-C(=O)O-<strong>R</strong>-O-]<sub>n</sub>
+      the remainder of the dicarboxylic acid, now <span class="ce"
+        >-(O=)C-<strong>R</strong>-C(=O)-</span
+      >
+      and the remainder of the diol, now <span class="ce">-O-<strong>R'</strong>-O-</span> combine
+      to form a condensation polymer
+      <span class="ce">
+        [-(O=)C-<strong>R</strong>-C(=O)O-<strong>R'</strong>-O-]<sub>n</sub>
+      </span>
     </li>
   </ol>
   <p>
     Proteins are natural polyamides. These are formed by the condensation polymerisation of amino
-    acids, H2N-CH<strong>R</strong>-COOH (where
+    acids, <span class="ce">H2N-CH<strong>R</strong>-COOH</span> (where
     <strong>R</strong> is any side chain), rather than dicarboxylic acids and diamines.
   </p>
   <p>
-    While the structure of a synthetic polyamide like nylon looks like this: [-(O=)C-<strong
-      >R</strong
-    >-C(=O)N(H)-<strong>R</strong>-N(H)-]<sub>n</sub>
+    While the structure of a synthetic polyamide like nylon looks like this: <span class="ce">
+      [-(O=)C-<strong>R</strong>-C(=O)N(H)-<strong>R'</strong>-N(H)-]<sub>n</sub>
+    </span>
     <br />
-    The structure of a polypeptide (protein) looks like this: [-(H)N-<strong>R</strong
-    >-C(=O)N(H)-<strong>R</strong>-C(=O)-]<sub>n</sub>
+    The structure of a polypeptide (protein) looks like this:
+    <span class="ce">
+      [-(H)N-<strong>R</strong>-C(=O)N(H)-<strong>R'</strong>-C(=O)-]<sub>n</sub>
+    </span>
     <br />
     Notice how each monomer unit in a protein has the remanence of an amine group
     <strong>and</strong> of a carboxyl group.
   </p>
 </section>
+
+<style>
+  .ce {
+    white-space: nowrap;
+  }
+</style>
